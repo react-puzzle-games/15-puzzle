@@ -8,6 +8,14 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      draggingTileId: 0,
+    };
+  }
+
   render() {
     return (
       <div className="App">
@@ -31,9 +39,43 @@ class App extends Component {
           return null;
         }
 
-        return <Tile number={tile} left={tileIndex * 50} top={rowIndex * 50} />;
+        const tileId = tileIndex * rowIndex;
+        return (
+          <Tile
+            id={tileId}
+            key={`tile-${(tileIndex + 1) * (rowIndex + 1)}`}
+            number={tile}
+            left={tileIndex * 50}
+            top={rowIndex * 50}
+            onMouseDown={this._onMouseDown.bind(this, tileId)}
+            onMouseUp={this._onMouseUp.bind(this, tileId)}
+            onMouseMove={this._onMouseMove.bind(this, tileId)}
+          />
+        );
       });
     });
+  }
+
+  _onMouseDown(tileId, proxiedEvent) {
+    proxiedEvent.preventDefault();
+
+    this.setState({
+      draggingTileId: tileId,
+    });
+  }
+
+  _onMouseUp(tileId, proxiedEvent) {
+    proxiedEvent.preventDefault();
+
+    this.setState({
+      draggingTileId: 0,
+    });
+  }
+
+  _onMouseMove(tileId, proxiedEvent) {
+    proxiedEvent.preventDefault();
+
+    console.log(tileId, proxiedEvent.nativeEvent.movementX, proxiedEvent.nativeEvent.movementY);
   }
 }
 

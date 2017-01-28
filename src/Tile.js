@@ -17,7 +17,15 @@ const styles = {
   },
 };
 
-const Tile = ({ number, left, top }) => ({
+const Tile = ({
+  id,
+  number,
+  left,
+  top,
+  onMouseDown,
+  onMouseUp,
+  onMouseMove
+}) => ({
   render() {
     const compStyles = Object.assign({}, styles.wrapper, {
       left,
@@ -25,7 +33,10 @@ const Tile = ({ number, left, top }) => ({
     });
 
     return (
-      <div style={compStyles}>
+      <div style={compStyles}
+        onMouseDown={onMouseDown}
+        onMouseUp={onMouseUp}
+        onMouseMove={onMouseMove}>
         <span style={styles.number}>{number}</span>
       </div>
     );
@@ -33,9 +44,13 @@ const Tile = ({ number, left, top }) => ({
 });
 
 Tile.propTypes = {
+  id: PropTypes.number.isRequired,
   number: PropTypes.number,
   left: PropTypes.number.isRequired,
   top: PropTypes.number.isRequired,
+  onMouseDown: PropTypes.func.isRequired,
+  onMouseUp: PropTypes.func.isRequired,
+  onMouseMove: PropTypes.func.isRequired,
 };
 
 Tile.defaultProps = {
