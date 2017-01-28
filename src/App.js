@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+
+import levels from './levels';
+import Grid from './Grid';
+import Tile from './Tile';
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -10,11 +15,25 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className="App-content">
+          <Grid>
+            {this._renderTiles(0)}
+          </Grid>
+        </div>
       </div>
     );
+  }
+
+  _renderTiles(levelId) {
+    return levels[levelId].tileSet.map((tileRow, rowIndex) => {
+      return tileRow.map((tile, tileIndex) => {
+        if (!tile) {
+          return null;
+        }
+
+        return <Tile number={tile} left={tileIndex * 50} top={rowIndex * 50} />;
+      });
+    });
   }
 }
 
