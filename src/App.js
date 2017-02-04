@@ -12,7 +12,23 @@ class App extends Component {
     super(props);
 
     this.state = {
-      draggingTileId: 0,
+      levelId: 0,
+      tiles: Array.from({length: 16}, (v, i) => Number.parseInt(i, 10)).reduce((accum, tileIndex) => {
+        const column = tileIndex % 4;
+        const row = Math.floor(tileIndex / 4);
+        const number = levels[0].tileSet[row][column];
+
+        accum[tileIndex] = {
+          number,
+          empty: number === null,
+          row,
+          column,
+          top: row * 50,
+          left: column * 50,
+        };
+
+        return accum;
+      }, {}),
     };
   }
 
@@ -25,57 +41,36 @@ class App extends Component {
         </div>
         <div className="App-content">
           <Grid>
-            {this._renderTiles(0)}
+            {Object.keys(this.state.tiles).map((tileId, i) => {
+              const _tileId = Number.parseInt(tileId, 10);
+              const { number, left, top } = this.state.tiles[_tileId];
+
+              return (
+                <Tile
+                  key={`tile-${i}`}
+                  number={number}
+                  left={left}
+                  top={top}
+                  onClick={() => this._onTileClick(_tileId)}
+                />
+              );
+            })}
           </Grid>
         </div>
       </div>
     );
   }
 
-  _renderTiles(levelId) {
-    return levels[levelId].tileSet.map((tileRow, rowIndex) => {
-      return tileRow.map((tile, tileIndex) => {
-        if (!tile) {
-          return null;
-        }
-
-        const tileId = tileIndex * rowIndex;
-        return (
-          <Tile
-            id={tileId}
-            key={`tile-${(tileIndex + 1) * (rowIndex + 1)}`}
-            number={tile}
-            left={tileIndex * 50}
-            top={rowIndex * 50}
-            onMouseDown={this._onMouseDown.bind(this, tileId)}
-            onMouseUp={this._onMouseUp.bind(this, tileId)}
-            onMouseMove={this._onMouseMove.bind(this, tileId)}
-          />
-        );
-      });
-    });
-  }
-
-  _onMouseDown(tileId, proxiedEvent) {
-    proxiedEvent.preventDefault();
-
+  _onTileClick(tileId) {
     this.setState({
-      draggingTileId: tileId,
+      tiles: Object.assign({}, this.state.tiles, {
+        [tileId]: Object.assign({}, this.state.tiles[tileId], {
+          top: this.state.tiles[tileId].top + 50,
+        }),
+      }),
+    }, () => {
+      this.forceUpdate();
     });
-  }
-
-  _onMouseUp(tileId, proxiedEvent) {
-    proxiedEvent.preventDefault();
-
-    this.setState({
-      draggingTileId: 0,
-    });
-  }
-
-  _onMouseMove(tileId, proxiedEvent) {
-    proxiedEvent.preventDefault();
-
-    console.log(tileId, proxiedEvent.nativeEvent.movementX, proxiedEvent.nativeEvent.movementY);
   }
 }
 
