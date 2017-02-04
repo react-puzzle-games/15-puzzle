@@ -7,10 +7,6 @@ const styles = {
   position: 'relative',
 };
 
-export default ({ children }) => ({
-  render() {
-    return (
-      <div style={styles}>{children}</div>
-    );
-  }
-});
+export default ({ children }) => (
+  <div style={styles}>{children}</div>
+);
