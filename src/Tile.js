@@ -1,11 +1,13 @@
 import React, { PropTypes } from 'react';
 
+import { tile as tileConstants } from './constants';
+
 const styles = {
   wrapper: {
-    width: 50,
-    height: 50,
-    border: '5px solid chocolate',
-    backgroundColor: 'green',
+    width: tileConstants.width,
+    height: tileConstants.height,
+    border: '1px solid #FFD1AA',
+    backgroundColor: '#226666',
     position: 'absolute',
     display: 'flex',
     flexDirection: 'column',
@@ -14,23 +16,18 @@ const styles = {
     cursor: 'pointer',
   },
   number: {
-    color: 'orange',
+    color: '#FFD1AA',
   },
 };
 
-const Tile = ({
-  number,
-  left,
-  top,
-  onClick,
-}) => {
+const Tile = ({ number, left, top, onClick }) => {
   const compStyles = Object.assign({}, styles.wrapper, {
     left,
     top,
   });
 
   return (
-    <div style={compStyles} className="tile-item" onClick={onClick}>
+    <div style={compStyles} onClick={onClick}>
       <span style={styles.number}>{number}</span>
     </div>
   );
