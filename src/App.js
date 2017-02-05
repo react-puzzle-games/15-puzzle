@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import levels from './levels';
+import { tile as tileConstants } from './constants';
 import Grid from './Grid';
 import Tile from './Tile';
 
@@ -76,8 +77,8 @@ class App extends Component {
     return {
       column,
       row,
-      left: column * 50,
-      top: row * 50,
+      left: column * tileConstants.height,
+      top: row * tileConstants.width,
     };
   }
 
@@ -93,10 +94,10 @@ class App extends Component {
 
     // Is this tale neighbouring the empty tile? If so, switch them.
     if (row === emptyTile.row && Math.abs(column - emptyTile.column) === 1) {
-      left += 50 * (emptyTile.column - column);
+      left += tileConstants.width * (emptyTile.column - column);
       column = emptyTile.column;
     } else if (column === emptyTile.column && Math.abs(row - emptyTile.row) === 1) {
-      top += 50 * (emptyTile.row - row);
+      top += tileConstants.height * (emptyTile.row - row);
       row = emptyTile.row;
     } else {
       return;
