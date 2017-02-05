@@ -1,7 +1,5 @@
 import React, { PropTypes } from 'react';
 
-import './Tile.css';
-
 const styles = {
   wrapper: {
     width: 50,
