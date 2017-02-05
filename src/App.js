@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import levels from './levels';
+import { range } from './utils';
 import { tile as tileConstants } from './constants';
 import Grid from './Grid';
 import Tile from './Tile';
@@ -13,24 +14,20 @@ class App extends Component {
     super(props);
 
     this.state = {
-      levelId: 0,
-      tiles: Array.from({length: 16}, (v, i) => Number.parseInt(i, 10)).reduce((accum, tileIndex) => {
+      levelId: this.props.levelId,
+      tiles: range(tileConstants.count ** 2).reduce((accum, tileIndex) => {
         const { row, column, top, left } = this._getTilePosition(tileIndex);
-        const number = levels[0].tileSet[row][column];
+        const number = levels[this.props.levelId].tileSet[row][column];
+        const isEmpty = number === null;
 
-        if (number === null) {
-          accum[tileIndex] = {
-            empty: true,
-          }
-        }
-
-        accum[tileIndex] = Object.assign({}, accum[tileIndex], {
+        accum[tileIndex] = {
           number,
           row,
           column,
           top,
           left,
-        });
+          empty: isEmpty,
+        };
 
         return accum;
       }, {}),
@@ -60,7 +57,7 @@ class App extends Component {
                   number={tile.number}
                   left={tile.left}
                   top={tile.top}
-                  onClick={() => this._onTileClick(_tileId)}
+                  onClick={this._onTileClick.bind(this, _tileId)}
                 />
               );
             })}
@@ -71,14 +68,14 @@ class App extends Component {
   }
 
   _getTilePosition(tileIndex) {
-    const column = tileIndex % 4;
-    const row = Math.floor(tileIndex / 4);
+    const column = tileIndex % tileConstants.count;
+    const row = Math.floor(tileIndex / tileConstants.count);
 
     return {
       column,
       row,
-      left: column * tileConstants.height,
-      top: row * tileConstants.width,
+      left: column * tileConstants.width,
+      top: row * tileConstants.height,
     };
   }
 
@@ -118,5 +115,13 @@ class App extends Component {
     });
   }
 }
+
+App.propTypes = {
+  levelId: PropTypes.number,
+};
+
+App.defaultProps = {
+  levelId: 0,
+};
 
 export default App;

@@ -3,8 +3,8 @@ import React from 'react';
 import { tile as tileConstants } from './constants';
 
 const styles = {
-  width: tileConstants.width * 4,
-  height: tileConstants.height * 4,
+  width: tileConstants.width * tileConstants.count,
+  height: tileConstants.height * tileConstants.count,
   border: '1px solid #FFAAAA',
   position: 'relative',
 };
