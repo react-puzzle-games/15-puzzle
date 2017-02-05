@@ -17,6 +17,7 @@ const styles = {
   },
   number: {
     color: '#FFD1AA',
+    fontSize: 22,
   },
 };
 
