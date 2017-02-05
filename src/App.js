@@ -12,23 +12,25 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    const tiles = range(tileConstants.count ** 2).map(tileIndex => {
+      const { row, column, top, left } = this._getTilePosition(tileIndex);
+      const number = levels[this.props.levelId].tileSet[row][column];
+      const isEmpty = number === null;
+
+      return {
+        number,
+        row,
+        column,
+        top,
+        left,
+        empty: isEmpty,
+        correct: false,
+      };
+    });
+
     this.state = {
       levelId: this.props.levelId,
-      tiles: range(tileConstants.count ** 2).map(tileIndex => {
-        const { row, column, top, left } = this._getTilePosition(tileIndex);
-        const number = levels[this.props.levelId].tileSet[row][column];
-        const isEmpty = number === null;
-
-        return {
-          number,
-          row,
-          column,
-          top,
-          left,
-          empty: isEmpty,
-          correct: false,
-        };
-      }),
+      tiles,
     };
   }
 
