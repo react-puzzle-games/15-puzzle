@@ -26,6 +26,7 @@ class App extends Component {
           top,
           left,
           empty: isEmpty,
+          correct: false,
         };
       }),
     };
@@ -52,9 +53,7 @@ class App extends Component {
       return (
         <Tile
           key={`tile-${tileId}`}
-          number={tile.number}
-          left={tile.left}
-          top={tile.top}
+          {...tile}
           onClick={this._onTileClick.bind(this, tileId)}
         />
       );
@@ -73,21 +72,26 @@ class App extends Component {
     };
   }
 
+  _isTilePositionedOk(tileIndex, tileNumber) {
+    const { row, column } = this._getTilePosition(tileIndex);
+    return levels[this.props.levelId].tileSet[row][column] === tileNumber;
+  }
+
   _onTileClick(tileId) {
     let { row, column, left, top } = this._getTilePosition(tileId);
 
     // Find empty
-    const emptyTilePosition = Object.keys(this.state.tiles).findIndex(
-      k => this.state.tiles[k].empty
-    );
-    let emptyTile = this._getTilePosition(emptyTilePosition);
-    emptyTile.empty = true;
+    const emptyTilePosition = this.state.tiles.findIndex(t => t.empty);
+    let emptyTile = Object.assign(this._getTilePosition(emptyTilePosition), {
+      empty: true,
+    });
 
     // Is this tale neighbouring the empty tile? If so, switch them.
     if (row === emptyTile.row && Math.abs(column - emptyTile.column) === 1) {
       left += tileConstants.width * (emptyTile.column - column);
       column = emptyTile.column;
-    } else if (column === emptyTile.column && Math.abs(row - emptyTile.row) === 1) {
+    } else if (column === emptyTile.column
+        && Math.abs(row - emptyTile.row) === 1) {
       top += tileConstants.height * (emptyTile.row - row);
       row = emptyTile.row;
     } else {
@@ -102,13 +106,15 @@ class App extends Component {
         }
 
         if (emptyTilePosition === tileIndex) {
+          const _number = this.state.tiles[tileId].number;
           return {
-            number: this.state.tiles[tileId].number,
+            number: _number,
             empty: false,
             row,
             left,
             top,
             column,
+            correct: this._isTilePositionedOk(tileIndex, _number),
           };
         }
 
