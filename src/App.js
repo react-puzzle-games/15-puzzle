@@ -14,12 +14,12 @@ class App extends Component {
 
     this.state = {
       levelId: this.props.levelId,
-      tiles: range(tileConstants.count ** 2).reduce((accum, tileIndex) => {
+      tiles: range(tileConstants.count ** 2).map(tileIndex => {
         const { row, column, top, left } = this._getTilePosition(tileIndex);
         const number = levels[this.props.levelId].tileSet[row][column];
         const isEmpty = number === null;
 
-        accum[tileIndex] = {
+        return {
           number,
           row,
           column,
@@ -27,9 +27,7 @@ class App extends Component {
           left,
           empty: isEmpty,
         };
-
-        return accum;
-      }, {}),
+      }),
     };
   }
 
@@ -38,28 +36,29 @@ class App extends Component {
       <div className="App">
         <div className="App-content">
           <Grid>
-            {Object.keys(this.state.tiles).map((tileId, i) => {
-              const _tileId = Number.parseInt(tileId, 10);
-              const tile = this.state.tiles[_tileId];
-
-              if (tile.empty) {
-                return null;
-              }
-
-              return (
-                <Tile
-                  key={`tile-${tileId}`}
-                  number={tile.number}
-                  left={tile.left}
-                  top={tile.top}
-                  onClick={this._onTileClick.bind(this, _tileId)}
-                />
-              );
-            })}
+            {this._renderTiles()}
           </Grid>
         </div>
       </div>
     );
+  }
+
+  _renderTiles() {
+    return this.state.tiles.map((tile, tileId) => {
+      if (tile.empty) {
+        return null;
+      }
+
+      return (
+        <Tile
+          key={`tile-${tileId}`}
+          number={tile.number}
+          left={tile.left}
+          top={tile.top}
+          onClick={this._onTileClick.bind(this, tileId)}
+        />
+      );
+    });
   }
 
   _getTilePosition(tileIndex) {
@@ -95,17 +94,25 @@ class App extends Component {
       return;
     }
 
+    // Re-render entire grid
     this.setState({
-      tiles: Object.assign({}, this.state.tiles, {
-        [tileId]: emptyTile,
-        [emptyTilePosition]: {
-          number: this.state.tiles[tileId].number,
-          empty: false,
-          row,
-          left,
-          top,
-          column,
-        },
+      tiles: this.state.tiles.map((tile, tileIndex) => {
+        if (tileId === tileIndex) {
+          return emptyTile;
+        }
+
+        if (emptyTilePosition === tileIndex) {
+          return {
+            number: this.state.tiles[tileId].number,
+            empty: false,
+            row,
+            left,
+            top,
+            column,
+          };
+        }
+
+        return tile;
       }),
     });
   }
