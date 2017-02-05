@@ -14,18 +14,22 @@ class App extends Component {
     this.state = {
       levelId: 0,
       tiles: Array.from({length: 16}, (v, i) => Number.parseInt(i, 10)).reduce((accum, tileIndex) => {
-        const column = tileIndex % 4;
-        const row = Math.floor(tileIndex / 4);
+        const { row, column, top, left } = this._getTilePosition(tileIndex);
         const number = levels[0].tileSet[row][column];
 
-        accum[tileIndex] = {
+        if (number === null) {
+          accum[tileIndex] = {
+            empty: true,
+          }
+        }
+
+        accum[tileIndex] = Object.assign({}, accum[tileIndex], {
           number,
-          empty: number === null,
           row,
           column,
-          top: row * 50,
-          left: column * 50,
-        };
+          top,
+          left,
+        });
 
         return accum;
       }, {}),
@@ -43,14 +47,18 @@ class App extends Component {
           <Grid>
             {Object.keys(this.state.tiles).map((tileId, i) => {
               const _tileId = Number.parseInt(tileId, 10);
-              const { number, left, top } = this.state.tiles[_tileId];
+              const tile = this.state.tiles[_tileId];
+
+              if (tile.empty) {
+                return null;
+              }
 
               return (
                 <Tile
-                  key={`tile-${i}`}
-                  number={number}
-                  left={left}
-                  top={top}
+                  key={`tile-${tileId}`}
+                  number={tile.number}
+                  left={tile.left}
+                  top={tile.top}
                   onClick={() => this._onTileClick(_tileId)}
                 />
               );
@@ -61,15 +69,51 @@ class App extends Component {
     );
   }
 
+  _getTilePosition(tileIndex) {
+    const column = tileIndex % 4;
+    const row = Math.floor(tileIndex / 4);
+
+    return {
+      column,
+      row,
+      left: column * 50,
+      top: row * 50,
+    };
+  }
+
   _onTileClick(tileId) {
+    let { row, column, left, top } = this._getTilePosition(tileId);
+
+    // Find empty
+    const emptyTilePosition = Object.keys(this.state.tiles).findIndex(
+      k => this.state.tiles[k].empty
+    );
+    let emptyTile = this._getTilePosition(emptyTilePosition);
+    emptyTile.empty = true;
+
+    // Is this tale neighbouring the empty tile? If so, switch them.
+    if (row === emptyTile.row && Math.abs(column - emptyTile.column) === 1) {
+      left += 50 * (emptyTile.column - column);
+      column = emptyTile.column;
+    } else if (column === emptyTile.column && Math.abs(row - emptyTile.row) === 1) {
+      top += 50 * (emptyTile.row - row);
+      row = emptyTile.row;
+    } else {
+      return;
+    }
+
     this.setState({
       tiles: Object.assign({}, this.state.tiles, {
-        [tileId]: Object.assign({}, this.state.tiles[tileId], {
-          top: this.state.tiles[tileId].top + 50,
-        }),
+        [tileId]: emptyTile,
+        [emptyTilePosition]: {
+          number: this.state.tiles[tileId].number,
+          empty: false,
+          row,
+          left,
+          top,
+          column,
+        },
       }),
-    }, () => {
-      this.forceUpdate();
     });
   }
 }
