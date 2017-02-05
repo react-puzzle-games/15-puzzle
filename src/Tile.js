@@ -7,7 +7,6 @@ const styles = {
     width: tileConstants.width,
     height: tileConstants.height,
     border: '1px solid #FFD1AA',
-    backgroundColor: '#226666',
     position: 'absolute',
     display: 'flex',
     flexDirection: 'column',
@@ -21,10 +20,11 @@ const styles = {
   },
 };
 
-const Tile = ({ number, left, top, onClick }) => {
+const Tile = ({ number, left, top, onClick, correct }) => {
   const compStyles = Object.assign({}, styles.wrapper, {
     left,
     top,
+    backgroundColor: correct ? '#226666' : '#D4726A',
   });
 
   return (
@@ -39,10 +39,12 @@ Tile.propTypes = {
   left: PropTypes.number.isRequired,
   top: PropTypes.number.isRequired,
   onClick: PropTypes.func.isRequired,
+  correct: PropTypes.bool.isRequired,
 };
 
 Tile.defaultProps = {
   number: 0,
+  correct: false,
 };
 
 export default Tile;
