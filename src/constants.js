@@ -1,5 +1,5 @@
 export const tile = {
-  width: 50,
-  height: 50,
+  width: 90,
+  height: 90,
   count: 4,
 };

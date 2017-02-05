@@ -4,35 +4,10 @@
   flex-direction: column;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  flex-shrink: 1;
-  flex-grow: 1;
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-  text-align: center;
-}
-
 .App-content {
-  flex-shrink: 0;
-  flex-grow: 9;
+  flex: 1 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
