@@ -108,15 +108,17 @@ class App extends Component {
         }
 
         if (emptyTilePosition === tileIndex) {
-          const _number = this.state.tiles[tileId].number;
+          const number = this.state.tiles[tileId].number;
+          const correct = this._isTilePositionedOk(tileIndex, number);
+
           return {
-            number: _number,
+            number,
             empty: false,
             row,
             left,
             top,
             column,
-            correct: this._isTilePositionedOk(tileIndex, _number),
+            correct,
           };
         }
 
