@@ -1,10 +1,8 @@
 import React from "react";
+import styled from "styled-components";
 
 import utils from "../lib/utils";
-import Grid from "./Grid";
 import Tile from "./Tile";
-
-import "./App.css";
 
 const TILE_CONSTANTS = {
   width: 90,
@@ -41,11 +39,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="App-content">
-          <Grid>
+      <div className={this.props.className}>
+        <div className="content">
+          <div className="grid">
             {this._renderTiles()}
-          </Grid>
+          </div>
         </div>
       </div>
     );
@@ -145,4 +143,22 @@ App.propTypes = {
   })
 };
 
-export default App;
+export default styled(App)`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  .content {
+    flex: 1 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .grid {
+    width: ${props => TILE_CONSTANTS.height * TILE_CONSTANTS.count}px;
+    height: ${props => TILE_CONSTANTS.height * TILE_CONSTANTS.count}px;
+    position: relative;
+  }
+`;
