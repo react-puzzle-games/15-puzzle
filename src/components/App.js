@@ -39,7 +39,16 @@ class App extends React.Component {
     this.state = {
       tiles,
       tileSet: this.props.levelData.tileSet,
+      gameState: Symbol('GAME_IDLE'),
     };
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if (this.state.gameState !== Symbol('GAME_OVER') && this._isGameOver()) {
+      this.setState({
+        gameState: Symbol('GAME_OVER'),
+      });
+    }
   }
 
   render() {
@@ -87,7 +96,23 @@ class App extends React.Component {
     return this.props.levelData.tileSet[row][column] === tileNumber;
   }
 
+  _isGameOver() {
+    for (let i = 0; i < TILE_CONSTANTS.count; i++) {
+      for (let j = 0; j < TILE_CONSTANTS.count; j++) {
+        if (this.state.tileSet[i][j] !== this.state.tiles[i * j].number) {
+          return false;
+        }
+      }
+    }
+
+    return true;
+  }
+
   _onTileClick(tileId) {
+    if (this.state.gameState === Symbol('GAME_OVER')) {
+      return;
+    }
+
     let { row, column, left, top } = this._getTilePosition(tileId);
 
     // Find empty
