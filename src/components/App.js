@@ -14,9 +14,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
+    const randomTiles = this.props.levelData.tileSet.map(row => {
+      return utils.randomSubarray(row, row.length);
+    });
+
     const tiles = utils.range((TILE_CONSTANTS.count) ** 2).map(tileIndex => {
       const { row, column, top, left } = this._getTilePosition(tileIndex);
-      const number = this.props.levelData.tileSet[row][column];
+      const number = randomTiles[row][column];
       const isEmpty = number === null;
 
       return {
@@ -28,12 +32,13 @@ class App extends React.Component {
         width: TILE_CONSTANTS.width,
         height: TILE_CONSTANTS.height,
         empty: isEmpty,
-        correct: false,
+        correct: number === this.props.levelData.tileSet[row][column],
       };
     });
 
     this.state = {
       tiles,
+      tileSet: this.props.levelData.tileSet,
     };
   }
 
