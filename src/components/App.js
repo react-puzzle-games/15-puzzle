@@ -1,20 +1,24 @@
-import React, { Component, PropTypes } from 'react';
+import React from "react";
 
-import levels from './levels';
-import { range } from './utils';
-import { tile as tileConstants } from './constants';
-import Grid from './Grid';
-import Tile from './Tile';
+import utils from "../lib/utils";
+import Grid from "./Grid";
+import Tile from "./Tile";
 
-import './App.css';
+import "./App.css";
 
-class App extends Component {
+const TILE_CONSTANTS = {
+  width: 90,
+  height: 90,
+  count: 4
+};
+
+class App extends React.Component {
   constructor(props) {
     super(props);
 
-    const tiles = range(tileConstants.count ** 2).map(tileIndex => {
+    const tiles = utils.range((TILE_CONSTANTS.count) ** 2).map(tileIndex => {
       const { row, column, top, left } = this._getTilePosition(tileIndex);
-      const number = levels[this.props.levelId].tileSet[row][column];
+      const number = this.props.levelData.tileSet[row][column];
       const isEmpty = number === null;
 
       return {
@@ -23,14 +27,15 @@ class App extends Component {
         column,
         top,
         left,
+        width: TILE_CONSTANTS.width,
+        height: TILE_CONSTANTS.height,
         empty: isEmpty,
-        correct: false,
+        correct: false
       };
     });
 
     this.state = {
-      levelId: this.props.levelId,
-      tiles,
+      tiles
     };
   }
 
@@ -63,20 +68,22 @@ class App extends Component {
   }
 
   _getTilePosition(tileIndex) {
-    const column = tileIndex % tileConstants.count;
-    const row = Math.floor(tileIndex / tileConstants.count);
+    const column = tileIndex % TILE_CONSTANTS.count;
+    const row = Math.floor(tileIndex / TILE_CONSTANTS.count);
 
     return {
       column,
       row,
-      left: column * tileConstants.width,
-      top: row * tileConstants.height,
+      left: column * TILE_CONSTANTS.width,
+      top: row * TILE_CONSTANTS.height,
+      width: TILE_CONSTANTS.width,
+      height: TILE_CONSTANTS.height
     };
   }
 
   _isTilePositionedOk(tileIndex, tileNumber) {
     const { row, column } = this._getTilePosition(tileIndex);
-    return levels[this.props.levelId].tileSet[row][column] === tileNumber;
+    return this.props.levelData.tileSet[row][column] === tileNumber;
   }
 
   _onTileClick(tileId) {
@@ -85,16 +92,17 @@ class App extends Component {
     // Find empty
     const emptyTilePosition = this.state.tiles.findIndex(t => t.empty);
     let emptyTile = Object.assign(this._getTilePosition(emptyTilePosition), {
-      empty: true,
+      empty: true
     });
 
     // Is this tale neighbouring the empty tile? If so, switch them.
     if (row === emptyTile.row && Math.abs(column - emptyTile.column) === 1) {
-      left += tileConstants.width * (emptyTile.column - column);
+      left += TILE_CONSTANTS.width * (emptyTile.column - column);
       column = emptyTile.column;
-    } else if (column === emptyTile.column
-        && Math.abs(row - emptyTile.row) === 1) {
-      top += tileConstants.height * (emptyTile.row - row);
+    } else if (
+      column === emptyTile.column && Math.abs(row - emptyTile.row) === 1
+    ) {
+      top += TILE_CONSTANTS.height * (emptyTile.row - row);
       row = emptyTile.row;
     } else {
       return;
@@ -111,29 +119,30 @@ class App extends Component {
           const number = this.state.tiles[tileId].number;
           const correct = this._isTilePositionedOk(tileIndex, number);
 
-          return {
+          return Object.assign({}, tile, {
             number,
             empty: false,
             row,
             left,
             top,
             column,
-            correct,
-          };
+            correct
+          });
         }
 
         return tile;
-      }),
+      })
     });
   }
 }
 
 App.propTypes = {
-  levelId: PropTypes.number,
-};
-
-App.defaultProps = {
-  levelId: 0,
+  levelData: React.PropTypes.shape({
+    moves: React.PropTypes.number.isRequired,
+    tileSet: React.PropTypes.arrayOf(
+      React.PropTypes.arrayOf(React.PropTypes.number)
+    ).isRequired
+  })
 };
 
 export default App;
