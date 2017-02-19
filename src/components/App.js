@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import utils from "../lib/utils";
-import Tile from "./Tile";
+import utils from '../lib/utils';
+import Tile from './Tile';
 
 const TILE_CONSTANTS = {
   width: 90,
   height: 90,
-  count: 4
+  count: 4,
 };
 
 class App extends React.Component {
@@ -28,12 +28,12 @@ class App extends React.Component {
         width: TILE_CONSTANTS.width,
         height: TILE_CONSTANTS.height,
         empty: isEmpty,
-        correct: false
+        correct: false,
       };
     });
 
     this.state = {
-      tiles
+      tiles,
     };
   }
 
@@ -75,7 +75,7 @@ class App extends React.Component {
       left: column * TILE_CONSTANTS.width,
       top: row * TILE_CONSTANTS.height,
       width: TILE_CONSTANTS.width,
-      height: TILE_CONSTANTS.height
+      height: TILE_CONSTANTS.height,
     };
   }
 
@@ -90,7 +90,7 @@ class App extends React.Component {
     // Find empty
     const emptyTilePosition = this.state.tiles.findIndex(t => t.empty);
     let emptyTile = Object.assign(this._getTilePosition(emptyTilePosition), {
-      empty: true
+      empty: true,
     });
 
     // Is this tale neighbouring the empty tile? If so, switch them.
@@ -124,12 +124,12 @@ class App extends React.Component {
             left,
             top,
             column,
-            correct
+            correct,
           });
         }
 
         return tile;
-      })
+      }),
     });
   }
 }
@@ -138,9 +138,9 @@ App.propTypes = {
   levelData: React.PropTypes.shape({
     moves: React.PropTypes.number.isRequired,
     tileSet: React.PropTypes.arrayOf(
-      React.PropTypes.arrayOf(React.PropTypes.number)
-    ).isRequired
-  })
+      React.PropTypes.arrayOf(React.PropTypes.number),
+    ).isRequired,
+  }),
 };
 
 export default styled(App)`
