@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "lint-staged": "^3.3.1",
+    "pre-commit": "^1.2.2",
+    "prettier": "^0.18.0",
     "react-scripts": "0.8.5"
   },
   "dependencies": {
@@ -13,9 +16,17 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint:staged": "lint-staged"
   },
   "eslintConfig": {
     "extends": "react-app"
-  }
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "pre-commit": "lint:staged"
 }
