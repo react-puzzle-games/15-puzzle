@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Tile = props => {
   return (
@@ -16,12 +16,12 @@ Tile.propTypes = {
   width: React.PropTypes.number.isRequired,
   height: React.PropTypes.number.isRequired,
   left: React.PropTypes.number.isRequired,
-  top: React.PropTypes.number.isRequired
+  top: React.PropTypes.number.isRequired,
 };
 
 Tile.defaultProps = {
   number: 0,
-  correct: false
+  correct: false,
 };
 
 export default styled(Tile)`
@@ -36,7 +36,7 @@ export default styled(Tile)`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background-color: ${props => props.correct ? "#226666" : "#D4726A"};
+  background-color: ${props => props.correct ? '#226666' : '#D4726A'};
 
   .tile-number {
     color: #FFD1AA;
