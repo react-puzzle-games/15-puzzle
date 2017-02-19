@@ -74,8 +74,6 @@ class App extends React.Component {
       row,
       left: column * TILE_CONSTANTS.width,
       top: row * TILE_CONSTANTS.height,
-      width: TILE_CONSTANTS.width,
-      height: TILE_CONSTANTS.height,
     };
   }
 
@@ -89,9 +87,14 @@ class App extends React.Component {
 
     // Find empty
     const emptyTilePosition = this.state.tiles.findIndex(t => t.empty);
-    let emptyTile = Object.assign(this._getTilePosition(emptyTilePosition), {
-      empty: true,
-    });
+    let emptyTile = Object.assign(
+      {
+        width: TILE_CONSTANTS.width,
+        height: TILE_CONSTANTS.height,
+        empty: true,
+      },
+      this._getTilePosition(emptyTilePosition),
+    );
 
     // Is this tale neighbouring the empty tile? If so, switch them.
     if (row === emptyTile.row && Math.abs(column - emptyTile.column) === 1) {
