@@ -4,11 +4,8 @@ import styled from 'styled-components';
 import utils from '../lib/utils';
 import Tile from './Tile';
 
-const TILE_CONSTANTS = {
-  width: 90,
-  height: 90,
-  count: 4,
-};
+const TILE_SIZE = 90;
+const GRID_SIZE = 4;
 
 class App extends React.Component {
   constructor(props) {
@@ -18,10 +15,9 @@ class App extends React.Component {
       return utils.randomSubarray(row, row.length);
     });
 
-    const tiles = utils.range((TILE_CONSTANTS.count) ** 2).map(tileIndex => {
+    const tiles = utils.range(GRID_SIZE ** 2).map(tileIndex => {
       const { row, column, top, left } = this._getTilePosition(tileIndex);
       const number = randomTiles[row][column];
-      const isEmpty = number === null;
 
       return {
         number,
@@ -29,9 +25,9 @@ class App extends React.Component {
         column,
         top,
         left,
-        width: TILE_CONSTANTS.width,
-        height: TILE_CONSTANTS.height,
-        empty: isEmpty,
+        width: TILE_SIZE,
+        height: TILE_SIZE,
+        empty: number === null,
         correct: number === this.props.levelData.tileSet[row][column],
       };
     });
@@ -65,29 +61,25 @@ class App extends React.Component {
 
   _renderTiles() {
     return this.state.tiles.map((tile, tileId) => {
-      if (tile.empty) {
-        return null;
-      }
-
-      return (
-        <Tile
-          key={`tile-${tileId}`}
-          {...tile}
-          onClick={this._onTileClick.bind(this, tileId)}
-        />
-      );
+      return tile.empty
+        ? null
+        : <Tile
+            key={`tile-${tileId}`}
+            {...tile}
+            onClick={this._onTileClick.bind(this, tileId)}
+          />;
     });
   }
 
   _getTilePosition(tileIndex) {
-    const column = tileIndex % TILE_CONSTANTS.count;
-    const row = Math.floor(tileIndex / TILE_CONSTANTS.count);
+    const column = tileIndex % GRID_SIZE;
+    const row = Math.floor(tileIndex / GRID_SIZE);
 
     return {
       column,
       row,
-      left: column * TILE_CONSTANTS.width,
-      top: row * TILE_CONSTANTS.height,
+      left: column * TILE_SIZE,
+      top: row * TILE_SIZE,
     };
   }
 
@@ -97,8 +89,8 @@ class App extends React.Component {
   }
 
   _isGameOver() {
-    for (let i = 0; i < TILE_CONSTANTS.count; i++) {
-      for (let j = 0; j < TILE_CONSTANTS.count; j++) {
+    for (let i = 0; i < GRID_SIZE; i++) {
+      for (let j = 0; j < GRID_SIZE; j++) {
         if (this.state.tileSet[i][j] !== this.state.tiles[i * j].number) {
           return false;
         }
@@ -119,8 +111,8 @@ class App extends React.Component {
     const emptyTilePosition = this.state.tiles.findIndex(t => t.empty);
     let emptyTile = Object.assign(
       {
-        width: TILE_CONSTANTS.width,
-        height: TILE_CONSTANTS.height,
+        width: TILE_SIZE,
+        height: TILE_SIZE,
         empty: true,
       },
       this._getTilePosition(emptyTilePosition),
@@ -128,12 +120,12 @@ class App extends React.Component {
 
     // Is this tale neighbouring the empty tile? If so, switch them.
     if (row === emptyTile.row && Math.abs(column - emptyTile.column) === 1) {
-      left += TILE_CONSTANTS.width * (emptyTile.column - column);
+      left += TILE_SIZE * (emptyTile.column - column);
       column = emptyTile.column;
     } else if (
       column === emptyTile.column && Math.abs(row - emptyTile.row) === 1
     ) {
-      top += TILE_CONSTANTS.height * (emptyTile.row - row);
+      top += TILE_SIZE * (emptyTile.row - row);
       row = emptyTile.row;
     } else {
       return;
@@ -190,8 +182,8 @@ export default styled(App)`
   }
 
   .grid {
-    width: ${props => TILE_CONSTANTS.height * TILE_CONSTANTS.count}px;
-    height: ${props => TILE_CONSTANTS.height * TILE_CONSTANTS.count}px;
+    width: ${props => TILE_SIZE * GRID_SIZE}px;
+    height: ${props => TILE_SIZE * GRID_SIZE}px;
     position: relative;
   }
 `;
