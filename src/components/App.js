@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import utils from '../lib/utils';
+import { randomSubarray, range } from '../lib/utils';
 import Tile from './Tile';
 
 const TILE_SIZE = 90;
@@ -12,10 +12,10 @@ class App extends React.Component {
     super(props);
 
     const randomTiles = this.props.levelData.tileSet.map(row => {
-      return utils.randomSubarray(row, row.length);
+      return randomSubarray(row, row.length);
     });
 
-    const tiles = utils.range(GRID_SIZE ** 2).map(tileIndex => {
+    const tiles = range(GRID_SIZE ** 2).map(tileIndex => {
       const { row, column, top, left } = this._getTilePosition(tileIndex);
       const number = randomTiles[row][column];
 

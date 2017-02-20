@@ -4,7 +4,7 @@
  * @param {Number} length Number of items in the resulting Array
  * @returns {Array} Array of numbers
  */
-const range = length => {
+export const range = length => {
   return Array.from({ length }, (v, i) => Number.parseInt(i, 10));
 };
 
@@ -15,7 +15,7 @@ const range = length => {
  * @param {Number} size Slice size
  * @returns {Array} Resulting slice
  */
-const randomSubarray = (arr, size) => {
+export const randomSubarray = (arr, size) => {
   let shuffled = arr.slice(0), i = arr.length, temp, index;
   while (i--) {
     index = Math.floor((i + 1) * Math.random());
@@ -25,9 +25,4 @@ const randomSubarray = (arr, size) => {
   }
 
   return shuffled.slice(0, size);
-};
-
-export default {
-  range,
-  randomSubarray,
 };
