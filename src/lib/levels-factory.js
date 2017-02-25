@@ -15,6 +15,6 @@ export default size => {
   }
 
   return {
-    tileSet: randomSubarray(range(100), size),
+    tileSet: randomSubarray(range(size), size),
   };
 };

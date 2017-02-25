@@ -17,6 +17,16 @@ it('generates random levels of size 1', () => {
   const level = factory(1);
 
   expect(level.tileSet).toHaveLength(1);
-  expect(level.tileSet[0]).toBeGreaterThan(0);
+  expect(level.tileSet[0]).toBeGreaterThan(-1);
   expect(level.tileSet[0]).toBeLessThan(100);
+});
+
+it('generates random levels of size n', () => {
+  const level = factory(16);
+
+  expect(level.tileSet).toHaveLength(16);
+  level.tileSet.forEach(n => {
+    expect(n).toBeGreaterThan(-1);
+    expect(n).toBeLessThan(16);
+  });
 });
