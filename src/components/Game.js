@@ -77,10 +77,13 @@ class Game extends Component {
     );
 
     // Is this tale neighbouring the zero tile? If so, switch them.
-    if (
-      row === zeroRow && Math.abs(column - zeroColumn) === 1 ||
-      column === zeroColumn && Math.abs(row - zeroRow) === 1
-    ) {
+    const sameRow = row === zeroRow;
+    const sameColumn = column === zeroColumn;
+    const diffColumn = Math.abs(column - zeroColumn) === 1;
+    const diffRow = Math.abs(row - zeroRow) === 1;
+    const sameRowDiffColumn = sameRow && diffColumn;
+    const sameColumnDiffRow = sameColumn && diffRow;
+    if (sameRowDiffColumn || sameColumnDiffRow) {
       let t = Array.from(this.state.tiles);
       const sw = t[zeroTileIndex].number;
       t[zeroTileIndex].number = t[tileIndex].number;
