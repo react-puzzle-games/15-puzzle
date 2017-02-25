@@ -1,28 +1,43 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
 
-const Tile = props => {
-  return (
-    <div className={props.className} onClick={props.onClick}>
-      <span className="tile-number">{props.number}</span>
-    </div>
-  );
-};
+class Tile extends Component {
+  constructor(props) {
+    super(props);
 
-Tile.propTypes = {
-  number: React.PropTypes.number,
-  onClick: React.PropTypes.func.isRequired,
-  correct: React.PropTypes.bool.isRequired,
-  width: React.PropTypes.number.isRequired,
-  height: React.PropTypes.number.isRequired,
-  left: React.PropTypes.number.isRequired,
-  top: React.PropTypes.number.isRequired,
-};
+    this.onClick = this.onClick.bind(this);
+  }
 
-Tile.defaultProps = {
-  number: 0,
-  correct: false,
-};
+  static propTypes = {
+    tileId: PropTypes.number.isRequired,
+    number: PropTypes.number,
+    onClick: PropTypes.func,
+    correct: PropTypes.bool,
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
+    left: PropTypes.number.isRequired,
+    top: PropTypes.number.isRequired,
+  };
+
+  static defaultProps = {
+    number: 0,
+    correct: false,
+  };
+
+  render() {
+    const { className, number } = this.props;
+
+    return (
+      <div className={className} onClick={this.onClick}>
+        <span className="tile-number">{number}</span>
+      </div>
+    );
+  }
+
+  onClick() {
+    this.props.onClick(this.props.tileId);
+  }
+}
 
 export default styled(Tile)`
   border: 1px solid #FFD1AA;
@@ -40,6 +55,8 @@ export default styled(Tile)`
 
   .tile-number {
     color: #FFD1AA;
-    fontSize: 22px;
+    fontSize: 2em;
   }
 `;
+
+export const propTypes = Tile.propTypes;
