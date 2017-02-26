@@ -49,7 +49,7 @@ class Game extends Component {
 
   _getTileCoords(index) {
     const column = index % this.props.gridSize;
-    const row = Math.floor(index / this.props.gridSize);
+    const row = index / this.props.gridSize << 0;
 
     return {
       column,
