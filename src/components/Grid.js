@@ -7,23 +7,32 @@ import ZeroTile from './ZeroTile';
 class Grid extends Component {
   static propTypes = {
     tiles: PropTypes.arrayOf(PropTypes.shape(TilePropTypes)).isRequired,
+    gridSize: PropTypes.number.isRequired,
+    tileSize: PropTypes.number.isRequired,
     onTileClick: PropTypes.func.isRequired,
   };
 
   render() {
-    const { className, tiles, onTileClick } = this.props;
+    const {
+      className,
+      tiles,
+      onTileClick,
+      gridSize,
+    } = this.props;
 
     return (
       <div className={className}>
         {tiles.map((tile, tileId) => {
-          const TileComponent = tile.number === 0 ? ZeroTile : Tile;
+          const TileComponent = tile.number !== gridSize ** 2 ? Tile : ZeroTile;
+
           return (
-            <TileComponent
-              {...tile}
-              key={`tile-${tileId}-${tile.number}`}
-              correct={tile.number === tileId}
-              onClick={onTileClick}
-            />
+            <div key={`tile-${tileId}`}>
+              <TileComponent
+                {...tile}
+                correct={tile.number - tileId === 1}
+                onClick={onTileClick}
+              />
+            </div>
           );
         })}
       </div>

@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
+import classnames from 'classnames';
 
 class Tile extends Component {
   constructor(props) {
@@ -10,25 +11,31 @@ class Tile extends Component {
 
   static propTypes = {
     tileId: PropTypes.number.isRequired,
-    number: PropTypes.number,
-    onClick: PropTypes.func,
-    correct: PropTypes.bool,
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
     left: PropTypes.number.isRequired,
     top: PropTypes.number.isRequired,
+    number: PropTypes.number,
+    onClick: PropTypes.func,
+    correct: PropTypes.bool,
+    visible: PropTypes.bool,
   };
 
   static defaultProps = {
     number: 0,
     correct: false,
+    visible: true,
   };
 
   render() {
-    const { className, number } = this.props;
+    const { className, number, visible } = this.props;
+    const classes = classnames({
+      [className]: true,
+      'tile-hidden': !visible,
+    });
 
     return (
-      <div className={className} onClick={this.onClick}>
+      <div className={classes} onClick={this.onClick}>
         <span className="tile-number">{number}</span>
       </div>
     );
@@ -56,6 +63,10 @@ export default styled(Tile)`
   .tile-number {
     color: #FFD1AA;
     fontSize: 2em;
+  }
+
+  &.tile-hidden {
+    display: none;
   }
 `;
 

@@ -1,11 +1,11 @@
 /**
- * Return an Array containing all numbers such that 0 <= n < length in
+ * Return an Array containing all numbers such that 0 = n <= length in
  * ascending order.
  * @param {Number} length Number of items in the resulting Array
  * @returns {Array} Array of numbers
  */
 export const range = length => {
-  return Array.from({ length }, (v, i) => Number.parseInt(i, 10));
+  return Array.from({ length }, (v, i) => Number.parseInt(i + 1, 10));
 };
 
 /**
@@ -25,4 +25,59 @@ export const randomSubarray = (arr, size) => {
   }
 
   return shuffled.slice(0, size);
+};
+
+/**
+ * Returns an Object containing grid coordinates based on the index
+ * in an Array.
+ * @param {Number} index Position of an item in an Array
+ * @param {Number} gridSize Size of the Grid
+ * @param {Number} tileSize Size of a Tile, in pixels, to calculate the absolute
+ * positioning within the Grid
+ * @return {Object} Object containing coordinates
+ */
+export const getTileCoords = (index, gridSize, tileSize) => {
+  if (!Number.isInteger(gridSize) || gridSize < 1) {
+    throw new Error(`Cannot get coords from tile with gridSize: <${gridSize}>`);
+  }
+
+  if (!Number.isInteger(tileSize) || tileSize < 1) {
+    throw new Error(`Cannot get coords from tile with tileSize: <${tileSize}>`);
+  }
+
+  const column = index % gridSize;
+  const row = index / gridSize << 0;
+
+  return {
+    column,
+    row,
+    left: column * tileSize,
+    top: row * tileSize,
+  };
+};
+
+/**
+ * Calculate distance between two sets of coordinates
+ *
+ * @param  {Object} tileACoords Coordinates of Tile A
+ * @param  {Object} tileBCoords Coordinates of Tile B
+ * @returns {Object} Result
+ */
+export const distanceBetween = (tileACoords, tileBCoords) => {
+  const sameRow = tileACoords.row === tileBCoords.row;
+  const sameColumn = tileACoords.column === tileBCoords.column;
+  const columnDiff = tileACoords.column - tileBCoords.column;
+  const rowDiff = tileACoords.row - tileBCoords.row;
+  const diffColumn = columnDiff === 1 || columnDiff === -1;
+  const diffRow = rowDiff === 1 || rowDiff === -1;
+  const sameRowDiffColumn = sameRow && diffColumn;
+  const sameColumnDiffRow = sameColumn && diffRow;
+
+  return {
+    neighbours: sameRowDiffColumn || sameColumnDiffRow,
+    distance: {
+      rows: rowDiff,
+      columns: columnDiff,
+    },
+  };
 };

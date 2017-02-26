@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
 
+import { getTileCoords, distanceBetween } from '../lib/utils';
 import Grid from './Grid';
 
 class Game extends Component {
@@ -18,10 +19,11 @@ class Game extends Component {
   constructor(props) {
     super(props);
 
+    const { numbers, tileSize, gridSize } = props;
     const tiles = [];
-    this.props.numbers.forEach((number, index) => {
+    numbers.forEach((number, index) => {
       tiles[index] = {
-        ...this._getTileCoords(index),
+        ...getTileCoords(index, gridSize, tileSize),
         tileId: index,
         width: this.props.tileSize,
         height: this.props.tileSize,
@@ -38,25 +40,20 @@ class Game extends Component {
   }
 
   render() {
+    const { className, gridSize, tileSize } = this.props;
+
     return (
-      <div className={this.props.className}>
+      <div className={className}>
         <div className="content">
-          <Grid tiles={this.state.tiles} onTileClick={this.onTileClick} />
+          <Grid
+            gridSize={gridSize}
+            tileSize={tileSize}
+            tiles={this.state.tiles}
+            onTileClick={this.onTileClick}
+          />
         </div>
       </div>
     );
-  }
-
-  _getTileCoords(index) {
-    const column = index % this.props.gridSize;
-    const row = index / this.props.gridSize << 0;
-
-    return {
-      column,
-      row,
-      left: column * this.props.tileSize,
-      top: row * this.props.tileSize,
-    };
   }
 
   _isGameOver() {
@@ -68,28 +65,27 @@ class Game extends Component {
       return;
     }
 
-    const { row, column } = this._getTileCoords(tileIndex);
+    const { gridSize, tileSize } = this.props;
 
     // Find index of 0 tile
-    const zeroTileIndex = this.state.tiles.findIndex(t => t.number === 0);
-    const { row: zeroRow, column: zeroColumn } = this._getTileCoords(
-      zeroTileIndex,
+    const zeroTileIndex = this.state.tiles.findIndex(
+      t => t.number === gridSize ** 2,
     );
 
     // Is this tale neighbouring the zero tile? If so, switch them.
-    const sameRow = row === zeroRow;
-    const sameColumn = column === zeroColumn;
-    const diffColumn = Math.abs(column - zeroColumn) === 1;
-    const diffRow = Math.abs(row - zeroRow) === 1;
-    const sameRowDiffColumn = sameRow && diffColumn;
-    const sameColumnDiffRow = sameColumn && diffRow;
-    if (sameRowDiffColumn || sameColumnDiffRow) {
-      let t = Array.from(this.state.tiles);
+    const d = distanceBetween(
+      getTileCoords(tileIndex, gridSize, tileSize),
+      getTileCoords(zeroTileIndex, gridSize, tileSize),
+    );
+    if (d.neighbours) {
+      let t = Array.from(this.state.tiles).map(t => ({ ...t }));
       const sw = t[zeroTileIndex].number;
       t[zeroTileIndex].number = t[tileIndex].number;
       t[tileIndex].number = sw;
 
-      this.setState({ tiles: t });
+      this.setState({
+        tiles: t,
+      });
     }
   }
 }

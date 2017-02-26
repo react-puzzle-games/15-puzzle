@@ -1,3 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default () => <div />;
+export default class ZeroTile extends Component {
+  render() {
+    return <div />;
+  }
+}
