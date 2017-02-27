@@ -53,6 +53,7 @@ export const getTileCoords = (index, gridSize, tileSize) => {
     row,
     left: column * tileSize,
     top: row * tileSize,
+    tileId: index,
   };
 };
 
@@ -68,8 +69,8 @@ export const distanceBetween = (tileACoords, tileBCoords) => {
   const sameColumn = tileACoords.column === tileBCoords.column;
   const columnDiff = tileACoords.column - tileBCoords.column;
   const rowDiff = tileACoords.row - tileBCoords.row;
-  const diffColumn = columnDiff === 1 || columnDiff === -1;
-  const diffRow = rowDiff === 1 || rowDiff === -1;
+  const diffColumn = Math.abs(columnDiff) === 1;
+  const diffRow = Math.abs(rowDiff) === 1;
   const sameRowDiffColumn = sameRow && diffColumn;
   const sameColumnDiffRow = sameColumn && diffRow;
 
@@ -80,4 +81,12 @@ export const distanceBetween = (tileACoords, tileBCoords) => {
       columns: columnDiff,
     },
   };
+};
+
+export const invert = (arr, indexA, indexB, fields) => {
+  fields.forEach(field => {
+    const sw = arr[indexA][field];
+    arr[indexA][field] = arr[indexB][field];
+    arr[indexB][field] = sw;
+  });
 };
