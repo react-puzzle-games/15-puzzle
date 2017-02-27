@@ -26,7 +26,7 @@ class Grid extends Component {
             <Tile
               {...tile}
               key={`tile-${tileId}`}
-              correct={tileId + 1 === tile.number}
+              correct={tile.tileId + 1 === tile.number}
               onClick={onTileClick}
               visible={tile.number < gridSize ** 2}
             />
