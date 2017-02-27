@@ -26,7 +26,7 @@ it('generates random levels of size n', () => {
 
   expect(level.tileSet).toHaveLength(16);
   level.tileSet.forEach(n => {
-    expect(n).toBeGreaterThan(-1);
-    expect(n).toBeLessThan(16);
+    expect(n).toBeGreaterThan(0);
+    expect(n).toBeLessThan(17);
   });
 });
