@@ -31,7 +31,7 @@ class Tile extends Component {
     const { className, number, visible } = this.props;
     const classes = classnames({
       [className]: true,
-      'tile-hidden': !visible,
+      'tile-invisible': !visible,
     });
 
     return (
@@ -42,7 +42,7 @@ class Tile extends Component {
   }
 
   onClick() {
-    this.props.onClick(this.props.tileId);
+    this.props.onClick(this.props);
   }
 }
 
@@ -59,13 +59,16 @@ export default styled(Tile)`
   align-items: center;
   cursor: pointer;
   background-color: ${props => props.correct ? '#226666' : '#D4726A'};
+  transition-property: top, left;
+  transition-duration: .300s;
+  transition-timing-function: ease-in-out;
 
   .tile-number {
     color: #FFD1AA;
     fontSize: 2em;
   }
 
-  &.tile-hidden {
+  &.tile-invisible {
     display: none;
   }
 `;

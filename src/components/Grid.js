@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
 
 import Tile, { propTypes as TilePropTypes } from './Tile';
-import ZeroTile from './ZeroTile';
 
 class Grid extends Component {
   static propTypes = {
@@ -23,16 +22,14 @@ class Grid extends Component {
     return (
       <div className={className}>
         {tiles.map((tile, tileId) => {
-          const TileComponent = tile.number !== gridSize ** 2 ? Tile : ZeroTile;
-
           return (
-            <div key={`tile-${tileId}`}>
-              <TileComponent
-                {...tile}
-                correct={tile.number - tileId === 1}
-                onClick={onTileClick}
-              />
-            </div>
+            <Tile
+              {...tile}
+              key={`tile-${tileId}`}
+              correct={tileId + 1 === tile.number}
+              onClick={onTileClick}
+              visible={tile.number < gridSize ** 2}
+            />
           );
         })}
       </div>
