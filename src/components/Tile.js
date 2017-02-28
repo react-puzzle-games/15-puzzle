@@ -59,7 +59,7 @@ export default styled(Tile)`
   align-items: center;
   cursor: pointer;
   background-color: ${props => props.correct ? '#226666' : '#D4726A'};
-  transition-property: top, left;
+  transition-property: top, left, background-color;
   transition-duration: .300s;
   transition-timing-function: ease-in;
 
