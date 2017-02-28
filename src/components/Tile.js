@@ -51,17 +51,17 @@ export default styled(Tile)`
   position: absolute;
   width: ${props => props.width}px;
   height: ${props => props.height}px;
-  transform: translateX(${props =>
-  props.top}px) translateY(${props => props.left}px);
+  left: ${props => props.left}px;
+  top: ${props => props.top}px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   background-color: ${props => props.correct ? '#226666' : '#D4726A'};
-  transition-property: transform, background-color;
-  transition-duration: .150s;
-  transition-timing-function: ease-in-out;
+  transition-property: top, left, background-color;
+  transition-duration: .300s;
+  transition-timing-function: ease-in;
 
   .tile-number {
     color: #FFD1AA;
