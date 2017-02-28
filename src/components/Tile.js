@@ -66,6 +66,7 @@ export default styled(Tile)`
   .tile-number {
     color: #FFD1AA;
     fontSize: 2em;
+    user-select: none;
   }
 
   &.tile-invisible {
