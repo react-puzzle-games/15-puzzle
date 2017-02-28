@@ -61,7 +61,7 @@ export default styled(Tile)`
   background-color: ${props => props.correct ? '#226666' : '#D4726A'};
   transition-property: top, left;
   transition-duration: .300s;
-  transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in;
 
   .tile-number {
     color: #FFD1AA;
