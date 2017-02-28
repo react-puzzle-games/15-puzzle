@@ -68,9 +68,7 @@ class Game extends Component {
 
     // Find empty tile
     const emptyTile = this.state.tiles.find(t => t.number === gridSize ** 2);
-    const emptyTileIndex = this.state.tiles.findIndex(
-      t => t.number === gridSize ** 2,
-    );
+    const emptyTileIndex = this.state.tiles.indexOf(emptyTile);
 
     // Find index of tile
     const tileIndex = this.state.tiles.findIndex(t => t.number === tile.number);
