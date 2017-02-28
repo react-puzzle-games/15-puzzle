@@ -65,7 +65,8 @@ export default styled(Tile)`
 
   .tile-number {
     color: #FFD1AA;
-    fontSize: 2em;
+    font-weight: 400;
+    fontSize: 1.8em;
     user-select: none;
   }
 
