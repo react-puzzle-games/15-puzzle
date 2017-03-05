@@ -1449,6 +1449,16 @@ cosmiconfig@^2.1.0, cosmiconfig@^2.1.1:
     parse-json "^2.2.0"
     require-from-string "^1.1.0"
 
+coveralls@^2.11.16:
+  version "2.11.16"
+  resolved "https://registry.yarnpkg.com/coveralls/-/coveralls-2.11.16.tgz#da9061265142ddee954f68379122be97be8ab4b1"
+  dependencies:
+    js-yaml "3.6.1"
+    lcov-parse "0.0.10"
+    log-driver "1.2.5"
+    minimist "1.2.0"
+    request "2.79.0"
+
 cross-spawn@4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-4.0.2.tgz#7b9247621c23adfdd3856004a823cbe397424d41"
@@ -3229,16 +3239,16 @@ js-tokens@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.0.tgz#a2f2a969caae142fb3cd56228358c89366957bd1"
 
-js-yaml@3.x, js-yaml@^3.4.3, js-yaml@^3.5.1, js-yaml@^3.7.0:
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.7.0.tgz#5c967ddd837a9bfdca5f2de84253abe8a1c03b80"
+js-yaml@3.6.1, js-yaml@~3.6.1:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.6.1.tgz#6e5fe67d8b205ce4d22fad05b7781e8dadcc4b30"
   dependencies:
     argparse "^1.0.7"
     esprima "^2.6.0"
 
-js-yaml@~3.6.1:
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.6.1.tgz#6e5fe67d8b205ce4d22fad05b7781e8dadcc4b30"
+js-yaml@3.x, js-yaml@^3.4.3, js-yaml@^3.5.1, js-yaml@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.7.0.tgz#5c967ddd837a9bfdca5f2de84253abe8a1c03b80"
   dependencies:
     argparse "^1.0.7"
     esprima "^2.6.0"
@@ -3360,6 +3370,10 @@ lcid@^1.0.0:
   resolved "https://registry.yarnpkg.com/lcid/-/lcid-1.0.0.tgz#308accafa0bc483a3867b4b6f2b9506251d1b835"
   dependencies:
     invert-kv "^1.0.0"
+
+lcov-parse@0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/lcov-parse/-/lcov-parse-0.0.10.tgz#1b0b8ff9ac9c7889250582b70b71315d9da6d9a3"
 
 leven@^2.0.0:
   version "2.1.0"
@@ -3546,6 +3560,10 @@ lodash.uniq@^4.3.0:
 "lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.16.2, lodash@^4.16.4, lodash@^4.2.0, lodash@^4.3.0:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
+
+log-driver@1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/log-driver/-/log-driver-1.2.5.tgz#7ae4ec257302fd790d557cb10c97100d857b0056"
 
 log-symbols@^1.0.2:
   version "1.0.2"
@@ -4828,7 +4846,7 @@ repeating@^2.0.0:
   dependencies:
     is-finite "^1.0.0"
 
-request@^2.55.0, request@^2.79.0:
+request@2.79.0, request@^2.55.0, request@^2.79.0:
   version "2.79.0"
   resolved "https://registry.yarnpkg.com/request/-/request-2.79.0.tgz#4dfe5bf6be8b8cdc37fcf93e04b65577722710de"
   dependencies:
