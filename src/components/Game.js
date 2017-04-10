@@ -9,17 +9,19 @@ class Game extends Component {
     numbers: PropTypes.arrayOf(PropTypes.number).isRequired,
     tileSize: PropTypes.number,
     gridSize: PropTypes.number,
+    moves: PropTypes.number,
   };
 
   static defaultProps = {
     tileSize: 90,
     gridSize: 4,
+    moves: 0,
   };
 
   constructor(props) {
     super(props);
 
-    const { numbers, tileSize, gridSize } = props;
+    const { numbers, tileSize, gridSize, moves } = props;
     const tiles = [];
     numbers.forEach((number, index) => {
       tiles[index] = {
@@ -33,6 +35,7 @@ class Game extends Component {
     this.state = {
       tiles,
       gameState: Symbol('GAME_IDLE'),
+      moves,
     };
 
     this.onTileClick = this.onTileClick.bind(this);
@@ -43,13 +46,16 @@ class Game extends Component {
 
     return (
       <div className={className}>
-        <div className="content">
+        <div className="game-grid">
           <Grid
             gridSize={gridSize}
             tileSize={tileSize}
             tiles={this.state.tiles}
             onTileClick={this.onTileClick}
           />
+        </div>
+        <div className="game-info">
+          <div className="moves">Moves counter: {this.state.moves}</div>
         </div>
       </div>
     );
@@ -88,6 +94,7 @@ class Game extends Component {
 
       this.setState({
         tiles: t,
+        moves: this.state.moves + 1,
       });
     }
   }
@@ -97,4 +104,13 @@ export default styled(Game)`
   width: ${props => props.tileSize * props.gridSize}px;
   height: ${props => props.tileSize * props.gridSize}px;
   position: relative;
+
+  & div.game-info{
+    text-align:center;
+    margin: 10px;
+  }
+
+  & div.game-grid{
+    height:100%;
+  }
 `;
