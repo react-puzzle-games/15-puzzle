@@ -2,11 +2,11 @@ exports[`test App renders correctly 1`] = `
 <div
   className="hBYjza">
   <div
-    className="dxeQJo">
+    className="iDqeKB">
     <div
-      className="content">
+      className="game-grid">
       <div
-        className="iaCmgk">
+        className="ifnqEd">
         <div
           className="imABQe"
           onClick={[Function]}>
@@ -135,6 +135,14 @@ exports[`test App renders correctly 1`] = `
             5
           </span>
         </div>
+      </div>
+    </div>
+    <div
+      className="game-info">
+      <div
+        className="moves">
+        Moves counter: 
+        0
       </div>
     </div>
   </div>
