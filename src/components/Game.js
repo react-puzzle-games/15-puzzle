@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import { getTileCoords, distanceBetween, invert } from '../lib/utils';
 import Grid from './Grid';
+import GameStats from './GameStats';
 
 class Game extends Component {
   static propTypes = {
@@ -10,18 +11,20 @@ class Game extends Component {
     tileSize: PropTypes.number,
     gridSize: PropTypes.number,
     moves: PropTypes.number,
+    seconds: PropTypes.number,
   };
 
   static defaultProps = {
     tileSize: 90,
     gridSize: 4,
     moves: 0,
+    seconds: 0,
   };
 
   constructor(props) {
     super(props);
 
-    const { numbers, tileSize, gridSize, moves } = props;
+    const { numbers, tileSize, gridSize, moves, seconds } = props;
     const tiles = [];
     numbers.forEach((number, index) => {
       tiles[index] = {
@@ -36,6 +39,7 @@ class Game extends Component {
       tiles,
       gameState: Symbol('GAME_IDLE'),
       moves,
+      seconds,
     };
 
     this.onTileClick = this.onTileClick.bind(this);
@@ -54,9 +58,7 @@ class Game extends Component {
             onTileClick={this.onTileClick}
           />
         </div>
-        <div className="game-info">
-          <div className="moves">Moves counter: {this.state.moves}</div>
-        </div>
+        <GameStats seconds={this.state.seconds} moves={this.state.moves} />
       </div>
     );
   }
@@ -65,9 +67,25 @@ class Game extends Component {
     return false;
   }
 
+  addTimer() {
+    this.setState(prevState => {
+      return { seconds: prevState.seconds + 1 };
+    });
+  }
+
   onTileClick(tile) {
     if (this.state.gameState === Symbol('GAME_OVER')) {
       return;
+    }
+
+    // Set Timer in case of first click
+    if (this.state.moves === 0) {
+      this.timerId = setInterval(
+        () => {
+          this.addTimer();
+        },
+        1000,
+      );
     }
 
     const { gridSize } = this.props;
@@ -104,11 +122,6 @@ export default styled(Game)`
   width: ${props => props.tileSize * props.gridSize}px;
   height: ${props => props.tileSize * props.gridSize}px;
   position: relative;
-
-  & div.game-info{
-    text-align:center;
-    margin: 10px;
-  }
 
   & div.game-grid{
     height:100%;
