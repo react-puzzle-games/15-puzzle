@@ -2,11 +2,11 @@ exports[`test App renders correctly 1`] = `
 <div
   className="hBYjza">
   <div
-    className="iDqeKB">
+    className="fzzMFt">
     <div
       className="game-grid">
       <div
-        className="ifnqEd">
+        className="iaCmgk">
         <div
           className="imABQe"
           onClick={[Function]}>
@@ -138,11 +138,17 @@ exports[`test App renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="game-info">
+      className="frByXr">
       <div
-        className="moves">
+        className="jbeTpO">
         Moves counter: 
         0
+      </div>
+      <div
+        className="jbeTpO">
+        Time elapsed: 
+        0
+        s
       </div>
     </div>
   </div>

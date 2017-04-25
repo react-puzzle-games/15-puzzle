@@ -38,5 +38,5 @@ class Grid extends Component {
 }
 
 export default styled(Grid)`
-  clear:both;
+
 `;

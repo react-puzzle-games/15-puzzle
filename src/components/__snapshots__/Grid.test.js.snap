@@ -1,6 +1,6 @@
 exports[`Grid renders correctly given a set of tiles 1`] = `
 <div
-  className="ifnqEd">
+  className="iaCmgk">
   <div
     className="imABQe tile-invisible"
     onClick={[Function]}>
@@ -38,12 +38,12 @@ exports[`Grid renders correctly given a set of tiles 1`] = `
 
 exports[`Grid renders correctly given an empty set of tiles 1`] = `
 <div
-  className="ifnqEd" />
+  className="iaCmgk" />
 `;
 
 exports[`Grid renders correctly given one tile 1`] = `
 <div
-  className="ifnqEd">
+  className="iaCmgk">
   <div
     className="kaVAwu tile-invisible"
     onClick={[Function]}>
