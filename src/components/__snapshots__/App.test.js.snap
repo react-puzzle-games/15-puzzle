@@ -152,5 +152,38 @@ exports[`test App renders correctly 1`] = `
       </div>
     </div>
   </div>
+  <div
+    className="fKlaSM">
+    <h5>
+      Made with 
+      <span
+        style={
+          Object {
+            "color": "red",
+          }
+        }>
+        ♥
+      </span>
+       by 
+      <a
+        href="https://twitter.com/ovidiubute"
+        target="_blank">
+        Ovidiu
+      </a>
+       using React and create-react-app boilerplate
+    </h5>
+    <div
+      className="links">
+      <a
+        href="https://github.com/react-puzzle-games/15-puzzle"
+        target="_blank">
+        <img
+          alt="Github"
+          height="30"
+          src="assets/github-10-xxl.png"
+          width="30" />
+      </a>
+    </div>
+  </div>
 </div>
 `;
