@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { getTileCoords, distanceBetween, invert } from '../lib/utils';
 import Grid from './Grid';
 import GameStats from './GameStats';
+import { GAME_IDLE, GAME_OVER, GAME_STARTED } from '../lib/game-status';
 
 class Game extends Component {
   static propTypes = {
@@ -37,7 +38,7 @@ class Game extends Component {
 
     this.state = {
       tiles,
-      gameState: Symbol('GAME_IDLE'),
+      gameState: GAME_IDLE,
       moves,
       seconds,
     };
@@ -58,23 +59,36 @@ class Game extends Component {
             onTileClick={this.onTileClick}
           />
         </div>
-        <GameStats seconds={this.state.seconds} moves={this.state.moves} />
+        <GameStats
+          seconds={this.state.seconds}
+          moves={this.state.moves}
+          gameState={this.state.gameState}
+        />
       </div>
     );
   }
 
-  _isGameOver() {
-    return false;
+  _isGameOver(tiles) {
+    if (
+      tiles.filter(tile => {
+        return tile.tileId + 1 === tile.number;
+      }).length === 16
+    ) {
+      clearInterval(this.timerId);
+      return true;
+    } else {
+      return false;
+    }
   }
 
-  addTimer() {
+  _addTimer() {
     this.setState(prevState => {
       return { seconds: prevState.seconds + 1 };
     });
   }
 
   onTileClick(tile) {
-    if (this.state.gameState === Symbol('GAME_OVER')) {
+    if (this.state.gameState === GAME_OVER) {
       return;
     }
 
@@ -82,7 +96,7 @@ class Game extends Component {
     if (this.state.moves === 0) {
       this.timerId = setInterval(
         () => {
-          this.addTimer();
+          this._addTimer();
         },
         1000,
       );
@@ -111,6 +125,7 @@ class Game extends Component {
       ]);
 
       this.setState({
+        gameState: this._isGameOver(t) ? GAME_OVER : GAME_STARTED,
         tiles: t,
         moves: this.state.moves + 1,
       });
