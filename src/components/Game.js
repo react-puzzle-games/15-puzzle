@@ -72,7 +72,8 @@ class Game extends Component {
     if (
       tiles.filter(tile => {
         return tile.tileId + 1 === tile.number;
-      }).length === 16
+      }).length ===
+      (this.props.gridSize) ** 2
     ) {
       clearInterval(this.timerId);
       return true;
