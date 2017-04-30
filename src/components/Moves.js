@@ -18,5 +18,5 @@ class Moves extends Component {
 }
 
 export default styled(Moves)`
-        margin: 5px;
+  margin: 5px;
 `;

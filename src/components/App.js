@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
 
 import Game from './Game';
-import GitHubIcon from './GitHubIcon';
 
 class App extends Component {
   static propTypes = {
@@ -17,14 +16,6 @@ class App extends Component {
     return (
       <div className={className}>
         <Game gridSize={4} tileSize={90} numbers={level.tileSet} />
-        <a
-          className="github-icon"
-          target="_blank"
-          title="Source code on GitHub!"
-          href="https://github.com/react-puzzle-games/15-puzzle"
-        >
-          <GitHubIcon />
-        </a>
       </div>
     );
   }
@@ -39,9 +30,8 @@ export default styled(App)`
   min-height: 600px;
 
   & a.github-icon {
-    display: block;
-    position: absolute;
-    top: 32px;
-    margin: 0 auto;
+    position: relative;
+    bottom: 80px;
+    left: 155px;
   }
 `;

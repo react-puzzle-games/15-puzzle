@@ -18,5 +18,5 @@ class StopWatch extends Component {
 }
 
 export default styled(StopWatch)`
-        margin: 5px;
+  margin: 5px;
 `;
