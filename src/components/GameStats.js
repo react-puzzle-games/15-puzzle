@@ -33,13 +33,13 @@ class GameStats extends Component {
 }
 
 export default styled(GameStats)`
-    text-align:center;
-    margin: 10px;
+  text-align: center;
+  margin: 10px;
 
-    & div.gameStateMessage {
-      color: #fff;
-      background-color: #226666;
-      padding: 20px;
-      margin-top: 10px;
-    }
+  & div.gameStateMessage {
+    color: #fff;
+    background-color: #226666;
+    padding: 20px;
+    margin-top: 10px;
+  }
 `;

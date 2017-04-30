@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { getTileCoords, distanceBetween, invert } from '../lib/utils';
 import Grid from './Grid';
 import GameStats from './GameStats';
+import GitHubIcon from './GitHubIcon';
 import { GAME_IDLE, GAME_OVER, GAME_STARTED } from '../lib/game-status';
 
 class Game extends Component {
@@ -51,6 +52,14 @@ class Game extends Component {
 
     return (
       <div className={className}>
+        <a
+          className="github-icon"
+          target="_blank"
+          title="Source code on GitHub!"
+          href="https://github.com/react-puzzle-games/15-puzzle"
+        >
+          <GitHubIcon />
+        </a>
         <div className="game-grid">
           <Grid
             gridSize={gridSize}
