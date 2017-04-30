@@ -27,7 +27,7 @@ export default styled(App)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 600px;
+  min-height: 500px;
 
   & a.github-icon {
     position: relative;
