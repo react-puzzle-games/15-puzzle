@@ -20,6 +20,7 @@ class App extends Component {
         <a
           className="github-icon"
           target="_blank"
+          title="Source code on GitHub!"
           href="https://github.com/react-puzzle-games/15-puzzle"
         >
           <GitHubIcon />
@@ -35,11 +36,12 @@ export default styled(App)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: 600px;
 
   & a.github-icon {
     display: block;
     position: absolute;
-    right: 32px;
-    bottom: 32px;
+    right: 48.2%;
+    top: 32px;
   }
 `;
