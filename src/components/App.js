@@ -28,6 +28,7 @@ export default styled(App)`
   align-items: center;
   justify-content: center;
   min-height: 500px;
+  margin-top: -50px;
 
   & a.github-icon {
     position: relative;
