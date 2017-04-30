@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
 
 import Game from './Game';
+import AppFooter from './AppFooter';
 
 class App extends Component {
   static propTypes = {
@@ -16,6 +17,7 @@ class App extends Component {
     return (
       <div className={className}>
         <Game gridSize={4} tileSize={90} numbers={level.tileSet} />
+        <AppFooter />
       </div>
     );
   }
