@@ -41,7 +41,7 @@ export default styled(App)`
   & a.github-icon {
     display: block;
     position: absolute;
-    right: 48.2%;
     top: 32px;
+    margin: 0 auto;
   }
 `;
