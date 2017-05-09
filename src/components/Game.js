@@ -5,6 +5,7 @@ import { getTileCoords, distanceBetween, invert } from '../lib/utils';
 import Grid from './Grid';
 import GameStats from './GameStats';
 import GitHubIcon from './GitHubIcon';
+import ResetButton from './ResetButton';
 import { GAME_IDLE, GAME_OVER, GAME_STARTED } from '../lib/game-status';
 
 class Game extends Component {
@@ -27,15 +28,7 @@ class Game extends Component {
     super(props);
 
     const { numbers, tileSize, gridSize, moves, seconds } = props;
-    const tiles = [];
-    numbers.forEach((number, index) => {
-      tiles[index] = {
-        ...getTileCoords(index, gridSize, tileSize),
-        width: this.props.tileSize,
-        height: this.props.tileSize,
-        number,
-      };
-    });
+    const tiles = this.generateTiles(numbers, gridSize, tileSize);
 
     this.state = {
       tiles,
@@ -47,8 +40,37 @@ class Game extends Component {
     this.onTileClick = this.onTileClick.bind(this);
   }
 
+  generateTiles(numbers, gridSize, tileSize) {
+    const tiles = [];
+
+    numbers.forEach((number, index) => {
+      tiles[index] = {
+        ...getTileCoords(index, gridSize, tileSize),
+        width: this.props.tileSize,
+        height: this.props.tileSize,
+        number,
+      };
+    });
+
+    return tiles;
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { tileSize, gridSize } = this.props;
+    const newTiles = this.generateTiles(nextProps.numbers, gridSize, tileSize);
+
+    this.setState({
+      gameState: GAME_IDLE,
+      tiles: newTiles,
+      moves: 0,
+      seconds: 0,
+    });
+
+    clearInterval(this.timerId);
+  }
+
   render() {
-    const { className, gridSize, tileSize } = this.props;
+    const { className, gridSize, tileSize, onResetClick } = this.props;
 
     return (
       <div className={className}>
@@ -73,17 +95,17 @@ class Game extends Component {
           moves={this.state.moves}
           gameState={this.state.gameState}
         />
+        <ResetButton onResetClick={onResetClick} />
       </div>
     );
   }
 
   _isGameOver(tiles) {
-    if (
-      tiles.filter(tile => {
-        return tile.tileId + 1 === tile.number;
-      }).length ===
-      (this.props.gridSize) ** 2
-    ) {
+    const correctedTiles = tiles.filter(tile => {
+      return tile.tileId + 1 === tile.number;
+    });
+
+    if (correctedTiles.length === (this.props.gridSize) ** 2) {
       clearInterval(this.timerId);
       return true;
     } else {
@@ -149,6 +171,6 @@ export default styled(Game)`
   position: relative;
 
   & div.game-grid{
-    height:100%;
+    height:86%;
   }
 `;
