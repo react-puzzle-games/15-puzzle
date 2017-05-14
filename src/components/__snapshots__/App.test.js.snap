@@ -2,7 +2,7 @@ exports[`test App renders correctly 1`] = `
 <div
   className="czaeVX">
   <div
-    className="fzzMFt">
+    className="ktGWji">
     <a
       className="github-icon"
       href="https://github.com/react-puzzle-games/15-puzzle"
@@ -167,6 +167,13 @@ exports[`test App renders correctly 1`] = `
         0
         s
       </div>
+    </div>
+    <div
+      className="djjriu">
+      <button
+        onClick={[Function]}>
+        Reset Game
+      </button>
     </div>
   </div>
 </div>
