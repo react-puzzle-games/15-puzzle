@@ -11,6 +11,7 @@ import { GAME_IDLE, GAME_OVER, GAME_STARTED } from '../lib/game-status';
 class Game extends Component {
   static propTypes = {
     numbers: PropTypes.arrayOf(PropTypes.number).isRequired,
+    original: PropTypes.arrayOf(PropTypes.number),
     tileSize: PropTypes.number,
     gridSize: PropTypes.number,
     moves: PropTypes.number,
@@ -38,6 +39,30 @@ class Game extends Component {
     };
 
     this.onTileClick = this.onTileClick.bind(this);
+    this.keyDownListener = this.keyDownListener.bind(this);
+
+    document.addEventListener('keydown', this.keyDownListener);
+  }
+
+  // End game by pressing CTRL + ALT + F
+  keyDownListener(key) {
+    if (key.ctrlKey && key.altKey && key.code === 'KeyF') {
+      const { original, gridSize, tileSize } = this.props;
+      const solvedTiles = this.generateTiles(original, gridSize, tileSize).map((
+        tile,
+        index,
+      ) => {
+        tile.number = index + 1;
+        return Object.assign({}, tile);
+      });
+
+      clearInterval(this.timerId);
+
+      this.setState({
+        gameState: GAME_OVER,
+        tiles: solvedTiles,
+      });
+    }
   }
 
   generateTiles(numbers, gridSize, tileSize) {
