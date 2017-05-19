@@ -42,6 +42,7 @@ class App extends Component {
           tileSize={90}
           numbers={this.state.level.tileSet}
           onResetClick={this.onResetClick}
+          original={this.state.original.tileSet}
         />
       </div>
     );
