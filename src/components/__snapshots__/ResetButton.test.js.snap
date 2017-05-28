@@ -1,0 +1,9 @@
+exports[`ResetButton should render correctly 1`] = `
+<div
+  className="xyz jNFAtU">
+  <button
+    onClick={[Function]}>
+    Reset Game
+  </button>
+</div>
+`;
