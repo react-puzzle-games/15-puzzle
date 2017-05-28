@@ -1,4 +1,4 @@
-exports[`Tile renders correctly given correct prop 1`] = `
+exports[`Tile render tests should render correctly given correct prop 1`] = `
 <div
   className="esNDqL"
   onClick={[Function]}>
@@ -9,7 +9,7 @@ exports[`Tile renders correctly given correct prop 1`] = `
 </div>
 `;
 
-exports[`Tile renders correctly given custom number 1`] = `
+exports[`Tile render tests should render correctly given custom number 1`] = `
 <div
   className="imABQe"
   onClick={[Function]}>
@@ -20,7 +20,7 @@ exports[`Tile renders correctly given custom number 1`] = `
 </div>
 `;
 
-exports[`Tile renders correctly given default number 1`] = `
+exports[`Tile render tests should render correctly given default number 1`] = `
 <div
   className="iFsnCz"
   onClick={[Function]}>
@@ -31,7 +31,7 @@ exports[`Tile renders correctly given default number 1`] = `
 </div>
 `;
 
-exports[`Tile renders correctly given visible prop 1`] = `
+exports[`Tile render tests should render correctly given visible prop 1`] = `
 <div
   className="jVZYxz tile-invisible"
   onClick={[Function]}>
