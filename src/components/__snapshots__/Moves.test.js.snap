@@ -5,3 +5,11 @@ exports[`Moves renders correctly before start 1`] = `
   0
 </div>
 `;
+
+exports[`Moves renders correctly mid-game 1`] = `
+<div
+  className="fyeoun">
+  Moves counter: 
+  42
+</div>
+`;

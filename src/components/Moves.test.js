@@ -7,4 +7,9 @@ describe('Moves renders correctly', () => {
     const tree = renderer.create(<Moves moves={0} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+  test('mid-game', () => {
+    const tree = renderer.create(<Moves moves={42} />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });
