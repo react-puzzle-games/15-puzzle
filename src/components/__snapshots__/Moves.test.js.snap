@@ -1,4 +1,4 @@
-exports[`Moves renders correctly before start 1`] = `
+exports[`Moves should render correctly before start 1`] = `
 <div
   className="fyeoun">
   Moves counter: 
@@ -6,7 +6,7 @@ exports[`Moves renders correctly before start 1`] = `
 </div>
 `;
 
-exports[`Moves renders correctly mid-game 1`] = `
+exports[`Moves should render correctly mid-game 1`] = `
 <div
   className="fyeoun">
   Moves counter: 
