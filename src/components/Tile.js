@@ -3,12 +3,6 @@ import styled from 'styled-components';
 import classnames from 'classnames';
 
 class Tile extends Component {
-  constructor(props) {
-    super(props);
-
-    this.onClick = this.onClick.bind(this);
-  }
-
   static propTypes = {
     tileId: PropTypes.number.isRequired,
     width: PropTypes.number.isRequired,
@@ -41,9 +35,11 @@ class Tile extends Component {
     );
   }
 
-  onClick() {
-    this.props.onClick(this.props);
-  }
+  onClick = () => {
+    this.props.onClick({
+      number: this.props.number,
+    });
+  };
 }
 
 export default styled(Tile)`
@@ -74,5 +70,8 @@ export default styled(Tile)`
     display: none;
   }
 `;
+
+// Export this for easier unit-testing
+export { Tile as Component };
 
 export const propTypes = Tile.propTypes;

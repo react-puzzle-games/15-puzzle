@@ -4,7 +4,7 @@ exports[`Tile render tests should render correctly given correct prop 1`] = `
   onClick={[Function]}>
   <span
     className="tile-number">
-    0
+    23
   </span>
 </div>
 `;
@@ -37,7 +37,7 @@ exports[`Tile render tests should render correctly given visible prop 1`] = `
   onClick={[Function]}>
   <span
     className="tile-number">
-    0
+    1
   </span>
 </div>
 `;
