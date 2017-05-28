@@ -9,12 +9,12 @@
     "pre-commit": "^1.2.2",
     "prettier": "^0.18.0",
     "react-scripts": "0.8.5",
-    "react-test-renderer": "^15.4.2"
+    "react-test-renderer": "^15.5.4"
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
     "styled-components": "^1.4.3"
   },
   "scripts": {
