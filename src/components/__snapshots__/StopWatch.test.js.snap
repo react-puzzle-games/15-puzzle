@@ -1,8 +1,0 @@
-exports[`StopWatch should render correctly 1`] = `
-<div
-  className="xyz fyeoun">
-  Time elapsed: 
-  120
-  s
-</div>
-`;
