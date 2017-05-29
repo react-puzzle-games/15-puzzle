@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
 import RaisedButton from 'material-ui/RaisedButton';
-import FontIcon from 'material-ui/FontIcon';
 import Chip from 'material-ui/Chip';
 import Avatar from 'material-ui/Avatar';
 import Alarm from 'material-ui/svg-icons/action/alarm';
 import Moves from 'material-ui/svg-icons/action/compare-arrows';
 import Replay from 'material-ui/svg-icons/av/replay';
 import MediaQuery from 'react-responsive';
+import GitHubIcon from './GitHubIcon';
 
 const StyledToolbar = styled(Toolbar)`
 
@@ -58,7 +58,7 @@ class Menu extends Component {
             label="Project home"
             target="_blank"
             href="https://github.com/react-puzzle-games/15-puzzle/"
-            icon={<FontIcon className="menuIcon muidocs-icon-custom-github" />}
+            icon={<GitHubIcon className="menuIcon" />}
           />
           <RaisedButton
             className="menuButton"
