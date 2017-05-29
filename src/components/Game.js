@@ -1,12 +1,10 @@
 import React, { Component, PropTypes } from 'react';
-import styled from 'styled-components';
-
 import { getTileCoords, distanceBetween, invert } from '../lib/utils';
 import Grid from './Grid';
-import GameStats from './GameStats';
-import GitHubIcon from './GitHubIcon';
-import ResetButton from './ResetButton';
+import Menu from './Menu';
 import { GAME_IDLE, GAME_OVER, GAME_STARTED } from '../lib/game-status';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
 
 class Game extends Component {
   static propTypes = {
@@ -36,48 +34,10 @@ class Game extends Component {
       gameState: GAME_IDLE,
       moves,
       seconds,
+      dialogOpen: false,
     };
 
-    this.onTileClick = this.onTileClick.bind(this);
-    this.keyDownListener = this.keyDownListener.bind(this);
-
     document.addEventListener('keydown', this.keyDownListener);
-  }
-
-  // End game by pressing CTRL + ALT + F
-  keyDownListener(key) {
-    if (key.ctrlKey && key.altKey && key.code === 'KeyF') {
-      const { original, gridSize, tileSize } = this.props;
-      const solvedTiles = this.generateTiles(original, gridSize, tileSize).map((
-        tile,
-        index,
-      ) => {
-        tile.number = index + 1;
-        return Object.assign({}, tile);
-      });
-
-      clearInterval(this.timerId);
-
-      this.setState({
-        gameState: GAME_OVER,
-        tiles: solvedTiles,
-      });
-    }
-  }
-
-  generateTiles(numbers, gridSize, tileSize) {
-    const tiles = [];
-
-    numbers.forEach((number, index) => {
-      tiles[index] = {
-        ...getTileCoords(index, gridSize, tileSize),
-        width: this.props.tileSize,
-        height: this.props.tileSize,
-        number,
-      };
-    });
-
-    return tiles;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -94,38 +54,50 @@ class Game extends Component {
     clearInterval(this.timerId);
   }
 
-  render() {
-    const { className, gridSize, tileSize, onResetClick } = this.props;
+  // End game by pressing CTRL + ALT + F
+  keyDownListener = key => {
+    if (key.ctrlKey && key.altKey && key.code === 'KeyF') {
+      const { original, gridSize, tileSize } = this.props;
+      const solvedTiles = this.generateTiles(original, gridSize, tileSize).map((
+        tile,
+        index,
+      ) => {
+        tile.number = index + 1;
+        return Object.assign({}, tile);
+      });
 
-    return (
-      <div className={className}>
-        <a
-          className="github-icon"
-          target="_blank"
-          title="Source code on GitHub!"
-          href="https://github.com/react-puzzle-games/15-puzzle"
-        >
-          <GitHubIcon />
-        </a>
-        <div className="game-grid">
-          <Grid
-            gridSize={gridSize}
-            tileSize={tileSize}
-            tiles={this.state.tiles}
-            onTileClick={this.onTileClick}
-          />
-        </div>
-        <GameStats
-          seconds={this.state.seconds}
-          moves={this.state.moves}
-          gameState={this.state.gameState}
-        />
-        <ResetButton onResetClick={onResetClick} />
-      </div>
-    );
+      clearInterval(this.timerId);
+
+      this.setState({
+        gameState: GAME_OVER,
+        tiles: solvedTiles,
+        dialogOpen: true,
+      });
+    }
+  };
+
+  handleDialogClose = () => {
+    this.setState({
+      dialogOpen: false,
+    });
+  };
+
+  generateTiles(numbers, gridSize, tileSize) {
+    const tiles = [];
+
+    numbers.forEach((number, index) => {
+      tiles[index] = {
+        ...getTileCoords(index, gridSize, tileSize),
+        width: this.props.tileSize,
+        height: this.props.tileSize,
+        number,
+      };
+    });
+
+    return tiles;
   }
 
-  _isGameOver(tiles) {
+  isGameOver(tiles) {
     const correctedTiles = tiles.filter(tile => {
       return tile.tileId + 1 === tile.number;
     });
@@ -138,13 +110,13 @@ class Game extends Component {
     }
   }
 
-  _addTimer() {
+  addTimer() {
     this.setState(prevState => {
       return { seconds: prevState.seconds + 1 };
     });
   }
 
-  onTileClick(tile) {
+  onTileClick = tile => {
     if (this.state.gameState === GAME_OVER) {
       return;
     }
@@ -153,7 +125,7 @@ class Game extends Component {
     if (this.state.moves === 0) {
       this.timerId = setInterval(
         () => {
-          this._addTimer();
+          this.addTimer();
         },
         1000,
       );
@@ -181,21 +153,53 @@ class Game extends Component {
         'tileId',
       ]);
 
+      const checkGameOver = this.isGameOver(t);
+
       this.setState({
-        gameState: this._isGameOver(t) ? GAME_OVER : GAME_STARTED,
+        gameState: checkGameOver ? GAME_OVER : GAME_STARTED,
         tiles: t,
         moves: this.state.moves + 1,
+        dialogOpen: checkGameOver ? true : false,
       });
     }
+  };
+
+  render() {
+    const { className, gridSize, tileSize, onResetClick } = this.props;
+
+    const actions = [
+      <FlatButton label="Close" onTouchTap={this.handleDialogClose} />,
+    ];
+
+    return (
+      <div className={className}>
+        <Menu
+          seconds={this.state.seconds}
+          moves={this.state.moves}
+          onResetClick={onResetClick}
+        />
+        <Grid
+          gridSize={gridSize}
+          tileSize={tileSize}
+          tiles={this.state.tiles}
+          onTileClick={this.onTileClick}
+        />
+        <Dialog
+          title="Congrats!"
+          actions={actions}
+          modal={false}
+          open={this.state.dialogOpen}
+          onRequestClose={this.handleDialogClose}
+        >
+          You've solved the puzzle in{' '}
+          {this.state.moves}
+          {' '}moves in{' '}
+          {this.state.seconds}
+          {' '}seconds!
+        </Dialog>
+      </div>
+    );
   }
 }
 
-export default styled(Game)`
-  width: ${props => props.tileSize * props.gridSize}px;
-  height: ${props => props.tileSize * props.gridSize}px;
-  position: relative;
-
-  & div.game-grid{
-    height:86%;
-  }
-`;
+export default Game;

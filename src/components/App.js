@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import styled from 'styled-components';
 import levelFactory from './../lib/levels-factory';
 import Game from './Game';
 
@@ -49,18 +48,4 @@ class App extends Component {
   }
 }
 
-export default styled(App)`
-  flex: 1 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 500px;
-  margin-top: -50px;
-
-  & a.github-icon {
-    position: relative;
-    bottom: 80px;
-    left: 155px;
-  }
-`;
+export default App;

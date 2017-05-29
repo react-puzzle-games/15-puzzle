@@ -1,18 +1,20 @@
 import renderer from 'react-test-renderer';
 import React from 'react';
-import App from './App';
+import Game from './Game';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
-test('App renders correctly', () => {
+test('Game renders correctly', () => {
   const tree = renderer
     .create(
       <MuiThemeProvider>
-        <App
-          level={{
-            tileSet: [4, 6, 11, 1, 2, 16, 3, 15, 10, 9, 7, 13, 12, 14, 8, 5],
-          }}
+        <Game
+          gridSize={4}
+          tileSize={90}
+          numbers={[]}
+          onResetClick={() => {}}
+          original={[]}
         />
       </MuiThemeProvider>,
     )
