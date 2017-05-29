@@ -2,7 +2,7 @@ exports[`test Game renders correctly 1`] = `
 <div
   className={undefined}>
   <div
-    className="toolbar lfUaRE"
+    className="toolbar cOXRFj"
     style={
       Object {
         "WebkitTapHighlightColor": "rgba(0,0,0,0)",

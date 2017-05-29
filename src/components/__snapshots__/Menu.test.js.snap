@@ -1,6 +1,6 @@
 exports[`Menu renders correctly given default values 1`] = `
 <div
-  className="toolbar lfUaRE"
+  className="toolbar cOXRFj"
   style={
     Object {
       "WebkitTapHighlightColor": "rgba(0,0,0,0)",
