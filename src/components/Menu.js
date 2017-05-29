@@ -12,7 +12,7 @@ import GitHubIcon from './GitHubIcon';
 
 const StyledToolbar = styled(Toolbar)`
 
-@media (max-width: 1070px) {
+@media (max-width: 1094px) {
   
   & {
     justify-content: center !important;
