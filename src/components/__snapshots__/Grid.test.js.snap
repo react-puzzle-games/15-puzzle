@@ -4,7 +4,7 @@ exports[`Grid renders correctly given a set of tiles 1`] = `
   <div
     className="tiles">
     <div
-      className="sc-bdVaJa dCnBtY tile-invisible"
+      className="sc-bdVaJa jodVcS tile-invisible"
       onClick={[Function]}>
       <span
         className="tile-number">
@@ -12,7 +12,7 @@ exports[`Grid renders correctly given a set of tiles 1`] = `
       </span>
     </div>
     <div
-      className="sc-bdVaJa hxXGJF tile-invisible"
+      className="sc-bdVaJa gaQDFA tile-invisible"
       onClick={[Function]}>
       <span
         className="tile-number">
@@ -20,7 +20,7 @@ exports[`Grid renders correctly given a set of tiles 1`] = `
       </span>
     </div>
     <div
-      className="sc-bdVaJa cAoXsk tile-invisible"
+      className="sc-bdVaJa htVqMf tile-invisible"
       onClick={[Function]}>
       <span
         className="tile-number">
@@ -28,7 +28,7 @@ exports[`Grid renders correctly given a set of tiles 1`] = `
       </span>
     </div>
     <div
-      className="sc-bdVaJa jNWdwj tile-invisible"
+      className="sc-bdVaJa dQlHZv tile-invisible"
       onClick={[Function]}>
       <span
         className="tile-number">
@@ -53,7 +53,7 @@ exports[`Grid renders correctly given one tile 1`] = `
   <div
     className="tiles">
     <div
-      className="sc-bdVaJa dBwUXj tile-invisible"
+      className="sc-bdVaJa eHNnrm tile-invisible"
       onClick={[Function]}>
       <span
         className="tile-number">
