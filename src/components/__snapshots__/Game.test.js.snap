@@ -2,7 +2,7 @@ exports[`test Game renders correctly 1`] = `
 <div
   className={undefined}>
   <div
-    className="toolbar cOXRFj"
+    className="toolbar sc-bxivhb gWogfH"
     style={
       Object {
         "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -127,7 +127,7 @@ exports[`test Game renders correctly 1`] = `
                 }
               }>
               <svg
-                className="menuIcon gocSog"
+                className="menuIcon sc-htpNat btrrku"
                 height="24px"
                 version="1.1"
                 viewBox="0 0 435.549 435.549"
@@ -492,7 +492,7 @@ exports[`test Game renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="lesbon">
+    className="sc-bwzfXH iPaWuQ">
     <div
       className="tiles" />
   </div>

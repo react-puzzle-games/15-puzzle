@@ -1,6 +1,6 @@
 exports[`Tile renders correctly given correct prop 1`] = `
 <div
-  className="esNDqL"
+  className="sc-bdVaJa dFyZnU"
   onClick={[Function]}>
   <span
     className="tile-number">
@@ -11,7 +11,7 @@ exports[`Tile renders correctly given correct prop 1`] = `
 
 exports[`Tile renders correctly given custom number 1`] = `
 <div
-  className="imABQe"
+  className="sc-bdVaJa jodVcS"
   onClick={[Function]}>
   <span
     className="tile-number">
@@ -22,7 +22,7 @@ exports[`Tile renders correctly given custom number 1`] = `
 
 exports[`Tile renders correctly given default number 1`] = `
 <div
-  className="iFsnCz"
+  className="sc-bdVaJa hYSZle"
   onClick={[Function]}>
   <span
     className="tile-number">
@@ -33,7 +33,7 @@ exports[`Tile renders correctly given default number 1`] = `
 
 exports[`Tile renders correctly given visible prop 1`] = `
 <div
-  className="jVZYxz tile-invisible"
+  className="sc-bdVaJa clEXFS tile-invisible"
   onClick={[Function]}>
   <span
     className="tile-number">

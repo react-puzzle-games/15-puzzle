@@ -4,7 +4,7 @@ exports[`test App renders correctly 1`] = `
   <div
     className={undefined}>
     <div
-      className="toolbar cOXRFj"
+      className="toolbar sc-bxivhb gWogfH"
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -129,7 +129,7 @@ exports[`test App renders correctly 1`] = `
                   }
                 }>
                 <svg
-                  className="menuIcon gocSog"
+                  className="menuIcon sc-htpNat btrrku"
                   height="24px"
                   version="1.1"
                   viewBox="0 0 435.549 435.549"
@@ -494,11 +494,11 @@ exports[`test App renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="lesbon">
+      className="sc-bwzfXH iPaWuQ">
       <div
         className="tiles">
         <div
-          className="imABQe"
+          className="sc-bdVaJa jodVcS"
           onClick={[Function]}>
           <span
             className="tile-number">
@@ -506,7 +506,7 @@ exports[`test App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="encXww"
+          className="sc-bdVaJa kDOhdO"
           onClick={[Function]}>
           <span
             className="tile-number">
@@ -514,7 +514,7 @@ exports[`test App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="jkyBuf"
+          className="sc-bdVaJa kuDsYV"
           onClick={[Function]}>
           <span
             className="tile-number">
@@ -522,7 +522,7 @@ exports[`test App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="fbNVrf"
+          className="sc-bdVaJa gdkWCP"
           onClick={[Function]}>
           <span
             className="tile-number">
@@ -530,7 +530,7 @@ exports[`test App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="fGtDcI"
+          className="sc-bdVaJa eGtjbz"
           onClick={[Function]}>
           <span
             className="tile-number">
@@ -538,7 +538,7 @@ exports[`test App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="iFttuS tile-invisible"
+          className="sc-bdVaJa dQlHZv tile-invisible"
           onClick={[Function]}>
           <span
             className="tile-number">
@@ -546,7 +546,7 @@ exports[`test App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="fiLluN"
+          className="sc-bdVaJa kBiHxX"
           onClick={[Function]}>
           <span
             className="tile-number">
@@ -554,7 +554,7 @@ exports[`test App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="fIDRFS"
+          className="sc-bdVaJa cTMJLH"
           onClick={[Function]}>
           <span
             className="tile-number">
@@ -562,7 +562,7 @@ exports[`test App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="bCvHEr"
+          className="sc-bdVaJa OLOrJ"
           onClick={[Function]}>
           <span
             className="tile-number">
@@ -570,7 +570,7 @@ exports[`test App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="jKLixt"
+          className="sc-bdVaJa jEWiKC"
           onClick={[Function]}>
           <span
             className="tile-number">
@@ -578,7 +578,7 @@ exports[`test App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="hRgRiY"
+          className="sc-bdVaJa iNhzuc"
           onClick={[Function]}>
           <span
             className="tile-number">
@@ -586,7 +586,7 @@ exports[`test App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="eCKcAy"
+          className="sc-bdVaJa dgHghA"
           onClick={[Function]}>
           <span
             className="tile-number">
@@ -594,7 +594,7 @@ exports[`test App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="axVVy"
+          className="sc-bdVaJa Wysje"
           onClick={[Function]}>
           <span
             className="tile-number">
@@ -602,7 +602,7 @@ exports[`test App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="fksVmA"
+          className="sc-bdVaJa fOJyhL"
           onClick={[Function]}>
           <span
             className="tile-number">
@@ -610,7 +610,7 @@ exports[`test App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="jmqTE"
+          className="sc-bdVaJa iBUMhU"
           onClick={[Function]}>
           <span
             className="tile-number">
@@ -618,7 +618,7 @@ exports[`test App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="zTxVg"
+          className="sc-bdVaJa dqEnqq"
           onClick={[Function]}>
           <span
             className="tile-number">

@@ -1,6 +1,6 @@
 exports[`Menu renders correctly given default values 1`] = `
 <div
-  className="toolbar cOXRFj"
+  className="toolbar sc-bwzfXH chaHyI"
   style={
     Object {
       "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -125,7 +125,7 @@ exports[`Menu renders correctly given default values 1`] = `
               }
             }>
             <svg
-              className="menuIcon gocSog"
+              className="menuIcon sc-bdVaJa dSoADu"
               height="24px"
               version="1.1"
               viewBox="0 0 435.549 435.549"
