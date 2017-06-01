@@ -1,16 +1,9 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-
+import PropTypes from 'prop-types';
 import Tile, { propTypes as TilePropTypes } from './Tile';
 
 class Grid extends Component {
-  static propTypes = {
-    tiles: PropTypes.arrayOf(PropTypes.shape(TilePropTypes)).isRequired,
-    gridSize: PropTypes.number.isRequired,
-    tileSize: PropTypes.number.isRequired,
-    onTileClick: PropTypes.func.isRequired,
-  };
-
   render() {
     const {
       className,
@@ -38,6 +31,13 @@ class Grid extends Component {
     );
   }
 }
+
+Grid.propTypes = {
+  tiles: PropTypes.arrayOf(PropTypes.shape(TilePropTypes)).isRequired,
+  gridSize: PropTypes.number.isRequired,
+  tileSize: PropTypes.number.isRequired,
+  onTileClick: PropTypes.func.isRequired,
+};
 
 export default styled(Grid)`
   flex: 1;

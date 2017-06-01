@@ -1,9 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Tile renders correctly given correct prop 1`] = `
 <div
   className="sc-bdVaJa dFyZnU"
-  onClick={[Function]}>
+  onClick={[Function]}
+>
   <span
-    className="tile-number">
+    className="tile-number"
+  >
     0
   </span>
 </div>
@@ -12,9 +16,11 @@ exports[`Tile renders correctly given correct prop 1`] = `
 exports[`Tile renders correctly given custom number 1`] = `
 <div
   className="sc-bdVaJa jodVcS"
-  onClick={[Function]}>
+  onClick={[Function]}
+>
   <span
-    className="tile-number">
+    className="tile-number"
+  >
     13
   </span>
 </div>
@@ -23,9 +29,11 @@ exports[`Tile renders correctly given custom number 1`] = `
 exports[`Tile renders correctly given default number 1`] = `
 <div
   className="sc-bdVaJa hYSZle"
-  onClick={[Function]}>
+  onClick={[Function]}
+>
   <span
-    className="tile-number">
+    className="tile-number"
+  >
     0
   </span>
 </div>
@@ -34,9 +42,11 @@ exports[`Tile renders correctly given default number 1`] = `
 exports[`Tile renders correctly given visible prop 1`] = `
 <div
   className="sc-bdVaJa clEXFS tile-invisible"
-  onClick={[Function]}>
+  onClick={[Function]}
+>
   <span
-    className="tile-number">
+    className="tile-number"
+  >
     0
   </span>
 </div>
