@@ -4,10 +4,11 @@
   "private": true,
   "devDependencies": {
     "coveralls": "^2.11.16",
+    "eslint-config-airbnb": "^15.0.1",
     "lint-staged": "^3.3.1",
     "pre-commit": "^1.2.2",
     "prettier": "^0.18.0",
-    "react-scripts": "0.8.5",
+    "react-scripts": "^1.0.7",
     "react-test-renderer": "^15.4.2"
   },
   "dependencies": {
@@ -29,7 +30,7 @@
     "lint:staged": "lint-staged"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "airbnb"
   },
   "lint-staged": {
     "*.js": [

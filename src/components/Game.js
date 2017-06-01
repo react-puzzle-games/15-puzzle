@@ -1,28 +1,13 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { getTileCoords, distanceBetween, invert } from '../lib/utils';
 import Grid from './Grid';
 import Menu from './Menu';
 import { GAME_IDLE, GAME_OVER, GAME_STARTED } from '../lib/game-status';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import PropTypes from 'prop-types';
 
 class Game extends Component {
-  static propTypes = {
-    numbers: PropTypes.arrayOf(PropTypes.number).isRequired,
-    original: PropTypes.arrayOf(PropTypes.number),
-    tileSize: PropTypes.number,
-    gridSize: PropTypes.number,
-    moves: PropTypes.number,
-    seconds: PropTypes.number,
-  };
-
-  static defaultProps = {
-    tileSize: 90,
-    gridSize: 4,
-    moves: 0,
-    seconds: 0,
-  };
-
   constructor(props) {
     super(props);
 
@@ -201,5 +186,21 @@ class Game extends Component {
     );
   }
 }
+
+Game.propTypes = {
+  numbers: PropTypes.arrayOf(PropTypes.number).isRequired,
+  original: PropTypes.arrayOf(PropTypes.number),
+  tileSize: PropTypes.number,
+  gridSize: PropTypes.number,
+  moves: PropTypes.number,
+  seconds: PropTypes.number,
+};
+
+Game.defaultProps = {
+  tileSize: 90,
+  gridSize: 4,
+  moves: 0,
+  seconds: 0,
+};
 
 export default Game;

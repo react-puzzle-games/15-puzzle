@@ -1,6 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 
 class Tile extends Component {
   constructor(props) {
@@ -9,23 +10,9 @@ class Tile extends Component {
     this.onClick = this.onClick.bind(this);
   }
 
-  static propTypes = {
-    tileId: PropTypes.number.isRequired,
-    width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
-    left: PropTypes.number.isRequired,
-    top: PropTypes.number.isRequired,
-    number: PropTypes.number,
-    onClick: PropTypes.func,
-    correct: PropTypes.bool,
-    visible: PropTypes.bool,
-  };
-
-  static defaultProps = {
-    number: 0,
-    correct: false,
-    visible: true,
-  };
+  onClick() {
+    this.props.onClick(this.props);
+  }
 
   render() {
     const { className, number, visible } = this.props;
@@ -40,11 +27,25 @@ class Tile extends Component {
       </div>
     );
   }
-
-  onClick() {
-    this.props.onClick(this.props);
-  }
 }
+
+Tile.propTypes = {
+  tileId: PropTypes.number.isRequired,
+  width: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
+  left: PropTypes.number.isRequired,
+  top: PropTypes.number.isRequired,
+  number: PropTypes.number,
+  onClick: PropTypes.func,
+  correct: PropTypes.bool,
+  visible: PropTypes.bool,
+};
+
+Tile.defaultProps = {
+  number: 0,
+  correct: false,
+  visible: true,
+};
 
 export default styled(Tile)`
   border: 1px solid #FFD1AA;

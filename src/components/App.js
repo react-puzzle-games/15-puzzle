@@ -1,14 +1,9 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import levelFactory from './../lib/levels-factory';
 import Game from './Game';
+import PropTypes from 'prop-types';
 
 class App extends Component {
-  static propTypes = {
-    level: PropTypes.shape({
-      tileSet: PropTypes.arrayOf(PropTypes.number).isRequired,
-    }),
-  };
-
   constructor(props) {
     super(props);
 
@@ -47,5 +42,11 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  level: PropTypes.shape({
+    tileSet: PropTypes.arrayOf(PropTypes.number).isRequired,
+  }),
+};
 
 export default App;
