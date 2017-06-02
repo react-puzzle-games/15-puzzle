@@ -25,12 +25,6 @@ class Game extends Component {
     document.addEventListener('keydown', this.keyDownListener);
   }
 
-  componentWillUpdate(nextProps, nextState) {
-    if (nextState.gameState === GAME_OVER && nextState.gameState !== this.state.gameState) {
-      clearInterval(this.timerId);
-    }
-  }
-
   componentWillReceiveProps(nextProps) {
     const { tileSize, gridSize } = this.props;
     const newTiles = this.generateTiles(nextProps.numbers, gridSize, tileSize);
@@ -45,24 +39,11 @@ class Game extends Component {
     clearInterval(this.timerId);
   }
 
-  // End game by pressing CTRL + ALT + F
-  keyDownListener = key => {
-    if (key.ctrlKey && key.altKey && key.code === 'KeyF') {
-      const { original, gridSize, tileSize } = this.props;
-      const solvedTiles = this.generateTiles(original, gridSize, tileSize).map((tile, index) => {
-        tile.number = index + 1;
-        return Object.assign({}, tile);
-      });
-
+  componentWillUpdate(nextProps, nextState) {
+    if (nextState.gameState === GAME_OVER && nextState.gameState !== this.state.gameState) {
       clearInterval(this.timerId);
-
-      this.setState({
-        gameState: GAME_OVER,
-        tiles: solvedTiles,
-        dialogOpen: true
-      });
     }
-  };
+  }
 
   handleDialogClose = () => {
     this.setState({
@@ -134,6 +115,28 @@ class Game extends Component {
         tiles: t,
         moves: this.state.moves + 1,
         dialogOpen: !!checkGameOver
+      });
+    }
+  };
+
+  // End game by pressing CTRL + ALT + F
+  keyDownListener = key => {
+    if (key.ctrlKey && key.altKey && key.code === 'KeyF') {
+      const { original, gridSize, tileSize } = this.props;
+      const solvedTiles = this.generateTiles(original, gridSize, tileSize).map((tile, index) => {
+        return {
+          ...tile, {
+            number: index + 1
+          }
+        }
+      });
+
+      clearInterval(this.timerId);
+
+      this.setState({
+        gameState: GAME_OVER,
+        tiles: solvedTiles,
+        dialogOpen: true
       });
     }
   };

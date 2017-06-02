@@ -1,7 +1,7 @@
 import renderer from 'react-test-renderer';
 import React from 'react';
-import Menu from './Menu';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Menu from '../Menu';
 
 describe('Menu renders correctly', () => {
   test('given default values', () => {

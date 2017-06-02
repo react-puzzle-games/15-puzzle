@@ -1,4 +1,4 @@
-import factory from './levels-factory';
+import factory from '../levels-factory';
 
 it('throws if given a size that is not a perfect square', () => {
   expect(() => factory(13)).toThrowError();

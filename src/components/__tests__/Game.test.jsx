@@ -1,11 +1,9 @@
-import renderer from 'react-test-renderer';
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import Game from './Game';
-import Tile from './Tile';
-import * as GameStates from '../lib/game-status';
+import Game from '../Game';
+import * as GameStates from '../../lib/game-status';
 
 injectTapEventPlugin();
 

@@ -14,7 +14,11 @@ export const range = length => Array.from({ length }, (v, i) => Number.parseInt(
  * @returns {Array} Resulting slice
  */
 export const randomSubarray = (arr, size) => {
-  let shuffled = arr.slice(0), i = arr.length, temp, index;
+  const shuffled = arr.slice(0);
+  let i = arr.length;
+  let temp;
+  let index;
+
   while (i--) {
     index = Math.floor((i + 1) * Math.random());
     temp = shuffled[index];
@@ -44,6 +48,7 @@ export const getTileCoords = (index, gridSize, tileSize) => {
   }
 
   const column = index % gridSize;
+  // eslint-disable-next-line no-bitwise
   const row = (index / gridSize) << 0;
 
   return {

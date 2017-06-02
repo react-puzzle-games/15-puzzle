@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+// @flow
+import React from 'react';
 import styled from 'styled-components';
 import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -18,7 +19,7 @@ const StyledToolbar = styled(Toolbar)`
     justify-content: center !important;
   }
 
-  .toolbarTitle {
+  .toolbar-title {
     display: none;
   }
 
@@ -42,45 +43,41 @@ const StyledToolbar = styled(Toolbar)`
 
 `;
 
-class Menu extends Component {
-  render() {
-    const { seconds, moves, onResetClick } = this.props;
+const Menu = ({ seconds, moves, onResetClick }) => (
+  <StyledToolbar>
+    <ToolbarTitle className="toolbar-title" text="React Puzzle Games - 15 Puzzle" />
+    <ToolbarGroup>
+      <RaisedButton
+        className="menuButton"
+        label="Project home"
+        target="_blank"
+        href="https://github.com/react-puzzle-games/15-puzzle/"
+        icon={<GitHubIcon className="menuIcon" />}
+      />
+      <RaisedButton
+        className="menuButton"
+        label="Reset game"
+        onTouchTap={onResetClick}
+        icon={<Replay className="menuIcon" />}
+      />
+      <Chip>
+        <Avatar icon={<Alarm />} />
+        <MediaQuery query="(min-width: 772px)" component="span">
+          Time Elapsed:{' '}
+        </MediaQuery>
+        {seconds}s
+      </Chip>
+      <Chip>
+        <Avatar icon={<Moves />} />
+        <MediaQuery query="(min-width: 772px)" component="span">
+          Moves Counter:{' '}
+        </MediaQuery>
+        {moves}
+      </Chip>
+    </ToolbarGroup>
+  </StyledToolbar>
+);
 
-    return (
-      <StyledToolbar className="toolbar">
-        <ToolbarTitle className="toolbarTitle" text="React Puzzle Games - 15 Puzzle" />
-        <ToolbarGroup>
-          <RaisedButton
-            className="menuButton"
-            label="Project home"
-            target="_blank"
-            href="https://github.com/react-puzzle-games/15-puzzle/"
-            icon={<GitHubIcon className="menuIcon" />}
-          />
-          <RaisedButton
-            className="menuButton"
-            label="Reset game"
-            onTouchTap={onResetClick}
-            icon={<Replay className="menuIcon" />}
-          />
-          <Chip>
-            <Avatar icon={<Alarm />} />
-            <MediaQuery query="(min-width: 772px)" component="span">
-              Time Elapsed:{' '}
-            </MediaQuery>
-            {seconds}s
-          </Chip>
-          <Chip>
-            <Avatar icon={<Moves />} />
-            <MediaQuery query="(min-width: 772px)" component="span">
-              Moves Counter:{' '}
-            </MediaQuery>
-            {moves}
-          </Chip>
-        </ToolbarGroup>
-      </StyledToolbar>
-    );
-  }
-}
+Menu.propTypes = {};
 
 export default Menu;

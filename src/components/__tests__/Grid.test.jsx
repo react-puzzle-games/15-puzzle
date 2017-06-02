@@ -1,6 +1,6 @@
 import renderer from 'react-test-renderer';
 import React from 'react';
-import Grid from './Grid';
+import Grid from '../Grid';
 
 describe('Grid renders correctly', () => {
   test('given an empty set of tiles', () => {
