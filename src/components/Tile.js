@@ -8,7 +8,7 @@ class Tile extends Component {
     const { className, number, visible } = this.props;
     const classes = classnames({
       [className]: true,
-      'tile-invisible': !visible,
+      'tile-invisible': !visible
     });
 
     return (
@@ -20,7 +20,7 @@ class Tile extends Component {
 
   onClick = () => {
     this.props.onClick({
-      number: this.props.number,
+      number: this.props.number
     });
   };
 }
@@ -34,13 +34,13 @@ Tile.propTypes = {
   number: PropTypes.number,
   onClick: PropTypes.func,
   correct: PropTypes.bool,
-  visible: PropTypes.bool,
+  visible: PropTypes.bool
 };
 
 Tile.defaultProps = {
   number: 0,
   correct: false,
-  visible: true,
+  visible: true
 };
 
 export default styled(Tile)`

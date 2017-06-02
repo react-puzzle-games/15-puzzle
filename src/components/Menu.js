@@ -48,10 +48,7 @@ class Menu extends Component {
 
     return (
       <StyledToolbar className="toolbar">
-        <ToolbarTitle
-          className="toolbarTitle"
-          text="React Puzzle Games - 15 Puzzle"
-        />
+        <ToolbarTitle className="toolbarTitle" text="React Puzzle Games - 15 Puzzle" />
         <ToolbarGroup>
           <RaisedButton
             className="menuButton"

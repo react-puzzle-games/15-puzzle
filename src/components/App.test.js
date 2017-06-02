@@ -11,10 +11,10 @@ test('App renders correctly', () => {
       <MuiThemeProvider>
         <App
           level={{
-            tileSet: [4, 6, 11, 1, 2, 16, 3, 15, 10, 9, 7, 13, 12, 14, 8, 5],
+            tileSet: [4, 6, 11, 1, 2, 16, 3, 15, 10, 9, 7, 13, 12, 14, 8, 5]
           }}
         />
-      </MuiThemeProvider>,
+      </MuiThemeProvider>
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

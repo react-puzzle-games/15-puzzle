@@ -23,12 +23,14 @@
     "enzyme": "^2.8.2",
     "eslint": "3.19.0",
     "eslint-config-airbnb": "^15.0.1",
+    "eslint-config-prettier": "^2.1.1",
     "eslint-config-react-app": "^1.0.4",
     "eslint-loader": "1.7.1",
-    "eslint-plugin-flowtype": "2.33.0",
+    "eslint-plugin-flowtype": "^2.34.0",
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "5.0.3",
-    "eslint-plugin-react": "7.0.1",
+    "eslint-plugin-prettier": "^2.1.1",
+    "eslint-plugin-react": "^7.0.1",
     "extract-text-webpack-plugin": "2.1.0",
     "file-loader": "0.11.1",
     "fs-extra": "3.0.1",
@@ -65,17 +67,49 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
+    "lint": "eslint --fix --ext js,jsx src/*",
+    "lint:files": "eslint --fix --ext js,jsx",
     "test": "node scripts/test.js --env=jsdom",
     "test:coverage": "npm test -- --coverage",
     "test:coveralls": "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
     "lint:staged": "lint-staged"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "airbnb",
+      "plugin:flowtype/recommended",
+      "prettier"
+    ],
+    "plugins": [
+      "flowtype",
+      "prettier"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 2017,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "env": {
+      "es6": true,
+      "node": true,
+      "jest": true
+    },
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "printWidth": 100
+        }
+      ]
+    },
+    "parser": "babel-eslint"
   },
   "lint-staged": {
     "*.js": [
-      "prettier --write --single-quote --trailing-comma=all --print-width=100",
+      "npm run lint:files",
       "git add"
     ]
   },

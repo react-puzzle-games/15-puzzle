@@ -9,7 +9,7 @@ describe('Menu renders correctly', () => {
       .create(
         <MuiThemeProvider>
           <Menu seconds={0} moves={0} onResetClick={() => {}} />
-        </MuiThemeProvider>,
+        </MuiThemeProvider>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

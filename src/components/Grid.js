@@ -10,17 +10,15 @@ class Grid extends Component {
     return (
       <div className={className}>
         <div className="tiles">
-          {tiles.map((tile, tileId) => {
-            return (
-              <Tile
-                {...tile}
-                key={`tile-${tileId}`}
-                correct={tile.tileId + 1 === tile.number}
-                onClick={onTileClick}
-                visible={tile.number < gridSize ** 2}
-              />
-            );
-          })}
+          {tiles.map((tile, tileId) => (
+            <Tile
+              {...tile}
+              key={`tile-${tileId}`}
+              correct={tile.tileId + 1 === tile.number}
+              onClick={onTileClick}
+              visible={tile.number < gridSize ** 2}
+            />
+          ))}
         </div>
       </div>
     );
@@ -31,7 +29,7 @@ Grid.propTypes = {
   tiles: PropTypes.arrayOf(PropTypes.shape(TilePropTypes)).isRequired,
   gridSize: PropTypes.number.isRequired,
   tileSize: PropTypes.number.isRequired,
-  onTileClick: PropTypes.func.isRequired,
+  onTileClick: PropTypes.func.isRequired
 };
 
 export default styled(Grid)`

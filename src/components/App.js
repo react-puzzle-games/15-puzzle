@@ -12,7 +12,7 @@ class App extends Component {
 
     this.state = {
       original: originalLevel,
-      level: level,
+      level
     };
 
     this.onResetClick = this.onResetClick.bind(this);
@@ -21,8 +21,8 @@ class App extends Component {
   onResetClick() {
     this.setState({
       level: {
-        tileSet: this.state.original.tileSet,
-      },
+        tileSet: this.state.original.tileSet
+      }
     });
   }
 
@@ -45,8 +45,8 @@ class App extends Component {
 
 App.propTypes = {
   level: PropTypes.shape({
-    tileSet: PropTypes.arrayOf(PropTypes.number).isRequired,
-  }),
+    tileSet: PropTypes.arrayOf(PropTypes.number).isRequired
+  })
 };
 
 export default App;

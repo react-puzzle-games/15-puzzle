@@ -5,5 +5,5 @@ export const GAME_OVER = Symbol('GAME_OVER');
 export default {
   GAME_IDLE,
   GAME_STARTED,
-  GAME_OVER,
+  GAME_OVER
 };

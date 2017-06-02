@@ -4,9 +4,7 @@
  * @param {Number} length Number of items in the resulting Array
  * @returns {Array} Array of numbers
  */
-export const range = length => {
-  return Array.from({ length }, (v, i) => Number.parseInt(i + 1, 10));
-};
+export const range = length => Array.from({ length }, (v, i) => Number.parseInt(i + 1, 10));
 
 /**
  * Get random slice from an array based on Fisher Yates shuffle.
@@ -46,14 +44,14 @@ export const getTileCoords = (index, gridSize, tileSize) => {
   }
 
   const column = index % gridSize;
-  const row = index / gridSize << 0;
+  const row = (index / gridSize) << 0;
 
   return {
     column,
     row,
     left: column * tileSize,
     top: row * tileSize,
-    tileId: index,
+    tileId: index
   };
 };
 
@@ -78,8 +76,8 @@ export const distanceBetween = (tileACoords, tileBCoords) => {
     neighbours: sameRowDiffColumn || sameColumnDiffRow,
     distance: {
       rows: rowDiff,
-      columns: columnDiff,
-    },
+      columns: columnDiff
+    }
   };
 };
 

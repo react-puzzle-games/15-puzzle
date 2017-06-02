@@ -5,9 +5,7 @@ import Grid from './Grid';
 describe('Grid renders correctly', () => {
   test('given an empty set of tiles', () => {
     const tree = renderer
-      .create(
-        <Grid tiles={[]} onTileClick={() => {}} tileSize={90} gridSize={4} />,
-      )
+      .create(<Grid tiles={[]} onTileClick={() => {}} tileSize={90} gridSize={4} />)
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
@@ -21,13 +19,13 @@ describe('Grid renders correctly', () => {
               width: 90,
               height: 90,
               left: 0,
-              top: -180,
-            },
+              top: -180
+            }
           ]}
           onTileClick={() => {}}
           tileSize={90}
           gridSize={1}
-        />,
+        />
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -43,7 +41,7 @@ describe('Grid renders correctly', () => {
               height: 90,
               left: 0,
               top: 0,
-              number: 4,
+              number: 4
             },
             {
               tileId: 1,
@@ -51,7 +49,7 @@ describe('Grid renders correctly', () => {
               height: 90,
               left: 90,
               top: 0,
-              number: 2,
+              number: 2
             },
             {
               tileId: 2,
@@ -59,7 +57,7 @@ describe('Grid renders correctly', () => {
               height: 90,
               left: 0,
               top: 90,
-              number: 3,
+              number: 3
             },
             {
               tileId: 3,
@@ -67,13 +65,13 @@ describe('Grid renders correctly', () => {
               height: 90,
               left: 90,
               top: 90,
-              number: 1,
-            },
+              number: 1
+            }
           ]}
           onTileClick={() => {}}
           tileSize={90}
           gridSize={1}
-        />,
+        />
       )
       .toJSON();
     expect(tree).toMatchSnapshot();

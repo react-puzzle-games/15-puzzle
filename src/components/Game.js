@@ -19,7 +19,7 @@ class Game extends Component {
       gameState: GAME_IDLE,
       moves,
       seconds,
-      dialogOpen: false,
+      dialogOpen: false
     };
 
     document.addEventListener('keydown', this.keyDownListener);
@@ -39,7 +39,7 @@ class Game extends Component {
       gameState: GAME_IDLE,
       tiles: newTiles,
       moves: 0,
-      seconds: 0,
+      seconds: 0
     });
 
     clearInterval(this.timerId);
@@ -59,14 +59,14 @@ class Game extends Component {
       this.setState({
         gameState: GAME_OVER,
         tiles: solvedTiles,
-        dialogOpen: true,
+        dialogOpen: true
       });
     }
   };
 
   handleDialogClose = () => {
     this.setState({
-      dialogOpen: false,
+      dialogOpen: false
     });
   };
 
@@ -78,7 +78,7 @@ class Game extends Component {
         ...getTileCoords(index, gridSize, tileSize),
         width: this.props.tileSize,
         height: this.props.tileSize,
-        number,
+        number
       };
     });
 
@@ -86,22 +86,17 @@ class Game extends Component {
   }
 
   isGameOver(tiles) {
-    const correctedTiles = tiles.filter(tile => {
-      return tile.tileId + 1 === tile.number;
-    });
+    const correctedTiles = tiles.filter(tile => tile.tileId + 1 === tile.number);
 
     if (correctedTiles.length === this.props.gridSize ** 2) {
       clearInterval(this.timerId);
       return true;
-    } else {
-      return false;
     }
+    return false;
   }
 
   addTimer() {
-    this.setState(prevState => {
-      return { seconds: prevState.seconds + 1 };
-    });
+    this.setState(prevState => ({ seconds: prevState.seconds + 1 }));
   }
 
   onTileClick = tile => {
@@ -128,7 +123,7 @@ class Game extends Component {
     // Is this tale neighbouring the zero tile? If so, switch them.
     const d = distanceBetween(tile, emptyTile);
     if (d.neighbours) {
-      let t = Array.from(this.state.tiles).map(t => ({ ...t }));
+      const t = Array.from(this.state.tiles).map(t => ({ ...t }));
 
       invert(t, emptyTileIndex, tileIndex, ['top', 'left', 'row', 'column', 'tileId']);
 
@@ -138,7 +133,7 @@ class Game extends Component {
         gameState: checkGameOver ? GAME_OVER : GAME_STARTED,
         tiles: t,
         moves: this.state.moves + 1,
-        dialogOpen: checkGameOver ? true : false,
+        dialogOpen: !!checkGameOver
       });
     }
   };
@@ -181,14 +176,14 @@ Game.propTypes = {
   tileSize: PropTypes.number,
   gridSize: PropTypes.number,
   moves: PropTypes.number,
-  seconds: PropTypes.number,
+  seconds: PropTypes.number
 };
 
 Game.defaultProps = {
   tileSize: 90,
   gridSize: 4,
   moves: 0,
-  seconds: 0,
+  seconds: 0
 };
 
 export default Game;
