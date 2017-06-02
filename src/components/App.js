@@ -4,12 +4,6 @@ import levelFactory from './../lib/levels-factory';
 import Game from './Game';
 
 class App extends Component {
-  static propTypes = {
-    level: PropTypes.shape({
-      tileSet: PropTypes.arrayOf(PropTypes.number).isRequired,
-    }),
-  };
-
   constructor(props) {
     super(props);
 
@@ -48,5 +42,11 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  level: PropTypes.shape({
+    tileSet: PropTypes.arrayOf(PropTypes.number).isRequired,
+  }),
+};
 
 export default App;

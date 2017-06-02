@@ -1,27 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 
 class Tile extends Component {
-  static propTypes = {
-    tileId: PropTypes.number.isRequired,
-    width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
-    left: PropTypes.number.isRequired,
-    top: PropTypes.number.isRequired,
-    number: PropTypes.number,
-    onClick: PropTypes.func,
-    correct: PropTypes.bool,
-    visible: PropTypes.bool,
-  };
-
-  static defaultProps = {
-    number: 0,
-    correct: false,
-    visible: true,
-  };
-
   render() {
     const { className, number, visible } = this.props;
     const classes = classnames({
@@ -43,6 +25,24 @@ class Tile extends Component {
   };
 }
 
+Tile.propTypes = {
+  tileId: PropTypes.number.isRequired,
+  width: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired,
+  left: PropTypes.number.isRequired,
+  top: PropTypes.number.isRequired,
+  number: PropTypes.number,
+  onClick: PropTypes.func,
+  correct: PropTypes.bool,
+  visible: PropTypes.bool,
+};
+
+Tile.defaultProps = {
+  number: 0,
+  correct: false,
+  visible: true,
+};
+
 export default styled(Tile)`
   border: 1px solid #FFD1AA;
   position: absolute;
@@ -55,7 +55,7 @@ export default styled(Tile)`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background-color: ${props => props.correct ? '#226666' : '#D4726A'};
+  background-color: ${props => (props.correct ? '#226666' : '#D4726A')};
   transition-property: top, left, background-color;
   transition-duration: .300s;
   transition-timing-function: ease-in;
@@ -63,7 +63,7 @@ export default styled(Tile)`
   .tile-number {
     color: #FFD1AA;
     font-weight: 400;
-    fontSize: 1.8em;
+    font-size: 1.8em;
     user-select: none;
   }
 

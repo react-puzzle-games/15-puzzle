@@ -1,37 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Grid renders correctly given a set of tiles 1`] = `
 <div
-  className="jQCioR">
+  className="sc-bwzfXH jBBIHp"
+>
   <div
-    className="tiles">
+    className="tiles"
+  >
     <div
-      className="imABQe tile-invisible"
-      onClick={[Function]}>
+      className="sc-bdVaJa jodVcS tile-invisible"
+      onClick={[Function]}
+    >
       <span
-        className="tile-number">
+        className="tile-number"
+      >
         4
       </span>
     </div>
     <div
-      className="dAYZtT tile-invisible"
-      onClick={[Function]}>
+      className="sc-bdVaJa gaQDFA tile-invisible"
+      onClick={[Function]}
+    >
       <span
-        className="tile-number">
+        className="tile-number"
+      >
         2
       </span>
     </div>
     <div
-      className="gCumpU tile-invisible"
-      onClick={[Function]}>
+      className="sc-bdVaJa htVqMf tile-invisible"
+      onClick={[Function]}
+    >
       <span
-        className="tile-number">
+        className="tile-number"
+      >
         3
       </span>
     </div>
     <div
-      className="iFttuS tile-invisible"
-      onClick={[Function]}>
+      className="sc-bdVaJa dQlHZv tile-invisible"
+      onClick={[Function]}
+    >
       <span
-        className="tile-number">
+        className="tile-number"
+      >
         1
       </span>
     </div>
@@ -41,22 +53,28 @@ exports[`Grid renders correctly given a set of tiles 1`] = `
 
 exports[`Grid renders correctly given an empty set of tiles 1`] = `
 <div
-  className="lesbon">
+  className="sc-bwzfXH iPaWuQ"
+>
   <div
-    className="tiles" />
+    className="tiles"
+  />
 </div>
 `;
 
 exports[`Grid renders correctly given one tile 1`] = `
 <div
-  className="jQCioR">
+  className="sc-bwzfXH jBBIHp"
+>
   <div
-    className="tiles">
+    className="tiles"
+  >
     <div
-      className="kaVAwu tile-invisible"
-      onClick={[Function]}>
+      className="sc-bdVaJa eHNnrm tile-invisible"
+      onClick={[Function]}
+    >
       <span
-        className="tile-number">
+        className="tile-number"
+      >
         0
       </span>
     </div>

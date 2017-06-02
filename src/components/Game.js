@@ -8,24 +8,6 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 
 class Game extends Component {
-  static propTypes = {
-    numbers: PropTypes.arrayOf(PropTypes.number).isRequired,
-    original: PropTypes.arrayOf(PropTypes.number),
-    tileSize: PropTypes.number,
-    gridSize: PropTypes.number,
-    moves: PropTypes.number,
-    seconds: PropTypes.number,
-    onResetClick: PropTypes.func.isRequired,
-    onTileClick: PropTypes.func.isRequired,
-  };
-
-  static defaultProps = {
-    tileSize: 90,
-    gridSize: 4,
-    moves: 0,
-    seconds: 0,
-  };
-
   constructor(props) {
     super(props);
 
@@ -192,5 +174,21 @@ class Game extends Component {
     );
   }
 }
+
+Game.propTypes = {
+  numbers: PropTypes.arrayOf(PropTypes.number).isRequired,
+  original: PropTypes.arrayOf(PropTypes.number),
+  tileSize: PropTypes.number,
+  gridSize: PropTypes.number,
+  moves: PropTypes.number,
+  seconds: PropTypes.number,
+};
+
+Game.defaultProps = {
+  tileSize: 90,
+  gridSize: 4,
+  moves: 0,
+  seconds: 0,
+};
 
 export default Game;
