@@ -47,6 +47,9 @@
     "react-error-overlay": "^1.0.7",
     "react-test-renderer": "^15.5.4",
     "style-loader": "0.17.0",
+    "stylelint": "^7.10.1",
+    "stylelint-config-standard": "^16.0.0",
+    "stylelint-processor-styled-components": "^0.1.0",
     "sw-precache-webpack-plugin": "0.9.1",
     "url-loader": "0.5.8",
     "webpack": "2.6.1",
@@ -67,8 +70,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "lint": "eslint --fix --ext js,jsx src/*",
-    "lint:files": "eslint --fix --ext js,jsx",
+    "lint": "eslint --fix --ext js,jsx src/* && stylelint 'src/**/*.jsx'",
+    "lint:js": "eslint --fix --ext js,jsx",
+    "lint:css": "stylelint",
     "test": "node scripts/test.js --env=jsdom",
     "test:coverage": "npm test -- --coverage",
     "test:coveralls": "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
@@ -92,8 +96,8 @@
       }
     },
     "env": {
+      "browser": true,
       "es6": true,
-      "node": true,
       "jest": true
     },
     "rules": {
@@ -108,8 +112,9 @@
     "parser": "babel-eslint"
   },
   "lint-staged": {
-    "*.js": [
-      "npm run lint:files",
+    "*.{js,jsx}": [
+      "npm run lint:js",
+      "npm run lint:css",
       "git add"
     ]
   },
@@ -157,5 +162,12 @@
         }
       ]
     ]
+  },
+  "stylelint": {
+    "processors": [
+      "stylelint-processor-styled-components"
+    ],
+    "extends": "stylelint-config-standard",
+    "syntax": "scss"
   }
 }

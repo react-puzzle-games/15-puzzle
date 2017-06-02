@@ -1,7 +1,6 @@
 import renderer from 'react-test-renderer';
 import React from 'react';
-import Tile from './Tile';
-import { Component as ReactTile } from './Tile';
+import Tile, { Component as ReactTile } from './Tile';
 import { shallow } from 'enzyme';
 
 describe('Tile', () => {

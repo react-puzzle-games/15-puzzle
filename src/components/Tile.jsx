@@ -4,6 +4,12 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
 class Tile extends Component {
+  onClick = () => {
+    this.props.onClick({
+      number: this.props.number
+    });
+  };
+
   render() {
     const { className, number, visible } = this.props;
     const classes = classnames({
@@ -17,12 +23,6 @@ class Tile extends Component {
       </div>
     );
   }
-
-  onClick = () => {
-    this.props.onClick({
-      number: this.props.number
-    });
-  };
 }
 
 Tile.propTypes = {
@@ -32,7 +32,7 @@ Tile.propTypes = {
   left: PropTypes.number.isRequired,
   top: PropTypes.number.isRequired,
   number: PropTypes.number,
-  onClick: PropTypes.func,
+  onClick: PropTypes.func.isRequired,
   correct: PropTypes.bool,
   visible: PropTypes.bool
 };
