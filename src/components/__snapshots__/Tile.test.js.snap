@@ -1,23 +1,14 @@
-<<<<<<< HEAD
-exports[`Tile render tests should render correctly given correct prop 1`] = `
-=======
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tile renders correctly given correct prop 1`] = `
->>>>>>> @{-1}
+exports[`Tile render tests should render correctly given correct prop 1`] = `
 <div
   className="sc-bdVaJa dFyZnU"
   onClick={[Function]}
 >
   <span
-<<<<<<< HEAD
-    className="tile-number">
-    23
-=======
     className="tile-number"
   >
-    0
->>>>>>> @{-1}
+    23
   </span>
 </div>
 `;
@@ -54,14 +45,9 @@ exports[`Tile render tests should render correctly given visible prop 1`] = `
   onClick={[Function]}
 >
   <span
-<<<<<<< HEAD
-    className="tile-number">
-    1
-=======
     className="tile-number"
   >
-    0
->>>>>>> @{-1}
+    1
   </span>
 </div>
 `;
