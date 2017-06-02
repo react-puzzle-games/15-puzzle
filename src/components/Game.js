@@ -15,6 +15,8 @@ class Game extends Component {
     gridSize: PropTypes.number,
     moves: PropTypes.number,
     seconds: PropTypes.number,
+    onResetClick: PropTypes.func.isRequired,
+    onTileClick: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -41,6 +43,12 @@ class Game extends Component {
     document.addEventListener('keydown', this.keyDownListener);
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    if (nextState.gameState === GAME_OVER && nextState.gameState !== this.state.gameState) {
+      clearInterval(this.timerId);
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     const { tileSize, gridSize } = this.props;
     const newTiles = this.generateTiles(nextProps.numbers, gridSize, tileSize);
@@ -59,10 +67,7 @@ class Game extends Component {
   keyDownListener = key => {
     if (key.ctrlKey && key.altKey && key.code === 'KeyF') {
       const { original, gridSize, tileSize } = this.props;
-      const solvedTiles = this.generateTiles(original, gridSize, tileSize).map((
-        tile,
-        index,
-      ) => {
+      const solvedTiles = this.generateTiles(original, gridSize, tileSize).map((tile, index) => {
         tile.number = index + 1;
         return Object.assign({}, tile);
       });
@@ -103,7 +108,7 @@ class Game extends Component {
       return tile.tileId + 1 === tile.number;
     });
 
-    if (correctedTiles.length === (this.props.gridSize) ** 2) {
+    if (correctedTiles.length === this.props.gridSize ** 2) {
       clearInterval(this.timerId);
       return true;
     } else {
@@ -124,12 +129,9 @@ class Game extends Component {
 
     // Set Timer in case of first click
     if (this.state.moves === 0) {
-      this.timerId = setInterval(
-        () => {
-          this.addTimer();
-        },
-        1000,
-      );
+      this.timerId = setInterval(() => {
+        this.addTimer();
+      }, 1000);
     }
 
     const { gridSize } = this.props;
@@ -146,13 +148,7 @@ class Game extends Component {
     if (d.neighbours) {
       let t = Array.from(this.state.tiles).map(t => ({ ...t }));
 
-      invert(t, emptyTileIndex, tileIndex, [
-        'top',
-        'left',
-        'row',
-        'column',
-        'tileId',
-      ]);
+      invert(t, emptyTileIndex, tileIndex, ['top', 'left', 'row', 'column', 'tileId']);
 
       const checkGameOver = this.isGameOver(t);
 
@@ -168,17 +164,11 @@ class Game extends Component {
   render() {
     const { className, gridSize, tileSize, onResetClick } = this.props;
 
-    const actions = [
-      <FlatButton label="Close" onTouchTap={this.handleDialogClose} />,
-    ];
+    const actions = [<FlatButton label="Close" onTouchTap={this.handleDialogClose} />];
 
     return (
       <div className={className}>
-        <Menu
-          seconds={this.state.seconds}
-          moves={this.state.moves}
-          onResetClick={onResetClick}
-        />
+        <Menu seconds={this.state.seconds} moves={this.state.moves} onResetClick={onResetClick} />
         <Grid
           gridSize={gridSize}
           tileSize={tileSize}

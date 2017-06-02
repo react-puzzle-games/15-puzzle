@@ -1,7 +1,9 @@
-exports[`Game render should render correctly given a default grid 1`] = `
-<div>
+exports[`Game render should match a shallow render snapshot 1`] = `
+<div
+  className="random-cls">
   <Menu
     moves={0}
+    onResetClick={[Function]}
     seconds={0} />
   <Styled(Grid)
     gridSize={4}
@@ -177,6 +179,199 @@ exports[`Game render should render correctly given a default grid 1`] = `
     repositionOnUpdate={true}
     title="Congrats!">
     You\'ve solved the puzzle in
+     
+    0
+     
+    moves in
+     
+    0
+     
+    seconds!
+  </Dialog>
+</div>
+`;
+
+exports[`Game render should render correctly given a default grid 1`] = `
+<div
+  className="random-cls">
+  <Menu
+    moves={0}
+    onResetClick={[Function]}
+    seconds={0} />
+  <Styled(Grid)
+    gridSize={4}
+    onTileClick={[Function]}
+    tileSize={90}
+    tiles={
+      Array [
+        Object {
+          "column": 0,
+          "height": 90,
+          "left": 0,
+          "number": 1,
+          "row": 0,
+          "tileId": 0,
+          "top": 0,
+          "width": 90,
+        },
+        Object {
+          "column": 1,
+          "height": 90,
+          "left": 90,
+          "number": 4,
+          "row": 0,
+          "tileId": 1,
+          "top": 0,
+          "width": 90,
+        },
+        Object {
+          "column": 2,
+          "height": 90,
+          "left": 180,
+          "number": 6,
+          "row": 0,
+          "tileId": 2,
+          "top": 0,
+          "width": 90,
+        },
+        Object {
+          "column": 3,
+          "height": 90,
+          "left": 270,
+          "number": 7,
+          "row": 0,
+          "tileId": 3,
+          "top": 0,
+          "width": 90,
+        },
+        Object {
+          "column": 0,
+          "height": 90,
+          "left": 0,
+          "number": 2,
+          "row": 1,
+          "tileId": 4,
+          "top": 90,
+          "width": 90,
+        },
+        Object {
+          "column": 1,
+          "height": 90,
+          "left": 90,
+          "number": 8,
+          "row": 1,
+          "tileId": 5,
+          "top": 90,
+          "width": 90,
+        },
+        Object {
+          "column": 2,
+          "height": 90,
+          "left": 180,
+          "number": 14,
+          "row": 1,
+          "tileId": 6,
+          "top": 90,
+          "width": 90,
+        },
+        Object {
+          "column": 3,
+          "height": 90,
+          "left": 270,
+          "number": 13,
+          "row": 1,
+          "tileId": 7,
+          "top": 90,
+          "width": 90,
+        },
+        Object {
+          "column": 0,
+          "height": 90,
+          "left": 0,
+          "number": 10,
+          "row": 2,
+          "tileId": 8,
+          "top": 180,
+          "width": 90,
+        },
+        Object {
+          "column": 1,
+          "height": 90,
+          "left": 90,
+          "number": 9,
+          "row": 2,
+          "tileId": 9,
+          "top": 180,
+          "width": 90,
+        },
+        Object {
+          "column": 2,
+          "height": 90,
+          "left": 180,
+          "number": 3,
+          "row": 2,
+          "tileId": 10,
+          "top": 180,
+          "width": 90,
+        },
+        Object {
+          "column": 3,
+          "height": 90,
+          "left": 270,
+          "number": 5,
+          "row": 2,
+          "tileId": 11,
+          "top": 180,
+          "width": 90,
+        },
+        Object {
+          "column": 0,
+          "height": 90,
+          "left": 0,
+          "number": 12,
+          "row": 3,
+          "tileId": 12,
+          "top": 270,
+          "width": 90,
+        },
+        Object {
+          "column": 1,
+          "height": 90,
+          "left": 90,
+          "number": 11,
+          "row": 3,
+          "tileId": 13,
+          "top": 270,
+          "width": 90,
+        },
+      ]
+    } />
+  <Dialog
+    actions={
+      Array [
+        <FlatButton
+          disabled={false}
+          fullWidth={false}
+          label="Close"
+          labelPosition="after"
+          labelStyle={Object {}}
+          onKeyboardFocus={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onTouchStart={[Function]}
+          onTouchTap={[Function]}
+          primary={false}
+          secondary={false} />,
+      ]
+    }
+    autoDetectWindowHeight={true}
+    autoScrollBodyContent={false}
+    modal={false}
+    onRequestClose={[Function]}
+    open={false}
+    repositionOnUpdate={true}
+    title="Congrats!">
+    You've solved the puzzle in
      
     0
      
