@@ -44,7 +44,7 @@ Tile.defaultProps = {
 };
 
 export default styled(Tile)`
-  border: 1px solid #FFD1AA;
+  border: 1px solid #ffd1aa;
   position: absolute;
   width: ${props => props.width}px;
   height: ${props => props.height}px;
@@ -57,11 +57,11 @@ export default styled(Tile)`
   cursor: pointer;
   background-color: ${props => (props.correct ? '#226666' : '#D4726A')};
   transition-property: top, left, background-color;
-  transition-duration: .300s;
+  transition-duration: 0.3s;
   transition-timing-function: ease-in;
 
   .tile-number {
-    color: #FFD1AA;
+    color: #ffd1aa;
     font-weight: 400;
     font-size: 1.8em;
     user-select: none;

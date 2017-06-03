@@ -24,9 +24,7 @@
     "eslint": "3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-config-prettier": "^2.1.1",
-    "eslint-config-react-app": "^1.0.4",
     "eslint-loader": "1.7.1",
-    "eslint-plugin-flowtype": "^2.34.0",
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "5.0.3",
     "eslint-plugin-prettier": "^2.1.1",
@@ -81,11 +79,9 @@
   "eslintConfig": {
     "extends": [
       "airbnb",
-      "plugin:flowtype/recommended",
       "prettier"
     ],
     "plugins": [
-      "flowtype",
       "prettier"
     ],
     "parserOptions": {

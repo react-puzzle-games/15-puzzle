@@ -12,35 +12,29 @@ import MediaQuery from 'react-responsive';
 import GitHubIcon from './GitHubIcon';
 
 const StyledToolbar = styled(Toolbar)`
+  @media (max-width: 1094px) {
+    & {
+      justify-content: center !important;
+    }
 
-@media (max-width: 1094px) {
-  
-  & {
-    justify-content: center !important;
+    .toolbar-title {
+      display: none;
+    }
   }
 
-  .toolbar-title {
-    display: none;
+  @media (max-width: 578px) {
+    .menu-button {
+      margin: 10px 5px !important;
+    }
+
+    .menu-icon {
+      margin-left: 0 !important;
+    }
+
+    .menu-icon--span {
+      display: none !important;
+    }
   }
-
-}
-
-@media (max-width: 578px) {
-
-  .menu-button {
-    margin: 10px 5px !important;
-  }
-
-  .menu-icon {
-    margin-left: 0px !important;
-  }
-
-  .menu-icon--span {
-    display: none !important;
-  }
-
-}
-
 `;
 
 const Menu = ({ seconds, moves, onResetClick }) => (

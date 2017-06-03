@@ -24,6 +24,6 @@ GitHubIcon.propTypes = {
 export const Component = GitHubIcon;
 
 export default styled(Component)`
-    margin-left: 12px;
-    vertical-align: middle;
+  margin-left: 12px;
+  vertical-align: middle;
 `;
