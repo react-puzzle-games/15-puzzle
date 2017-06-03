@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
 import RaisedButton from 'material-ui/RaisedButton';
 import Chip from 'material-ui/Chip';
@@ -77,6 +78,15 @@ const Menu = ({ seconds, moves, onResetClick }) => (
   </StyledToolbar>
 );
 
-Menu.propTypes = {};
+Menu.propTypes = {
+  onResetClick: PropTypes.func.isRequired,
+  seconds: PropTypes.number,
+  moves: PropTypes.number
+};
+
+Menu.defaultProps = {
+  seconds: 0,
+  moves: 0
+};
 
 export default Menu;

@@ -44,9 +44,10 @@ class App extends Component {
 }
 
 App.propTypes = {
+  className: PropTypes.string.isRequired,
   level: PropTypes.shape({
     tileSet: PropTypes.arrayOf(PropTypes.number).isRequired
-  })
+  }).isRequired
 };
 
 export default App;

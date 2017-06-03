@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
 import { getTileCoords, distanceBetween, invert } from '../lib/utils';
 import Grid from './Grid';
 import Menu from './Menu';
 import { GAME_IDLE, GAME_OVER, GAME_STARTED } from '../lib/game-status';
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
 
 class Game extends Component {
   constructor(props) {
@@ -45,10 +45,43 @@ class Game extends Component {
     }
   }
 
-  handleDialogClose = () => {
-    this.setState({
-      dialogOpen: false
-    });
+  onTileClick = tile => {
+    if (this.state.gameState === GAME_OVER) {
+      return;
+    }
+
+    // Set Timer in case of first click
+    if (this.state.moves === 0) {
+      this.timerId = setInterval(() => {
+        this.addTimer();
+      }, 1000);
+    }
+
+    const { gridSize } = this.props;
+
+    // Find empty tile
+    const emptyTile = this.state.tiles.find(t => t.number === gridSize ** 2);
+    const emptyTileIndex = this.state.tiles.indexOf(emptyTile);
+
+    // Find index of tile
+    const tileIndex = this.state.tiles.findIndex(t => t.number === tile.number);
+
+    // Is this tale neighbouring the zero tile? If so, switch them.
+    const d = distanceBetween(tile, emptyTile);
+    if (d.neighbours) {
+      const t = Array.from(this.state.tiles).map(aTile => ({ ...aTile }));
+
+      invert(t, emptyTileIndex, tileIndex, ['top', 'left', 'row', 'column', 'tileId']);
+
+      const checkGameOver = this.isGameOver(t);
+
+      this.setState({
+        gameState: checkGameOver ? GAME_OVER : GAME_STARTED,
+        tiles: t,
+        moves: this.state.moves + 1,
+        dialogOpen: !!checkGameOver
+      });
+    }
   };
 
   generateTiles(numbers, gridSize, tileSize) {
@@ -80,56 +113,22 @@ class Game extends Component {
     this.setState(prevState => ({ seconds: prevState.seconds + 1 }));
   }
 
-  onTileClick = tile => {
-    if (this.state.gameState === GAME_OVER) {
-      return;
-    }
-
-    // Set Timer in case of first click
-    if (this.state.moves === 0) {
-      this.timerId = setInterval(() => {
-        this.addTimer();
-      }, 1000);
-    }
-
-    const { gridSize } = this.props;
-
-    // Find empty tile
-    const emptyTile = this.state.tiles.find(t => t.number === gridSize ** 2);
-    const emptyTileIndex = this.state.tiles.indexOf(emptyTile);
-
-    // Find index of tile
-    const tileIndex = this.state.tiles.findIndex(t => t.number === tile.number);
-
-    // Is this tale neighbouring the zero tile? If so, switch them.
-    const d = distanceBetween(tile, emptyTile);
-    if (d.neighbours) {
-      const t = Array.from(this.state.tiles).map(t => ({ ...t }));
-
-      invert(t, emptyTileIndex, tileIndex, ['top', 'left', 'row', 'column', 'tileId']);
-
-      const checkGameOver = this.isGameOver(t);
-
-      this.setState({
-        gameState: checkGameOver ? GAME_OVER : GAME_STARTED,
-        tiles: t,
-        moves: this.state.moves + 1,
-        dialogOpen: !!checkGameOver
-      });
-    }
+  handleDialogClose = () => {
+    this.setState({
+      dialogOpen: false
+    });
   };
 
   // End game by pressing CTRL + ALT + F
   keyDownListener = key => {
     if (key.ctrlKey && key.altKey && key.code === 'KeyF') {
       const { original, gridSize, tileSize } = this.props;
-      const solvedTiles = this.generateTiles(original, gridSize, tileSize).map((tile, index) => {
-        return {
-          ...tile, {
-            number: index + 1
-          }
+      const solvedTiles = this.generateTiles(original, gridSize, tileSize).map((tile, index) => ({
+        ...tile,
+        ...{
+          number: index + 1
         }
-      });
+      }));
 
       clearInterval(this.timerId);
 
@@ -162,7 +161,7 @@ class Game extends Component {
           open={this.state.dialogOpen}
           onRequestClose={this.handleDialogClose}
         >
-          You've solved the puzzle in{' '}
+          {`You've`} solved the puzzle in{' '}
           {this.state.moves}
           {' '}moves in{' '}
           {this.state.seconds}
@@ -175,7 +174,9 @@ class Game extends Component {
 
 Game.propTypes = {
   numbers: PropTypes.arrayOf(PropTypes.number).isRequired,
-  original: PropTypes.arrayOf(PropTypes.number),
+  original: PropTypes.arrayOf(PropTypes.number).isRequired,
+  onResetClick: PropTypes.func.isRequired,
+  className: PropTypes.string.isRequired,
   tileSize: PropTypes.number,
   gridSize: PropTypes.number,
   moves: PropTypes.number,

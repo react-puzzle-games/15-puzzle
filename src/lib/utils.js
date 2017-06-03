@@ -19,11 +19,12 @@ export const randomSubarray = (arr, size) => {
   let temp;
   let index;
 
-  while (i--) {
+  while (i) {
     index = Math.floor((i + 1) * Math.random());
     temp = shuffled[index];
     shuffled[index] = shuffled[i];
     shuffled[i] = temp;
+    i -= 1;
   }
 
   return shuffled.slice(0, size);
