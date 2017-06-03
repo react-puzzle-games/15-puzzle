@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import styled from 'styled-components';
 import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
@@ -27,15 +26,15 @@ const StyledToolbar = styled(Toolbar)`
 
 @media (max-width: 578px) {
 
-  .menuButton {
+  .menu-button {
     margin: 10px 5px !important;
   }
 
-  .menuIcon {
+  .menu-icon {
     margin-left: 0px !important;
   }
 
-  .menuIcon+span {
+  .menu-icon--span {
     display: none !important;
   }
 
@@ -48,14 +47,14 @@ const Menu = ({ seconds, moves, onResetClick }) => (
     <ToolbarTitle className="toolbar-title" text="React Puzzle Games - 15 Puzzle" />
     <ToolbarGroup>
       <RaisedButton
-        className="menuButton"
+        className="menu-button"
         label="Project home"
         target="_blank"
         href="https://github.com/react-puzzle-games/15-puzzle/"
         icon={<GitHubIcon className="menuIcon" />}
       />
       <RaisedButton
-        className="menuButton"
+        className="menu-button"
         label="Reset game"
         onTouchTap={onResetClick}
         icon={<Replay className="menuIcon" />}
