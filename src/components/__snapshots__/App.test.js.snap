@@ -594,20 +594,24 @@ exports[`App renders correctly 1`] = `
       </svg>
     </a>
     <p>
-      Made with 
+      Made with
+       
       <span
         className="footerheart"
       >
         ♥
       </span>
-       by 
+       
+      by
+       
       <a
         className="footerlink"
         href="https://github.com/react-puzzle-games"
         rel="noopener noreferrer"
         target="_blank"
       >
-         React Puzzle Games
+         
+        React Puzzle Games
       </a>
     </p>
   </div>
