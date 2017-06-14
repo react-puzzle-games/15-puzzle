@@ -2,7 +2,7 @@
 
 exports[`Footer renders correctly 1`] = `
 <div
-  className="sc-bwzfXH ipLxCQ"
+  className="sc-bwzfXH ieFDxO"
 >
   <a
     href="https://github.com/react-puzzle-games/15-puzzle/"

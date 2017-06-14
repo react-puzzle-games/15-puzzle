@@ -6,7 +6,7 @@ const FooterContent = styled.div`
   flex:none;
   background-color: rgb(232, 232, 232);
   color: rgb(0, 0, 0);
-  padding: 10px;
+  padding-top: 10px;
   text-align: center;
 
   & .footerheart {
