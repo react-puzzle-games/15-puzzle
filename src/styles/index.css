@@ -12,9 +12,3 @@ body {
   font-family: 'Roboto', sans-serif;
   background: url('background.png') repeat;
 }
-
-#root {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}

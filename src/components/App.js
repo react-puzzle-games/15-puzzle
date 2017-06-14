@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import levelFactory from './../lib/levels-factory';
 import Game from './Game';
+import Footer from './Footer';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 class App extends Component {
   constructor(props) {
@@ -38,6 +40,7 @@ class App extends Component {
           onResetClick={this.onResetClick}
           original={this.state.original.tileSet}
         />
+        <Footer />
       </div>
     );
   }
@@ -49,4 +52,8 @@ App.propTypes = {
   }),
 };
 
-export default App;
+export default styled(App)`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
