@@ -6,6 +6,7 @@ import { GAME_IDLE, GAME_OVER, GAME_STARTED } from '../lib/game-status';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 class Game extends Component {
   constructor(props) {
@@ -203,4 +204,6 @@ Game.defaultProps = {
   seconds: 0,
 };
 
-export default Game;
+export default styled(Game)`
+  flex: 1;
+`;
