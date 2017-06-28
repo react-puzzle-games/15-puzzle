@@ -165,7 +165,7 @@ exports[`Game renders correctly 1`] = `
                 }
               }
             >
-              Pause Game
+              Pause
             </span>
           </div>
         </button>

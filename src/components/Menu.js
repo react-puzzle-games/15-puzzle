@@ -11,7 +11,6 @@ import Pause from 'material-ui/svg-icons/av/pause';
 import Play from 'material-ui/svg-icons/av/play-arrow';
 import { GAME_STARTED, GAME_PAUSED } from '../lib/game-status';
 import PropTypes from 'prop-types';
-// import New from 'material-ui/svg-icons/action/power-settings-new';
 import MediaQuery from 'react-responsive';
 
 const StyledToolbar = styled(Toolbar)`
@@ -64,18 +63,9 @@ class Menu extends Component {
           text="React Puzzle Games - 15 Puzzle"
         />
         <ToolbarGroup>
-          {/*
           <RaisedButton
             className="menuButton"
-            label="New game"
-            onTouchTap={onResetClick}
-            icon={<New className="menuIcon" />}
-          />
-        */
-          }
-          <RaisedButton
-            className="menuButton"
-            label={gameState === GAME_PAUSED ? 'Continue' : 'Pause Game'}
+            label={gameState === GAME_PAUSED ? 'Continue' : 'Pause'}
             onTouchTap={onPauseClick}
             icon={
               gameState === GAME_PAUSED

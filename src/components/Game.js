@@ -77,11 +77,9 @@ class Game extends Component {
   };
 
   handleSnackbarClose = reason => {
-    //if (reason !== 'clickaway' || this.state.gameState === GAME_STARTED) {
     this.setState({
       snackbarOpen: false,
     });
-    //}
   };
 
   generateTiles(numbers, gridSize, tileSize) {

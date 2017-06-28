@@ -176,7 +176,7 @@ exports[`Menu renders correctly given default values 1`] = `
                 }
               }
             >
-              Pause Game
+              Pause
             </span>
           </div>
         </div>
