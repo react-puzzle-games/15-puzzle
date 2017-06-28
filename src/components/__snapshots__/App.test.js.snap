@@ -8,7 +8,7 @@ exports[`App renders correctly 1`] = `
     className="sc-bxivhb hYiooe"
   >
     <div
-      className="toolbar sc-htpNat kfeESs"
+      className="toolbar sc-htpNat cscVEq"
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -54,6 +54,125 @@ exports[`App renders correctly 1`] = `
           }
         }
       >
+        <div
+          className="menuButton"
+          style={
+            Object {
+              "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 2,
+              "boxShadow": undefined,
+              "boxSizing": "border-box",
+              "color": "rgba(0, 0, 0, 0.87)",
+              "display": "inline-block",
+              "fontFamily": "Roboto, sans-serif",
+              "margin": "10px 24px",
+              "minWidth": 88,
+              "muiPrepared": true,
+              "position": "relative",
+              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+            }
+          }
+        >
+          <button
+            disabled={true}
+            href={undefined}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onTouchTap={[Function]}
+            style={
+              Object {
+                "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+                "backgroundColor": "rgb(229, 229, 229)",
+                "border": 10,
+                "borderRadius": 2,
+                "boxSizing": "border-box",
+                "cursor": "default",
+                "display": "inline-block",
+                "fontFamily": "Roboto, sans-serif",
+                "fontSize": "inherit",
+                "fontWeight": "inherit",
+                "height": 36,
+                "lineHeight": "36px",
+                "margin": 0,
+                "muiPrepared": true,
+                "outline": "none",
+                "padding": 0,
+                "position": "relative",
+                "textAlign": "center",
+                "textDecoration": "none",
+                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                "verticalAlign": null,
+                "width": "100%",
+                "zIndex": 1,
+              }
+            }
+            tabIndex={-1}
+            type="button"
+          >
+            <div
+              style={
+                Object {
+                  "backgroundColor": false,
+                  "borderRadius": 2,
+                  "height": 36,
+                  "muiPrepared": true,
+                  "top": 0,
+                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                }
+              }
+            >
+              <svg
+                className="menuIcon"
+                onMouseEnter={[Function]}
+                onMouseLeave={[Function]}
+                style={
+                  Object {
+                    "color": "rgba(0, 0, 0, 0.87)",
+                    "display": "inline-block",
+                    "fill": "rgba(0, 0, 0, 0.3)",
+                    "height": 24,
+                    "marginLeft": 12,
+                    "marginRight": 0,
+                    "muiPrepared": true,
+                    "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+                    "userSelect": "none",
+                    "verticalAlign": "middle",
+                    "width": 24,
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"
+                />
+              </svg>
+              <span
+                style={
+                  Object {
+                    "color": "rgba(0, 0, 0, 0.3)",
+                    "fontSize": 14,
+                    "fontWeight": 500,
+                    "letterSpacing": 0,
+                    "margin": 0,
+                    "muiPrepared": true,
+                    "opacity": 1,
+                    "paddingLeft": 8,
+                    "paddingRight": 16,
+                    "position": "relative",
+                    "textTransform": "uppercase",
+                    "userSelect": "none",
+                  }
+                }
+              >
+                Pause
+              </span>
+            </div>
+          </button>
+        </div>
         <div
           className="menuButton"
           style={
@@ -565,6 +684,57 @@ exports[`App renders correctly 1`] = `
             className="tile-number"
           >
             5
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      open={false}
+      style={
+        Object {
+          "bottom": 0,
+          "display": "flex",
+          "left": "50%",
+          "muiPrepared": true,
+          "position": "fixed",
+          "transform": "translate(-50%, 48px)",
+          "transition": "transform 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, visibility 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+          "visibility": "hidden",
+          "zIndex": 2900,
+        }
+      }
+    >
+      <div
+        style={
+          Object {
+            "backgroundColor": "rgba(0, 0, 0, 0.87)",
+            "borderRadius": 2,
+            "flexGrow": 0,
+            "fontFamily": "Roboto, sans-serif",
+            "height": 48,
+            "lineHeight": "48px",
+            "maxWidth": 568,
+            "minWidth": 288,
+            "muiPrepared": true,
+            "padding": "0 24px",
+            "width": "auto",
+          }
+        }
+        width={3}
+      >
+        <div
+          style={
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "muiPrepared": true,
+              "opacity": 0,
+              "transition": "opacity 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+            }
+          }
+        >
+          <span>
+            
           </span>
         </div>
       </div>

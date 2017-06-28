@@ -2,9 +2,15 @@ import React, { Component } from 'react';
 import { getTileCoords, distanceBetween, invert } from '../lib/utils';
 import Grid from './Grid';
 import Menu from './Menu';
-import { GAME_IDLE, GAME_OVER, GAME_STARTED } from '../lib/game-status';
+import {
+  GAME_IDLE,
+  GAME_OVER,
+  GAME_STARTED,
+  GAME_PAUSED,
+} from '../lib/game-status';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import Snackbar from 'material-ui/Snackbar';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -21,6 +27,8 @@ class Game extends Component {
       moves,
       seconds,
       dialogOpen: false,
+      snackbarOpen: false,
+      snackbarText: '',
     };
 
     document.addEventListener('keydown', this.keyDownListener);
@@ -68,6 +76,12 @@ class Game extends Component {
     });
   };
 
+  handleSnackbarClose = reason => {
+    this.setState({
+      snackbarOpen: false,
+    });
+  };
+
   generateTiles(numbers, gridSize, tileSize) {
     const tiles = [];
 
@@ -102,19 +116,48 @@ class Game extends Component {
     });
   }
 
+  setTimer() {
+    this.timerId = setInterval(
+      () => {
+        this.addTimer();
+      },
+      1000,
+    );
+  }
+
+  onPauseClick = () => {
+    this.setState(prevState => {
+      let newGameState = null;
+      let newSnackbarText = null;
+
+      if (prevState.gameState === GAME_STARTED) {
+        clearInterval(this.timerId);
+        newGameState = GAME_PAUSED;
+        newSnackbarText = 'The game is currently paused.';
+      } else {
+        this.setTimer();
+        newGameState = GAME_STARTED;
+        newSnackbarText = 'Game on!';
+      }
+
+      return {
+        gameState: newGameState,
+        snackbarOpen: true,
+        snackbarText: newSnackbarText,
+      };
+    });
+  };
+
   onTileClick = tile => {
-    if (this.state.gameState === GAME_OVER) {
+    if (
+      this.state.gameState === GAME_OVER || this.state.gameState === GAME_PAUSED
+    ) {
       return;
     }
 
     // Set Timer in case of first click
     if (this.state.moves === 0) {
-      this.timerId = setInterval(
-        () => {
-          this.addTimer();
-        },
-        1000,
-      );
+      this.setTimer();
     }
 
     const { gridSize } = this.props;
@@ -163,6 +206,8 @@ class Game extends Component {
           seconds={this.state.seconds}
           moves={this.state.moves}
           onResetClick={onResetClick}
+          onPauseClick={this.onPauseClick}
+          gameState={this.state.gameState}
         />
         <Grid
           gridSize={gridSize}
@@ -183,6 +228,11 @@ class Game extends Component {
           {this.state.seconds}
           {' '}seconds!
         </Dialog>
+        <Snackbar
+          open={this.state.snackbarOpen}
+          message={this.state.snackbarText}
+          onRequestClose={this.handleSnackbarClose}
+        />
       </div>
     );
   }

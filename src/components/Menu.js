@@ -7,6 +7,10 @@ import Avatar from 'material-ui/Avatar';
 import Alarm from 'material-ui/svg-icons/action/alarm';
 import Moves from 'material-ui/svg-icons/action/compare-arrows';
 import Replay from 'material-ui/svg-icons/av/replay';
+import Pause from 'material-ui/svg-icons/av/pause';
+import Play from 'material-ui/svg-icons/av/play-arrow';
+import { GAME_STARTED, GAME_PAUSED } from '../lib/game-status';
+import PropTypes from 'prop-types';
 import MediaQuery from 'react-responsive';
 
 const StyledToolbar = styled(Toolbar)`
@@ -27,6 +31,7 @@ const StyledToolbar = styled(Toolbar)`
 
   .menuButton {
     margin: 10px 5px !important;
+    min-width: 36px !important;
   }
 
   .menuIcon {
@@ -43,7 +48,13 @@ const StyledToolbar = styled(Toolbar)`
 
 class Menu extends Component {
   render() {
-    const { seconds, moves, onResetClick } = this.props;
+    const {
+      seconds,
+      moves,
+      onResetClick,
+      onPauseClick,
+      gameState,
+    } = this.props;
 
     return (
       <StyledToolbar className="toolbar">
@@ -52,6 +63,17 @@ class Menu extends Component {
           text="React Puzzle Games - 15 Puzzle"
         />
         <ToolbarGroup>
+          <RaisedButton
+            className="menuButton"
+            label={gameState === GAME_PAUSED ? 'Continue' : 'Pause'}
+            onTouchTap={onPauseClick}
+            icon={
+              gameState === GAME_PAUSED
+                ? <Play className="menuIcon" />
+                : <Pause className="menuIcon" />
+            }
+            disabled={gameState !== GAME_STARTED && gameState !== GAME_PAUSED}
+          />
           <RaisedButton
             className="menuButton"
             label="Reset game"
@@ -77,5 +99,13 @@ class Menu extends Component {
     );
   }
 }
+
+Menu.propTypes = {
+  seconds: PropTypes.number.isRequired,
+  moves: PropTypes.number.isRequired,
+  onResetClick: PropTypes.func.isRequired,
+  onPauseClick: PropTypes.func.isRequired,
+  gameState: PropTypes.symbol.isRequired,
+};
 
 export default Menu;
