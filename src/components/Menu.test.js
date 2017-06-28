@@ -1,6 +1,7 @@
 import renderer from 'react-test-renderer';
 import React from 'react';
 import Menu from './Menu';
+import { GAME_STARTED } from '../lib/game-status';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 describe('Menu renders correctly', () => {
@@ -8,7 +9,13 @@ describe('Menu renders correctly', () => {
     const tree = renderer
       .create(
         <MuiThemeProvider>
-          <Menu seconds={0} moves={0} onResetClick={() => {}} />
+          <Menu
+            seconds={0}
+            moves={0}
+            onResetClick={() => {}}
+            onPauseClick={() => {}}
+            gameState={GAME_STARTED}
+          />
         </MuiThemeProvider>,
       )
       .toJSON();
