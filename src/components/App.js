@@ -14,19 +14,26 @@ class App extends Component {
 
     this.state = {
       original: originalLevel,
-      level: level,
+      level,
     };
-
-    this.onResetClick = this.onResetClick.bind(this);
   }
 
-  onResetClick() {
+  onResetClick = () => {
     this.setState({
       level: {
         tileSet: this.state.original.tileSet,
       },
     });
-  }
+  };
+
+  onNewClick = () => {
+    const newLevel = levelFactory(4 ** 2);
+    const newOriginalLevel = Object.assign({}, newLevel);
+    this.setState({
+      level: newLevel,
+      original: newOriginalLevel,
+    });
+  };
 
   render() {
     const { className } = this.props;
@@ -38,6 +45,7 @@ class App extends Component {
           tileSize={90}
           numbers={this.state.level.tileSet}
           onResetClick={this.onResetClick}
+          onNewClick={this.onNewClick}
           original={this.state.original.tileSet}
         />
         <Footer />

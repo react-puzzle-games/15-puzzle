@@ -14,6 +14,7 @@ test('Game renders correctly', () => {
           tileSize={90}
           numbers={[]}
           onResetClick={() => {}}
+          onNewClick={() => {}}
           original={[]}
         />
       </MuiThemeProvider>,
