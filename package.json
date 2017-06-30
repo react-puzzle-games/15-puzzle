@@ -30,7 +30,10 @@
     "lint:staged": "lint-staged"
   },
   "eslintConfig": {
-    "extends": "airbnb"
+    "extends": "airbnb",
+    "rules": {
+      "linebreak-style": "off"
+    }
   },
   "lint-staged": {
     "*.js": [

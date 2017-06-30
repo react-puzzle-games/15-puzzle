@@ -9,13 +9,14 @@ import Moves from 'material-ui/svg-icons/action/compare-arrows';
 import Replay from 'material-ui/svg-icons/av/replay';
 import Pause from 'material-ui/svg-icons/av/pause';
 import Play from 'material-ui/svg-icons/av/play-arrow';
+import New from 'material-ui/svg-icons/action/power-settings-new';
 import { GAME_STARTED, GAME_PAUSED } from '../lib/game-status';
 import PropTypes from 'prop-types';
 import MediaQuery from 'react-responsive';
 
 const StyledToolbar = styled(Toolbar)`
 
-@media (max-width: 1094px) {
+@media (max-width: 1190px) {
   
   & {
     justify-content: center !important;
@@ -27,7 +28,7 @@ const StyledToolbar = styled(Toolbar)`
 
 }
 
-@media (max-width: 578px) {
+@media (max-width: 890px) {
 
   .menuButton {
     margin: 10px 5px !important;
@@ -53,6 +54,7 @@ class Menu extends Component {
       moves,
       onResetClick,
       onPauseClick,
+      onNewClick,
       gameState,
     } = this.props;
 
@@ -65,6 +67,13 @@ class Menu extends Component {
         <ToolbarGroup>
           <RaisedButton
             className="menuButton"
+            label="New game"
+            onTouchTap={onNewClick}
+            title="Start a new game"
+            icon={<New className="menuIcon" />}
+          />
+          <RaisedButton
+            className="menuButton"
             label={gameState === GAME_PAUSED ? 'Continue' : 'Pause'}
             onTouchTap={onPauseClick}
             icon={
@@ -72,12 +81,14 @@ class Menu extends Component {
                 ? <Play className="menuIcon" />
                 : <Pause className="menuIcon" />
             }
+            title="Pause/Continue current game."
             disabled={gameState !== GAME_STARTED && gameState !== GAME_PAUSED}
           />
           <RaisedButton
             className="menuButton"
             label="Reset game"
             onTouchTap={onResetClick}
+            title="Reset game"
             icon={<Replay className="menuIcon" />}
           />
           <Chip>
@@ -105,6 +116,7 @@ Menu.propTypes = {
   moves: PropTypes.number.isRequired,
   onResetClick: PropTypes.func.isRequired,
   onPauseClick: PropTypes.func.isRequired,
+  onNewClick: PropTypes.func.isRequired,
   gameState: PropTypes.symbol.isRequired,
 };
 

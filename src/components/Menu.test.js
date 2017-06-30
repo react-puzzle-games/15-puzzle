@@ -14,6 +14,7 @@ describe('Menu renders correctly', () => {
             moves={0}
             onResetClick={() => {}}
             onPauseClick={() => {}}
+            onNewClick={() => {}}
             gameState={GAME_STARTED}
           />
         </MuiThemeProvider>,

@@ -194,7 +194,13 @@ class Game extends Component {
   };
 
   render() {
-    const { className, gridSize, tileSize, onResetClick } = this.props;
+    const {
+      className,
+      gridSize,
+      tileSize,
+      onResetClick,
+      onNewClick,
+    } = this.props;
 
     const actions = [
       <FlatButton label="Close" onTouchTap={this.handleDialogClose} />,
@@ -207,6 +213,7 @@ class Game extends Component {
           moves={this.state.moves}
           onResetClick={onResetClick}
           onPauseClick={this.onPauseClick}
+          onNewClick={onNewClick}
           gameState={this.state.gameState}
         />
         <Grid
