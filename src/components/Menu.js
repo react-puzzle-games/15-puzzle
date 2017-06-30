@@ -69,7 +69,7 @@ class Menu extends Component {
             className="menuButton"
             label="New game"
             onTouchTap={onNewClick}
-            title="Start a new game with random numbers order."
+            title="Start a new game"
             icon={<New className="menuIcon" />}
           />
           <RaisedButton
@@ -88,7 +88,7 @@ class Menu extends Component {
             className="menuButton"
             label="Reset game"
             onTouchTap={onResetClick}
-            title="Reset current game to original numbers order."
+            title="Reset game"
             icon={<Replay className="menuIcon" />}
           />
           <Chip>

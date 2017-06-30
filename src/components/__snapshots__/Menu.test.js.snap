@@ -112,7 +112,7 @@ exports[`Menu renders correctly given default values 1`] = `
           }
         }
         tabIndex={0}
-        title="Start a new game with random numbers order."
+        title="Start a new game"
         type="button"
       >
         <div
@@ -382,7 +382,7 @@ exports[`Menu renders correctly given default values 1`] = `
           }
         }
         tabIndex={0}
-        title="Reset current game to original numbers order."
+        title="Reset game"
         type="button"
       >
         <div
