@@ -1,15 +1,13 @@
-machine:
-    environment:
-        PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
-    node:
-        version: 6
-
-dependencies:
-    override:
-        - yarn
-    cache_directories:
-        - ~/.cache/yarn
-
-test:
-    override:
-        - yarn test:coveralls
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: node:10.23.0-buster
+    steps:
+      - checkout
+      - run:
+          name: Install Dependencies
+          command: yarn install --immutable
+      - run:
+          name: Run Tests
+          command: yarn test:coveralls
