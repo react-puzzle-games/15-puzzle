@@ -1,12 +1,9 @@
 {
-  "name": "react-sliding-puzzle",
-  "version": "0.3.0",
+  "name": "react-15-puzzle",
+  "version": "0.4.0",
   "private": true,
   "devDependencies": {
     "coveralls": "^2.11.16",
-    "eslint-config-airbnb": "^15.0.1",
-    "lint-staged": "^3.3.1",
-    "pre-commit": "^1.2.2",
     "prettier": "^0.18.0",
     "react-scripts": "^1.0.7",
     "react-test-renderer": "^15.4.2"
@@ -25,21 +22,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "test:coverage": "npm test -- --coverage",
-    "test:coveralls": "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "eject": "react-scripts eject",
-    "lint:staged": "lint-staged"
-  },
-  "eslintConfig": {
-    "extends": "airbnb",
-    "rules": {
-      "linebreak-style": "off"
-    }
-  },
-  "lint-staged": {
-    "*.js": [
-      "prettier --write --single-quote --trailing-comma=all",
-      "git add"
-    ]
-  },
-  "pre-commit": "lint:staged"
+    "test:coveralls": "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+  }
 }

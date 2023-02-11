@@ -1,4 +1,4 @@
-import { range, randomSubarray } from './utils';
+import { randomSubarray, range } from './utils';
 
 /**
  * Generate a level of a given size
