@@ -2,12 +2,12 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: node:10.23.0-buster
+      - image: node:19
     steps:
       - checkout
       - run:
           name: Install Dependencies
-          command: yarn install --immutable
+          command: npm i
       - run:
           name: Run Tests
-          command: yarn test:coveralls
+          command: npm run test:coveralls
