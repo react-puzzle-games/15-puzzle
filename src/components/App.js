@@ -1,11 +1,11 @@
 // @ts-check
 
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import levelFactory from './../lib/levels-factory';
-import Footer from './Footer';
-import Game from './Game';
+import PropTypes from "prop-types";
+import React, { Component } from "react";
+import styled from "styled-components";
+import levelFactory from "./../lib/levels-factory";
+import Footer from "./Footer";
+import Game from "./Game";
 
 class App extends Component {
   constructor(props) {
