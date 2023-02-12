@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
-import RaisedButton from 'material-ui/RaisedButton';
-import Chip from 'material-ui/Chip';
+// @ts-check
+
 import Avatar from 'material-ui/Avatar';
+import Chip from 'material-ui/Chip';
+import RaisedButton from 'material-ui/RaisedButton';
 import Alarm from 'material-ui/svg-icons/action/alarm';
 import Moves from 'material-ui/svg-icons/action/compare-arrows';
-import Replay from 'material-ui/svg-icons/av/replay';
+import New from 'material-ui/svg-icons/action/power-settings-new';
 import Pause from 'material-ui/svg-icons/av/pause';
 import Play from 'material-ui/svg-icons/av/play-arrow';
-import New from 'material-ui/svg-icons/action/power-settings-new';
-import { GAME_STARTED, GAME_PAUSED } from '../lib/game-status';
+import Replay from 'material-ui/svg-icons/av/replay';
+import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import MediaQuery from 'react-responsive';
+import styled from 'styled-components';
+import { GAME_PAUSED, GAME_STARTED } from '../lib/game-status';
 
 const StyledToolbar = styled(Toolbar)`
 

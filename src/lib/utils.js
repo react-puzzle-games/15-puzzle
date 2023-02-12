@@ -1,3 +1,5 @@
+// @ts-check
+
 /**
  * Return an Array containing all numbers such that 0 = n <= length in
  * ascending order.

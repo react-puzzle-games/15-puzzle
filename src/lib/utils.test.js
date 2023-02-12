@@ -1,3 +1,5 @@
+// @ts-check
+
 import * as utils from './utils';
 
 describe('distanceBetween', () => {

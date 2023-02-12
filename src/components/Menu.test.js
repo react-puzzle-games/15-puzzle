@@ -1,8 +1,10 @@
-import renderer from 'react-test-renderer';
-import React from 'react';
-import Menu from './Menu';
-import { GAME_STARTED } from '../lib/game-status';
+// @ts-check
+
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import React from 'react';
+import renderer from 'react-test-renderer';
+import { GAME_STARTED } from '../lib/game-status';
+import Menu from './Menu';
 
 describe('Menu renders correctly', () => {
   test('given default values', () => {

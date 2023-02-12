@@ -1,6 +1,8 @@
+// @ts-check
+
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import Tile, { propTypes as TilePropTypes } from './Tile';
 
 class Grid extends Component {

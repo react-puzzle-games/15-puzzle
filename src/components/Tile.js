@@ -1,7 +1,8 @@
+// @ts-check
+
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import classnames from 'classnames';
-import PropTypes from 'prop-types';
 
 class Tile extends Component {
   constructor(props) {
@@ -16,13 +17,10 @@ class Tile extends Component {
 
   render() {
     const { className, number, visible } = this.props;
-    const classes = classnames({
-      [className]: true,
-      'tile-invisible': !visible,
-    });
+    let tileInvisibleCls = !visible ? 'tile-invisible' : ''
 
     return (
-      <div className={classes} onClick={this.onClick}>
+      <div className={`${tileInvisibleCls} ${className}`} onClick={this.onClick}>
         <span className="tile-number">{number}</span>
       </div>
     );

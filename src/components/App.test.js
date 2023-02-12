@@ -1,8 +1,10 @@
-import renderer from 'react-test-renderer';
-import React from 'react';
-import App from './App';
+// @ts-check
+
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import React from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import renderer from 'react-test-renderer';
+import App from './App';
 injectTapEventPlugin();
 
 test('App renders correctly', () => {

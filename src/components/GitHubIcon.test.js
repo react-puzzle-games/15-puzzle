@@ -1,5 +1,7 @@
-import renderer from 'react-test-renderer';
+// @ts-check
+
 import React from 'react';
+import renderer from 'react-test-renderer';
 import GitHubIcon from './GitHubIcon';
 
 test('GitHubIcon renders correctly', () => {

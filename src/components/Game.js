@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import { getTileCoords, distanceBetween, invert } from '../lib/utils';
-import Grid from './Grid';
-import Menu from './Menu';
-import {
-  GAME_IDLE,
-  GAME_OVER,
-  GAME_STARTED,
-  GAME_PAUSED,
-} from '../lib/game-status';
+// @ts-check
+
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import Snackbar from 'material-ui/Snackbar';
 import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import {
+  GAME_IDLE,
+  GAME_OVER, GAME_PAUSED, GAME_STARTED
+} from '../lib/game-status';
+import { distanceBetween, getTileCoords, invert } from '../lib/utils';
+import Grid from './Grid';
+import Menu from './Menu';
 
 class Game extends Component {
   constructor(props) {

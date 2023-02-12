@@ -1,5 +1,7 @@
-import renderer from 'react-test-renderer';
+// @ts-check
+
 import React from 'react';
+import renderer from 'react-test-renderer';
 import Tile from './Tile';
 
 describe('Tile renders correctly', () => {
@@ -44,7 +46,7 @@ describe('Tile renders correctly', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('given visible prop', () => {
+  test('given invisible prop', () => {
     const tree = renderer
       .create(
         <Tile
