@@ -6,7 +6,7 @@
     "@types/jest": "^29.4.0",
     "coveralls": "^2.11.16",
     "prettier": "^2.8.4",
-    "react-scripts": "^1.0.7",
+    "react-scripts": "3.0.0",
     "react-test-renderer": "^15.4.2"
   },
   "dependencies": {

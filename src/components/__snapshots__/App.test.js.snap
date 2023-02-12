@@ -5,10 +5,10 @@ exports[`App renders correctly 1`] = `
   className="sc-bZQynM kVByLC"
 >
   <div
-    className="sc-bxivhb hYiooe"
+    className="sc-EHOje fAsZBD"
   >
     <div
-      className="toolbar sc-htpNat cOgzoj"
+      className="toolbar sc-ifAKCX bhEnsE"
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -41,7 +41,6 @@ exports[`App renders correctly 1`] = `
         React Puzzle Games - 15 Puzzle
       </span>
       <div
-        className={undefined}
         style={
           Object {
             "alignItems": "center",
@@ -62,7 +61,7 @@ exports[`App renders correctly 1`] = `
               "backgroundColor": "#ffffff",
               "borderRadius": 2,
               "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
-                     0 1px 4px rgba(0, 0, 0, 0.12)",
+         0 1px 4px rgba(0, 0, 0, 0.12)",
               "boxSizing": "border-box",
               "color": "rgba(0, 0, 0, 0.87)",
               "display": "inline-block",
@@ -77,7 +76,6 @@ exports[`App renders correctly 1`] = `
         >
           <button
             disabled={false}
-            href={undefined}
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -211,7 +209,6 @@ exports[`App renders correctly 1`] = `
         >
           <button
             disabled={true}
-            href={undefined}
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -317,7 +314,7 @@ exports[`App renders correctly 1`] = `
               "backgroundColor": "#ffffff",
               "borderRadius": 2,
               "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
-                     0 1px 4px rgba(0, 0, 0, 0.12)",
+         0 1px 4px rgba(0, 0, 0, 0.12)",
               "boxSizing": "border-box",
               "color": "rgba(0, 0, 0, 0.87)",
               "display": "inline-block",
@@ -332,7 +329,6 @@ exports[`App renders correctly 1`] = `
         >
           <button
             disabled={false}
-            href={undefined}
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -445,9 +441,6 @@ exports[`App renders correctly 1`] = `
           </button>
         </div>
         <div
-          className={undefined}
-          disabled={undefined}
-          href={undefined}
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -488,7 +481,6 @@ exports[`App renders correctly 1`] = `
           tabIndex={0}
         >
           <div
-            className={undefined}
             size={32}
             style={
               Object {
@@ -551,9 +543,6 @@ exports[`App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className={undefined}
-          disabled={undefined}
-          href={undefined}
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -594,7 +583,6 @@ exports[`App renders correctly 1`] = `
           tabIndex={0}
         >
           <div
-            className={undefined}
             size={32}
             style={
               Object {
@@ -658,13 +646,13 @@ exports[`App renders correctly 1`] = `
       </div>
     </div>
     <div
-      className="sc-bwzfXH iPaWuQ"
+      className="sc-bxivhb eWTsJy"
     >
       <div
         className="tiles"
       >
         <div
-          className="sc-bdVaJa jodVcS"
+          className=" sc-htpNat bBRAdZ"
           onClick={[Function]}
         >
           <span
@@ -674,7 +662,7 @@ exports[`App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="sc-bdVaJa kDOhdO"
+          className=" sc-htpNat gkwiEy"
           onClick={[Function]}
         >
           <span
@@ -684,7 +672,7 @@ exports[`App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="sc-bdVaJa kuDsYV"
+          className=" sc-htpNat jMPYHW"
           onClick={[Function]}
         >
           <span
@@ -694,7 +682,7 @@ exports[`App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="sc-bdVaJa gdkWCP"
+          className=" sc-htpNat kCgAxP"
           onClick={[Function]}
         >
           <span
@@ -704,7 +692,7 @@ exports[`App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="sc-bdVaJa eGtjbz"
+          className=" sc-htpNat fuTtrW"
           onClick={[Function]}
         >
           <span
@@ -714,7 +702,7 @@ exports[`App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="sc-bdVaJa dQlHZv tile-invisible"
+          className="tile-invisible sc-htpNat jMOeKz"
           onClick={[Function]}
         >
           <span
@@ -724,7 +712,7 @@ exports[`App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="sc-bdVaJa kBiHxX"
+          className=" sc-htpNat eSiQYs"
           onClick={[Function]}
         >
           <span
@@ -734,7 +722,7 @@ exports[`App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="sc-bdVaJa cTMJLH"
+          className=" sc-htpNat fPwXwe"
           onClick={[Function]}
         >
           <span
@@ -744,7 +732,7 @@ exports[`App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="sc-bdVaJa OLOrJ"
+          className=" sc-htpNat iAyHuu"
           onClick={[Function]}
         >
           <span
@@ -754,7 +742,7 @@ exports[`App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="sc-bdVaJa jEWiKC"
+          className=" sc-htpNat hUCMkW"
           onClick={[Function]}
         >
           <span
@@ -764,7 +752,7 @@ exports[`App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="sc-bdVaJa iNhzuc"
+          className=" sc-htpNat iopQvQ"
           onClick={[Function]}
         >
           <span
@@ -774,7 +762,7 @@ exports[`App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="sc-bdVaJa dgHghA"
+          className=" sc-htpNat fcgiWv"
           onClick={[Function]}
         >
           <span
@@ -784,7 +772,7 @@ exports[`App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="sc-bdVaJa Wysje"
+          className=" sc-htpNat dkUwma"
           onClick={[Function]}
         >
           <span
@@ -794,7 +782,7 @@ exports[`App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="sc-bdVaJa fOJyhL"
+          className=" sc-htpNat cZYqey"
           onClick={[Function]}
         >
           <span
@@ -804,7 +792,7 @@ exports[`App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="sc-bdVaJa iBUMhU"
+          className=" sc-htpNat byLdPu"
           onClick={[Function]}
         >
           <span
@@ -814,7 +802,7 @@ exports[`App renders correctly 1`] = `
           </span>
         </div>
         <div
-          className="sc-bdVaJa dqEnqq"
+          className=" sc-htpNat ilmUu"
           onClick={[Function]}
         >
           <span
@@ -878,7 +866,7 @@ exports[`App renders correctly 1`] = `
     </div>
   </div>
   <div
-    className="sc-EHOje gnLVqY"
+    className="sc-bwzfXH ieFDxO"
   >
     <a
       href="https://github.com/react-puzzle-games/15-puzzle/"
@@ -886,7 +874,7 @@ exports[`App renders correctly 1`] = `
       target="_blank"
     >
       <svg
-        className="menuIcon sc-ifAKCX cUZTjJ"
+        className="menuIcon sc-bdVaJa dSoADu"
         height="24px"
         version="1.1"
         viewBox="0 0 435.549 435.549"

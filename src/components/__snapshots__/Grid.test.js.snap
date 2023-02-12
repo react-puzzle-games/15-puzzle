@@ -8,7 +8,7 @@ exports[`Grid renders correctly given a set of tiles 1`] = `
     className="tiles"
   >
     <div
-      className="sc-bdVaJa jodVcS tile-invisible"
+      className="tile-invisible sc-bdVaJa jodVcS"
       onClick={[Function]}
     >
       <span
@@ -18,7 +18,7 @@ exports[`Grid renders correctly given a set of tiles 1`] = `
       </span>
     </div>
     <div
-      className="sc-bdVaJa gaQDFA tile-invisible"
+      className="tile-invisible sc-bdVaJa gaQDFA"
       onClick={[Function]}
     >
       <span
@@ -28,7 +28,7 @@ exports[`Grid renders correctly given a set of tiles 1`] = `
       </span>
     </div>
     <div
-      className="sc-bdVaJa htVqMf tile-invisible"
+      className="tile-invisible sc-bdVaJa htVqMf"
       onClick={[Function]}
     >
       <span
@@ -38,7 +38,7 @@ exports[`Grid renders correctly given a set of tiles 1`] = `
       </span>
     </div>
     <div
-      className="sc-bdVaJa dQlHZv tile-invisible"
+      className="tile-invisible sc-bdVaJa dQlHZv"
       onClick={[Function]}
     >
       <span
@@ -69,7 +69,7 @@ exports[`Grid renders correctly given one tile 1`] = `
     className="tiles"
   >
     <div
-      className="sc-bdVaJa eHNnrm tile-invisible"
+      className="tile-invisible sc-bdVaJa eHNnrm"
       onClick={[Function]}
     >
       <span
