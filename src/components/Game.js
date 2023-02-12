@@ -203,7 +203,7 @@ class Game extends Component {
     } = this.props;
 
     const actions = [
-      <FlatButton label="Close" onTouchTap={this.handleDialogClose} />,
+      <FlatButton label="Close" onClick={this.handleDialogClose} />,
     ];
 
     return (

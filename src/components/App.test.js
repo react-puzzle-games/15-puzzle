@@ -2,10 +2,8 @@
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import React from 'react';
-import injectTapEventPlugin from 'react-tap-event-plugin';
 import renderer from 'react-test-renderer';
 import App from './App';
-injectTapEventPlugin();
 
 test('App renders correctly', () => {
   const tree = renderer
