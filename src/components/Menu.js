@@ -1,15 +1,16 @@
 // @ts-check
 
-import Avatar from 'material-ui/Avatar';
-import Chip from 'material-ui/Chip';
-import RaisedButton from 'material-ui/RaisedButton';
-import Alarm from 'material-ui/svg-icons/action/alarm';
-import Moves from 'material-ui/svg-icons/action/compare-arrows';
-import New from 'material-ui/svg-icons/action/power-settings-new';
-import Pause from 'material-ui/svg-icons/av/pause';
-import Play from 'material-ui/svg-icons/av/play-arrow';
-import Replay from 'material-ui/svg-icons/av/replay';
-import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
+import { Typography } from '@material-ui/core';
+import Avatar from '@material-ui/core/Avatar';
+import RaisedButton from '@material-ui/core/Button';
+import Chip from '@material-ui/core/Chip';
+import Toolbar from '@material-ui/core/Toolbar';
+import Alarm from '@material-ui/icons/Alarm';
+import Moves from '@material-ui/icons/CompareArrows';
+import Pause from '@material-ui/icons/Pause';
+import Play from '@material-ui/icons/PlayArrow';
+import New from '@material-ui/icons/PowerSettingsNew';
+import Replay from '@material-ui/icons/Replay';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import MediaQuery from 'react-responsive';
@@ -62,18 +63,18 @@ class Menu extends Component {
 
     return (
       <StyledToolbar className="toolbar">
-        <ToolbarTitle
-          className="toolbarTitle"
-          text="React Puzzle Games - 15 Puzzle"
-        />
-        <ToolbarGroup>
+        <Typography variant="h6" component="div" >
+        React Puzzle Games - 15 Puzzle
+          </Typography>
+        
+
           <RaisedButton
             className="menuButton"
-            label="New game"
             onClick={onNewClick}
             title="Start a new game"
             icon={<New className="menuIcon" />}
           />
+          New game
           <RaisedButton
             className="menuButton"
             label={gameState === GAME_PAUSED ? 'Continue' : 'Pause'}
@@ -93,21 +94,20 @@ class Menu extends Component {
             title="Reset game"
             icon={<Replay className="menuIcon" />}
           />
-          <Chip>
-            <Avatar icon={<Alarm />} />
-            <MediaQuery query="(min-width: 772px)" component="span">
-              Time Elapsed:{' '}
+          <Chip avatar={<Avatar><Alarm /></Avatar>} label={
+          
+          <MediaQuery query="(min-width: 772px)" component="span">
+              Time Elapsed:{' '}{seconds}s
             </MediaQuery>
-            {seconds}s
-          </Chip>
-          <Chip>
-            <Avatar icon={<Moves />} />
-            <MediaQuery query="(min-width: 772px)" component="span">
-              Moves Counter:{' '}
+          }/>
+            
+          <Chip avatar={<Avatar><Moves /></Avatar>} label={
+
+<MediaQuery query="(min-width: 772px)" component="span">
+              Moves Counter:{' '}{moves}
             </MediaQuery>
-            {moves}
-          </Chip>
-        </ToolbarGroup>
+            
+          }/>
       </StyledToolbar>
     );
   }

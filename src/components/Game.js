@@ -1,8 +1,9 @@
 // @ts-check
 
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
-import Snackbar from 'material-ui/Snackbar';
+import { DialogActions, DialogContent, DialogTitle } from '@material-ui/core';
+import FlatButton from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import Snackbar from '@material-ui/core/Snackbar';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import styled from 'styled-components';
@@ -202,10 +203,6 @@ class Game extends Component {
       onNewClick,
     } = this.props;
 
-    const actions = [
-      <FlatButton label="Close" onClick={this.handleDialogClose} />,
-    ];
-
     return (
       <div className={className}>
         <Menu
@@ -223,22 +220,28 @@ class Game extends Component {
           onTileClick={this.onTileClick}
         />
         <Dialog
-          title="Congrats!"
-          actions={actions}
-          modal={false}
           open={this.state.dialogOpen}
-          onRequestClose={this.handleDialogClose}
+          onClose={this.handleDialogClose}
         >
+        <DialogTitle>
+          Congratulations!
+        </DialogTitle>
+        <DialogContent>
+
           You've solved the puzzle in{' '}
           {this.state.moves}
           {' '}moves in{' '}
           {this.state.seconds}
           {' '}seconds!
+        </DialogContent>
+        <DialogActions>
+        <FlatButton variant="text" onClick={this.handleDialogClose}>Close</FlatButton>,
+        </DialogActions>
         </Dialog>
         <Snackbar
           open={this.state.snackbarOpen}
           message={this.state.snackbarText}
-          onRequestClose={this.handleSnackbarClose}
+          onClose={this.handleSnackbarClose}
         />
       </div>
     );
