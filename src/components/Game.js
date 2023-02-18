@@ -201,6 +201,7 @@ class Game extends Component {
         style={{
           display: "flex",
           flexDirection: "column",
+          flexGrow: 1,
         }}
       >
         <Menu
