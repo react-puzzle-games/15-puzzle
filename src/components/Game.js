@@ -1,9 +1,13 @@
 // @ts-check
 
-import { DialogActions, DialogContent, DialogTitle } from "@material-ui/core";
-import FlatButton from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import Snackbar from "@material-ui/core/Snackbar";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Snackbar,
+} from "@material-ui/core";
 import React, { Component } from "react";
 import {
   GAME_IDLE,
@@ -19,7 +23,7 @@ class Game extends Component {
   constructor(props) {
     super(props);
 
-    const { numbers, tileSize, gridSize, moves, seconds } = props;
+    const { numbers, tileSize, gridSize, moves = 0, seconds = 0 } = props;
     const tiles = this.generateTiles(numbers, gridSize, tileSize);
 
     this.state = {
@@ -35,7 +39,7 @@ class Game extends Component {
     document.addEventListener("keydown", this.keyDownListener);
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { tileSize, gridSize } = this.props;
     const newTiles = this.generateTiles(nextProps.numbers, gridSize, tileSize);
 
@@ -225,9 +229,9 @@ class Game extends Component {
             {this.state.seconds} seconds!
           </DialogContent>
           <DialogActions>
-            <FlatButton variant="text" onClick={this.handleDialogClose}>
+            <Button variant="text" onClick={this.handleDialogClose}>
               Close
-            </FlatButton>
+            </Button>
           </DialogActions>
         </Dialog>
         <Snackbar
