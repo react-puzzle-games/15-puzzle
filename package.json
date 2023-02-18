@@ -14,8 +14,7 @@
     "@material-ui/icons": "^4.11.3",
     "react": "16.8.0",
     "react-dom": "16.8.0",
-    "react-responsive": "9.0.0",
-    "styled-components": "5.0.0"
+    "react-responsive": "9.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

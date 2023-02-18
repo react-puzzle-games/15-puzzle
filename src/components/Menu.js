@@ -31,7 +31,7 @@ const useStyles = makeStyles({
   },
 });
 
-function Menu(props) {
+const Menu = (props) => {
   const {
     seconds = 0,
     moves = 0,
@@ -115,6 +115,6 @@ function Menu(props) {
       </Toolbar>
     </AppBar>
   );
-}
+};
 
 export default Menu;
