@@ -1,4 +1,4 @@
-# [15 Puzzle](https://15-puzzle.netlify.com/) &middot; [![CircleCI Status](https://circleci.com/gh/react-puzzle-games/15-puzzle.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/react-puzzle-games/15-puzzle) [![Coverage Status](https://img.shields.io/coveralls/react-puzzle-games/15-puzzle/master.svg?style=flat)](https://coveralls.io/github/react-puzzle-games/15-puzzle?branch=master)
+# 15 Puzzle Game
 
 ![https://s3.eu-central-1.amazonaws.com/ovi-projects/15-puzzle/demo.gif](https://s3.eu-central-1.amazonaws.com/ovi-projects/15-puzzle/demo.gif)
 
