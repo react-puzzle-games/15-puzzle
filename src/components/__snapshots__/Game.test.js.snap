@@ -6,6 +6,7 @@ exports[`Game renders correctly 1`] = `
     Object {
       "display": "flex",
       "flexDirection": "column",
+      "flexGrow": 1,
     }
   }
 >
