@@ -1,123 +1,120 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
-import RaisedButton from 'material-ui/RaisedButton';
-import Chip from 'material-ui/Chip';
-import Avatar from 'material-ui/Avatar';
-import Alarm from 'material-ui/svg-icons/action/alarm';
-import Moves from 'material-ui/svg-icons/action/compare-arrows';
-import Replay from 'material-ui/svg-icons/av/replay';
-import Pause from 'material-ui/svg-icons/av/pause';
-import Play from 'material-ui/svg-icons/av/play-arrow';
-import New from 'material-ui/svg-icons/action/power-settings-new';
-import { GAME_STARTED, GAME_PAUSED } from '../lib/game-status';
-import PropTypes from 'prop-types';
-import MediaQuery from 'react-responsive';
+// @ts-check
 
-const StyledToolbar = styled(Toolbar)`
+import {
+  AppBar,
+  Avatar,
+  Button,
+  Chip,
+  Toolbar,
+  Typography,
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import {
+  Alarm,
+  CompareArrows,
+  Pause,
+  PlayArrow,
+  PowerSettingsNew,
+  Replay,
+} from "@material-ui/icons";
+import React from "react";
+import MediaQuery from "react-responsive";
+import { GAME_PAUSED, GAME_STARTED } from "../lib/game-status";
 
-@media (max-width: 1190px) {
-  
-  & {
-    justify-content: center !important;
-  }
+const useStyles = makeStyles({
+  root: {
+    backgroundColor: "rgb(232, 232, 232)",
+  },
+  title: {
+    color: "#000",
+    flexGrow: 1,
+  },
+});
 
-  .toolbarTitle {
-    display: none;
-  }
+const Menu = (props) => {
+  const {
+    seconds = 0,
+    moves = 0,
+    onResetClick,
+    onPauseClick,
+    onNewClick,
+    gameState,
+  } = props;
 
-}
+  const classes = useStyles(props);
 
-@media (max-width: 890px) {
+  return (
+    <AppBar position="static" className={classes.root}>
+      <Toolbar>
+        <Typography className={classes.title} variant="h6" component="div">
+          React Puzzle Games - 15 Puzzle
+        </Typography>
 
-  .menuButton {
-    margin: 10px 5px !important;
-    min-width: 36px !important;
-  }
-
-  .menuIcon {
-    margin-left: 0px !important;
-  }
-
-  .menuIcon+span {
-    display: none !important;
-  }
-
-}
-
-`;
-
-class Menu extends Component {
-  render() {
-    const {
-      seconds,
-      moves,
-      onResetClick,
-      onPauseClick,
-      onNewClick,
-      gameState,
-    } = this.props;
-
-    return (
-      <StyledToolbar className="toolbar">
-        <ToolbarTitle
-          className="toolbarTitle"
-          text="React Puzzle Games - 15 Puzzle"
+        <Button
+          aria-label="Start a new game"
+          onClick={onNewClick}
+          startIcon={<PowerSettingsNew className="menuIcon" />}
+        >
+          <Typography component="span" variant="button">
+            New game
+          </Typography>
+        </Button>
+        <Button
+          aria-label="Pause/Continue current game."
+          onClick={onPauseClick}
+          startIcon={
+            gameState === GAME_PAUSED ? (
+              <PlayArrow className="menuIcon" />
+            ) : (
+              <Pause className="menuIcon" />
+            )
+          }
+          disabled={gameState !== GAME_STARTED && gameState !== GAME_PAUSED}
+        >
+          <Typography component="span" variant="button">
+            {gameState === GAME_PAUSED ? "Continue" : "Pause"}
+          </Typography>
+        </Button>
+        <Button
+          aria-label="Reset game"
+          onClick={onResetClick}
+          startIcon={<Replay />}
+        >
+          Reset game
+        </Button>
+        <Chip
+          avatar={
+            <Avatar>
+              <Alarm />
+            </Avatar>
+          }
+          label={
+            <>
+              <MediaQuery query="(min-width: 772px)" component="span">
+                Time Elapsed:
+              </MediaQuery>
+              <Typography component="span">{seconds}s</Typography>
+            </>
+          }
         />
-        <ToolbarGroup>
-          <RaisedButton
-            className="menuButton"
-            label="New game"
-            onTouchTap={onNewClick}
-            title="Start a new game"
-            icon={<New className="menuIcon" />}
-          />
-          <RaisedButton
-            className="menuButton"
-            label={gameState === GAME_PAUSED ? 'Continue' : 'Pause'}
-            onTouchTap={onPauseClick}
-            icon={
-              gameState === GAME_PAUSED
-                ? <Play className="menuIcon" />
-                : <Pause className="menuIcon" />
-            }
-            title="Pause/Continue current game."
-            disabled={gameState !== GAME_STARTED && gameState !== GAME_PAUSED}
-          />
-          <RaisedButton
-            className="menuButton"
-            label="Reset game"
-            onTouchTap={onResetClick}
-            title="Reset game"
-            icon={<Replay className="menuIcon" />}
-          />
-          <Chip>
-            <Avatar icon={<Alarm />} />
-            <MediaQuery query="(min-width: 772px)" component="span">
-              Time Elapsed:{' '}
-            </MediaQuery>
-            {seconds}s
-          </Chip>
-          <Chip>
-            <Avatar icon={<Moves />} />
-            <MediaQuery query="(min-width: 772px)" component="span">
-              Moves Counter:{' '}
-            </MediaQuery>
-            {moves}
-          </Chip>
-        </ToolbarGroup>
-      </StyledToolbar>
-    );
-  }
-}
-
-Menu.propTypes = {
-  seconds: PropTypes.number.isRequired,
-  moves: PropTypes.number.isRequired,
-  onResetClick: PropTypes.func.isRequired,
-  onPauseClick: PropTypes.func.isRequired,
-  onNewClick: PropTypes.func.isRequired,
-  gameState: PropTypes.symbol.isRequired,
+        <Chip
+          avatar={
+            <Avatar>
+              <CompareArrows />
+            </Avatar>
+          }
+          label={
+            <>
+              <MediaQuery query="(min-width: 772px)" component="span">
+                Moves so far:
+              </MediaQuery>
+              <Typography component="span">{moves}</Typography>
+            </>
+          }
+        />
+      </Toolbar>
+    </AppBar>
+  );
 };
 
 export default Menu;

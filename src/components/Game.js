@@ -1,18 +1,19 @@
-import React, { Component } from 'react';
-import { getTileCoords, distanceBetween, invert } from '../lib/utils';
-import Grid from './Grid';
-import Menu from './Menu';
+// @ts-check
+
+import { DialogActions, DialogContent, DialogTitle } from "@material-ui/core";
+import FlatButton from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import Snackbar from "@material-ui/core/Snackbar";
+import React, { Component } from "react";
 import {
   GAME_IDLE,
   GAME_OVER,
-  GAME_STARTED,
   GAME_PAUSED,
-} from '../lib/game-status';
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
-import Snackbar from 'material-ui/Snackbar';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+  GAME_STARTED,
+} from "../lib/game-status";
+import { distanceBetween, getTileCoords, invert } from "../lib/utils";
+import Grid from "./Grid";
+import Menu from "./Menu";
 
 class Game extends Component {
   constructor(props) {
@@ -28,10 +29,10 @@ class Game extends Component {
       seconds,
       dialogOpen: false,
       snackbarOpen: false,
-      snackbarText: '',
+      snackbarText: "",
     };
 
-    document.addEventListener('keydown', this.keyDownListener);
+    document.addEventListener("keydown", this.keyDownListener);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -49,16 +50,15 @@ class Game extends Component {
   }
 
   // End game by pressing CTRL + ALT + F
-  keyDownListener = key => {
-    if (key.ctrlKey && key.altKey && key.code === 'KeyF') {
+  keyDownListener = (key) => {
+    if (key.ctrlKey && key.altKey && key.code === "KeyF") {
       const { original, gridSize, tileSize } = this.props;
-      const solvedTiles = this.generateTiles(original, gridSize, tileSize).map((
-        tile,
-        index,
-      ) => {
-        tile.number = index + 1;
-        return Object.assign({}, tile);
-      });
+      const solvedTiles = this.generateTiles(original, gridSize, tileSize).map(
+        (tile, index) => {
+          tile.number = index + 1;
+          return Object.assign({}, tile);
+        }
+      );
 
       clearInterval(this.timerId);
 
@@ -76,7 +76,7 @@ class Game extends Component {
     });
   };
 
-  handleSnackbarClose = reason => {
+  handleSnackbarClose = (reason) => {
     this.setState({
       snackbarOpen: false,
     });
@@ -98,11 +98,11 @@ class Game extends Component {
   }
 
   isGameOver(tiles) {
-    const correctedTiles = tiles.filter(tile => {
+    const correctedTiles = tiles.filter((tile) => {
       return tile.tileId + 1 === tile.number;
     });
 
-    if (correctedTiles.length === (this.props.gridSize) ** 2) {
+    if (correctedTiles.length === this.props.gridSize ** 2) {
       clearInterval(this.timerId);
       return true;
     } else {
@@ -111,33 +111,30 @@ class Game extends Component {
   }
 
   addTimer() {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       return { seconds: prevState.seconds + 1 };
     });
   }
 
   setTimer() {
-    this.timerId = setInterval(
-      () => {
-        this.addTimer();
-      },
-      1000,
-    );
+    this.timerId = setInterval(() => {
+      this.addTimer();
+    }, 1000);
   }
 
   onPauseClick = () => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       let newGameState = null;
       let newSnackbarText = null;
 
       if (prevState.gameState === GAME_STARTED) {
         clearInterval(this.timerId);
         newGameState = GAME_PAUSED;
-        newSnackbarText = 'The game is currently paused.';
+        newSnackbarText = "The game is currently paused.";
       } else {
         this.setTimer();
         newGameState = GAME_STARTED;
-        newSnackbarText = 'Game on!';
+        newSnackbarText = "Game on!";
       }
 
       return {
@@ -148,9 +145,10 @@ class Game extends Component {
     });
   };
 
-  onTileClick = tile => {
+  onTileClick = (tile) => {
     if (
-      this.state.gameState === GAME_OVER || this.state.gameState === GAME_PAUSED
+      this.state.gameState === GAME_OVER ||
+      this.state.gameState === GAME_PAUSED
     ) {
       return;
     }
@@ -163,23 +161,25 @@ class Game extends Component {
     const { gridSize } = this.props;
 
     // Find empty tile
-    const emptyTile = this.state.tiles.find(t => t.number === gridSize ** 2);
+    const emptyTile = this.state.tiles.find((t) => t.number === gridSize ** 2);
     const emptyTileIndex = this.state.tiles.indexOf(emptyTile);
 
     // Find index of tile
-    const tileIndex = this.state.tiles.findIndex(t => t.number === tile.number);
+    const tileIndex = this.state.tiles.findIndex(
+      (t) => t.number === tile.number
+    );
 
     // Is this tale neighbouring the zero tile? If so, switch them.
     const d = distanceBetween(tile, emptyTile);
     if (d.neighbours) {
-      let t = Array.from(this.state.tiles).map(t => ({ ...t }));
+      let t = Array.from(this.state.tiles).map((t) => ({ ...t }));
 
       invert(t, emptyTileIndex, tileIndex, [
-        'top',
-        'left',
-        'row',
-        'column',
-        'tileId',
+        "top",
+        "left",
+        "row",
+        "column",
+        "tileId",
       ]);
 
       const checkGameOver = this.isGameOver(t);
@@ -194,20 +194,16 @@ class Game extends Component {
   };
 
   render() {
-    const {
-      className,
-      gridSize,
-      tileSize,
-      onResetClick,
-      onNewClick,
-    } = this.props;
-
-    const actions = [
-      <FlatButton label="Close" onTouchTap={this.handleDialogClose} />,
-    ];
+    const { gridSize, tileSize, onResetClick, onNewClick } = this.props;
 
     return (
-      <div className={className}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          flexGrow: 1,
+        }}
+      >
         <Menu
           seconds={this.state.seconds}
           moves={this.state.moves}
@@ -222,45 +218,26 @@ class Game extends Component {
           tiles={this.state.tiles}
           onTileClick={this.onTileClick}
         />
-        <Dialog
-          title="Congrats!"
-          actions={actions}
-          modal={false}
-          open={this.state.dialogOpen}
-          onRequestClose={this.handleDialogClose}
-        >
-          You've solved the puzzle in{' '}
-          {this.state.moves}
-          {' '}moves in{' '}
-          {this.state.seconds}
-          {' '}seconds!
+        <Dialog open={this.state.dialogOpen} onClose={this.handleDialogClose}>
+          <DialogTitle>Congratulations!</DialogTitle>
+          <DialogContent>
+            You've solved the puzzle in {this.state.moves} moves in{" "}
+            {this.state.seconds} seconds!
+          </DialogContent>
+          <DialogActions>
+            <FlatButton variant="text" onClick={this.handleDialogClose}>
+              Close
+            </FlatButton>
+          </DialogActions>
         </Dialog>
         <Snackbar
           open={this.state.snackbarOpen}
           message={this.state.snackbarText}
-          onRequestClose={this.handleSnackbarClose}
+          onClose={this.handleSnackbarClose}
         />
       </div>
     );
   }
 }
 
-Game.propTypes = {
-  numbers: PropTypes.arrayOf(PropTypes.number).isRequired,
-  original: PropTypes.arrayOf(PropTypes.number),
-  tileSize: PropTypes.number,
-  gridSize: PropTypes.number,
-  moves: PropTypes.number,
-  seconds: PropTypes.number,
-};
-
-Game.defaultProps = {
-  tileSize: 90,
-  gridSize: 4,
-  moves: 0,
-  seconds: 0,
-};
-
-export default styled(Game)`
-  flex: 1;
-`;
+export default Game;

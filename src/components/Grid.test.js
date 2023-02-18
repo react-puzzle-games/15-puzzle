@@ -1,5 +1,7 @@
-import renderer from 'react-test-renderer';
+// @ts-check
+
 import React from 'react';
+import renderer from 'react-test-renderer';
 import Grid from './Grid';
 
 describe('Grid renders correctly', () => {

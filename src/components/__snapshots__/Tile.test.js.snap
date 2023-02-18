@@ -2,11 +2,11 @@
 
 exports[`Tile renders correctly given correct prop 1`] = `
 <div
-  className="sc-bdVaJa dFyZnU"
+  className="makeStyles-root-1 makeStyles-root-5"
   onClick={[Function]}
 >
   <span
-    className="tile-number"
+    className="makeStyles-tileNumber-2"
   >
     0
   </span>
@@ -15,11 +15,11 @@ exports[`Tile renders correctly given correct prop 1`] = `
 
 exports[`Tile renders correctly given custom number 1`] = `
 <div
-  className="sc-bdVaJa jodVcS"
+  className="makeStyles-root-1 makeStyles-root-3"
   onClick={[Function]}
 >
   <span
-    className="tile-number"
+    className="makeStyles-tileNumber-2"
   >
     13
   </span>
@@ -28,24 +28,24 @@ exports[`Tile renders correctly given custom number 1`] = `
 
 exports[`Tile renders correctly given default number 1`] = `
 <div
-  className="sc-bdVaJa hYSZle"
+  className="makeStyles-root-1 makeStyles-root-4"
   onClick={[Function]}
 >
   <span
-    className="tile-number"
+    className="makeStyles-tileNumber-2"
   >
     0
   </span>
 </div>
 `;
 
-exports[`Tile renders correctly given visible prop 1`] = `
+exports[`Tile renders correctly given invisible prop 1`] = `
 <div
-  className="sc-bdVaJa clEXFS tile-invisible"
+  className="makeStyles-root-1 makeStyles-root-6"
   onClick={[Function]}
 >
   <span
-    className="tile-number"
+    className="makeStyles-tileNumber-2"
   >
     0
   </span>

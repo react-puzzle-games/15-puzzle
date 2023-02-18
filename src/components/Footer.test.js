@@ -1,5 +1,7 @@
-import renderer from 'react-test-renderer';
+// @ts-check
+
 import React from 'react';
+import renderer from 'react-test-renderer';
 import Footer from './Footer';
 
 test('Footer renders correctly', () => {

@@ -1,3 +1,5 @@
+// @ts-check
+
 import factory from './levels-factory';
 
 it('throws if given a size that is not a perfect square', () => {
