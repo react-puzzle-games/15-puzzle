@@ -1,58 +1,51 @@
 // @ts-check
 
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import Tile, { propTypes as TilePropTypes } from './Tile';
+import { makeStyles } from "@material-ui/core";
+import React from "react";
+import Tile from "./Tile";
 
-class Grid extends Component {
-  render() {
-    const {
-      className,
-      tiles,
-      onTileClick,
-      gridSize,
-    } = this.props;
+const useStyles = makeStyles({
+  root: (props) => {
+    return {
+      flex: 1,
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      minHeight: "500px",
+    };
+  },
+  tile: (props) => {
+    return {
+      width: `${props.tileSize * props.gridSize}px`,
+      height: `${props.tileSize * props.gridSize}px`,
+      position: "relative",
+      textAlign: "center",
+    };
+  },
+});
 
-    return (
-      <div className={className}>
-        <div className="tiles">
-          {tiles.map((tile, tileId) => {
-            return (
-              <Tile
-                {...tile}
-                key={`tile-${tileId}`}
-                correct={tile.tileId + 1 === tile.number}
-                onClick={onTileClick}
-                visible={tile.number < gridSize ** 2}
-              />
-            );
-          })}
-        </div>
+const Grid = (props) => {
+  const { tiles, onTileClick, gridSize } = props;
+  const styles = useStyles(props);
+
+  return (
+    <div className={styles.root}>
+      <div className={styles.tile}>
+        {tiles.map((tile, index) => {
+          return (
+            <Tile
+              {...tile}
+              key={`tile-${index}`}
+              correct={tile.tileId + 1 === tile.number}
+              onClick={onTileClick}
+              visible={tile.number < gridSize ** 2}
+            />
+          );
+        })}
       </div>
-    );
-  }
-}
-
-Grid.propTypes = {
-  tiles: PropTypes.arrayOf(PropTypes.shape(TilePropTypes)).isRequired,
-  gridSize: PropTypes.number.isRequired,
-  tileSize: PropTypes.number.isRequired,
-  onTileClick: PropTypes.func.isRequired,
+    </div>
+  );
 };
 
-export default styled(Grid)`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 500px;
-
-  & .tiles {
-    width: ${props => props.tileSize * props.gridSize}px;
-    height: ${props => props.tileSize * props.gridSize}px;
-    position: relative;
-    text-align: center;
-  }
-`;
+export default Grid;

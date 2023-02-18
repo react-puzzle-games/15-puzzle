@@ -1,49 +1,50 @@
 // @ts-check
 
-import React from 'react';
-import styled from 'styled-components';
-import GitHubIcon from './GitHubIcon';
+import { makeStyles } from "@material-ui/core/styles";
+import React from "react";
+import GitHubIcon from "./GitHubIcon";
 
-const FooterContent = styled.div`
-  flex:none;
-  background-color: rgb(232, 232, 232);
-  color: rgb(0, 0, 0);
-  padding-top: 10px;
-  text-align: center;
+const useStyles = makeStyles({
+  root: {
+    backgroundColor: "rgb(232, 232, 232)",
+    paddingTop: "10px",
+    textAlign: "center",
+  },
+  heart: {
+    color: "#d4726a",
+  },
+  link: {
+    textDecoration: "none",
+    color: "#226666",
+  },
+});
 
-  & .footerheart {
-    color: #D4726A;
-  }
+const Footer = () => {
+  const styles = useStyles();
 
-  & .footerlink {
-    text-decoration: none;
-    color: #226666;
-  }
-`;
-
-const Footer = () => (
-  <FooterContent>
-    <a
-      href="https://github.com/react-puzzle-games/15-puzzle/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <GitHubIcon className="menuIcon" />
-    </a>
-    <p>
-      Made with{' '}
-      <span className="footerheart">♥</span>
-      {' '}by{' '}
+  return (
+    <footer className={styles.root}>
       <a
-        className="footerlink"
-        href="https://github.com/react-puzzle-games"
-        rel="noopener noreferrer"
+        href="https://github.com/react-puzzle-games/15-puzzle/"
         target="_blank"
+        rel="noopener noreferrer"
       >
-        {' '}React Puzzle Games
+        <GitHubIcon />
       </a>
-    </p>
-  </FooterContent>
-);
+      <p>
+        Made with <span className={styles.heart}>♥</span> by{" "}
+        <a
+          className={styles.link}
+          href="https://github.com/react-puzzle-games"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          {" "}
+          React Puzzle Games
+        </a>
+      </p>
+    </footer>
+  );
+};
 
 export default Footer;

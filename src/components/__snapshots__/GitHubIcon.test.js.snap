@@ -2,7 +2,7 @@
 
 exports[`GitHubIcon renders correctly 1`] = `
 <svg
-  className="sc-bdVaJa dSoADu"
+  className="makeStyles-root-1"
   height="24px"
   version="1.1"
   viewBox="0 0 435.549 435.549"

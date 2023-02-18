@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Footer renders correctly 1`] = `
-<div
-  className="sc-bwzfXH ieFDxO"
+<footer
+  className="makeStyles-root-1"
 >
   <a
     href="https://github.com/react-puzzle-games/15-puzzle/"
@@ -10,7 +10,7 @@ exports[`Footer renders correctly 1`] = `
     target="_blank"
   >
     <svg
-      className="menuIcon sc-bdVaJa dSoADu"
+      className="makeStyles-root-4"
       height="24px"
       version="1.1"
       viewBox="0 0 435.549 435.549"
@@ -25,18 +25,16 @@ exports[`Footer renders correctly 1`] = `
     </svg>
   </a>
   <p>
-    Made with
-     
+    Made with 
     <span
-      className="footerheart"
+      className="makeStyles-heart-2"
     >
       ♥
     </span>
-     
-    by
+     by
      
     <a
-      className="footerlink"
+      className="makeStyles-link-3"
       href="https://github.com/react-puzzle-games"
       rel="noopener noreferrer"
       target="_blank"
@@ -45,5 +43,5 @@ exports[`Footer renders correctly 1`] = `
       React Puzzle Games
     </a>
   </p>
-</div>
+</footer>
 `;

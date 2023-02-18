@@ -1,19 +1,22 @@
 // @ts-check
 
-import { Typography } from "@material-ui/core";
-import AppBar from "@material-ui/core/AppBar";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import Chip from "@material-ui/core/Chip";
+import {
+  AppBar,
+  Avatar,
+  Button,
+  Chip,
+  Toolbar,
+  Typography,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import Toolbar from "@material-ui/core/Toolbar";
-import Alarm from "@material-ui/icons/Alarm";
-import Moves from "@material-ui/icons/CompareArrows";
-import Pause from "@material-ui/icons/Pause";
-import Play from "@material-ui/icons/PlayArrow";
-import New from "@material-ui/icons/PowerSettingsNew";
-import Replay from "@material-ui/icons/Replay";
-import PropTypes from "prop-types";
+import {
+  Alarm,
+  CompareArrows,
+  Pause,
+  PlayArrow,
+  PowerSettingsNew,
+  Replay,
+} from "@material-ui/icons";
 import React from "react";
 import MediaQuery from "react-responsive";
 import { GAME_PAUSED, GAME_STARTED } from "../lib/game-status";
@@ -24,12 +27,19 @@ const useStyles = makeStyles({
   },
   title: {
     color: "#000",
+    flexGrow: 1,
   },
 });
 
 function Menu(props) {
-  const { seconds, moves, onResetClick, onPauseClick, onNewClick, gameState } =
-    props;
+  const {
+    seconds = 0,
+    moves = 0,
+    onResetClick,
+    onPauseClick,
+    onNewClick,
+    gameState,
+  } = props;
 
   const classes = useStyles(props);
 
@@ -39,10 +49,11 @@ function Menu(props) {
         <Typography className={classes.title} variant="h6" component="div">
           React Puzzle Games - 15 Puzzle
         </Typography>
+
         <Button
           aria-label="Start a new game"
           onClick={onNewClick}
-          startIcon={<New className="menuIcon" />}
+          startIcon={<PowerSettingsNew className="menuIcon" />}
         >
           <Typography component="span" variant="button">
             New game
@@ -53,7 +64,7 @@ function Menu(props) {
           onClick={onPauseClick}
           startIcon={
             gameState === GAME_PAUSED ? (
-              <Play className="menuIcon" />
+              <PlayArrow className="menuIcon" />
             ) : (
               <Pause className="menuIcon" />
             )
@@ -89,13 +100,13 @@ function Menu(props) {
         <Chip
           avatar={
             <Avatar>
-              <Moves />
+              <CompareArrows />
             </Avatar>
           }
           label={
             <>
               <MediaQuery query="(min-width: 772px)" component="span">
-                Moves Counter:
+                Moves so far:
               </MediaQuery>
               <Typography component="span">{moves}</Typography>
             </>
@@ -105,14 +116,5 @@ function Menu(props) {
     </AppBar>
   );
 }
-
-Menu.propTypes = {
-  seconds: PropTypes.number.isRequired,
-  moves: PropTypes.number.isRequired,
-  onResetClick: PropTypes.func.isRequired,
-  onPauseClick: PropTypes.func.isRequired,
-  onNewClick: PropTypes.func.isRequired,
-  gameState: PropTypes.symbol.isRequired,
-};
 
 export default Menu;

@@ -2,47 +2,47 @@
 
 exports[`Grid renders correctly given a set of tiles 1`] = `
 <div
-  className="sc-bwzfXH jBBIHp"
+  className="makeStyles-root-1 makeStyles-root-10"
 >
   <div
-    className="tiles"
+    className="makeStyles-tile-2 makeStyles-tile-11"
   >
     <div
-      className="tile-invisible sc-bdVaJa jodVcS"
+      className="makeStyles-root-7 makeStyles-root-12"
       onClick={[Function]}
     >
       <span
-        className="tile-number"
+        className="makeStyles-tileNumber-8"
       >
         4
       </span>
     </div>
     <div
-      className="tile-invisible sc-bdVaJa gaQDFA"
+      className="makeStyles-root-7 makeStyles-root-13"
       onClick={[Function]}
     >
       <span
-        className="tile-number"
+        className="makeStyles-tileNumber-8"
       >
         2
       </span>
     </div>
     <div
-      className="tile-invisible sc-bdVaJa htVqMf"
+      className="makeStyles-root-7 makeStyles-root-14"
       onClick={[Function]}
     >
       <span
-        className="tile-number"
+        className="makeStyles-tileNumber-8"
       >
         3
       </span>
     </div>
     <div
-      className="tile-invisible sc-bdVaJa dQlHZv"
+      className="makeStyles-root-7 makeStyles-root-15"
       onClick={[Function]}
     >
       <span
-        className="tile-number"
+        className="makeStyles-tileNumber-8"
       >
         1
       </span>
@@ -53,27 +53,27 @@ exports[`Grid renders correctly given a set of tiles 1`] = `
 
 exports[`Grid renders correctly given an empty set of tiles 1`] = `
 <div
-  className="sc-bwzfXH iPaWuQ"
+  className="makeStyles-root-1 makeStyles-root-3"
 >
   <div
-    className="tiles"
+    className="makeStyles-tile-2 makeStyles-tile-4"
   />
 </div>
 `;
 
 exports[`Grid renders correctly given one tile 1`] = `
 <div
-  className="sc-bwzfXH jBBIHp"
+  className="makeStyles-root-1 makeStyles-root-5"
 >
   <div
-    className="tiles"
+    className="makeStyles-tile-2 makeStyles-tile-6"
   >
     <div
-      className="tile-invisible sc-bdVaJa eHNnrm"
+      className="makeStyles-root-7 makeStyles-root-9"
       onClick={[Function]}
     >
       <span
-        className="tile-number"
+        className="makeStyles-tileNumber-8"
       >
         0
       </span>

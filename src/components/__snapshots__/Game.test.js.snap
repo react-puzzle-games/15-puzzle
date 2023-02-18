@@ -2,517 +2,161 @@
 
 exports[`Game renders correctly 1`] = `
 <div
-  className="sc-bxivhb hYiooe"
->
-  <div
-    className="toolbar sc-htpNat cOgzoj"
-    style={
-      Object {
-        "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-        "backgroundColor": "rgb(232, 232, 232)",
-        "boxSizing": "border-box",
-        "display": "flex",
-        "height": 56,
-        "justifyContent": "space-between",
-        "muiPrepared": true,
-        "padding": "0px 24px",
-      }
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "column",
     }
+  }
+>
+  <header
+    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorPrimary makeStyles-root-1 MuiPaper-elevation4"
   >
-    <span
-      className="toolbarTitle"
-      style={
-        Object {
-          "fontFamily": "Roboto, sans-serif",
-          "fontSize": 20,
-          "lineHeight": "56px",
-          "muiPrepared": true,
-          "overflow": "hidden",
-          "paddingRight": 16,
-          "position": "relative",
-          "textOverflow": "ellipsis",
-          "whiteSpace": "nowrap",
-        }
-      }
-    >
-      React Puzzle Games - 15 Puzzle
-    </span>
     <div
-      style={
-        Object {
-          "alignItems": "center",
-          "display": "flex",
-          "justifyContent": "space-between",
-          "marginLeft": undefined,
-          "marginRight": undefined,
-          "muiPrepared": true,
-          "position": "relative",
-        }
-      }
+      className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
     >
       <div
-        className="menuButton"
-        style={
-          Object {
-            "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-            "backgroundColor": "#ffffff",
-            "borderRadius": 2,
-            "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
-         0 1px 4px rgba(0, 0, 0, 0.12)",
-            "boxSizing": "border-box",
-            "color": "rgba(0, 0, 0, 0.87)",
-            "display": "inline-block",
-            "fontFamily": "Roboto, sans-serif",
-            "margin": "10px 24px",
-            "minWidth": 88,
-            "muiPrepared": true,
-            "position": "relative",
-            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-          }
-        }
+        className="MuiTypography-root makeStyles-title-2 MuiTypography-h6"
       >
-        <button
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchStart={[Function]}
-          onTouchTap={[Function]}
-          style={
-            Object {
-              "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-              "backgroundColor": "#ffffff",
-              "border": 10,
-              "borderRadius": 2,
-              "boxSizing": "border-box",
-              "cursor": "pointer",
-              "display": "inline-block",
-              "fontFamily": "Roboto, sans-serif",
-              "fontSize": "inherit",
-              "fontWeight": "inherit",
-              "height": 36,
-              "lineHeight": "36px",
-              "margin": 0,
-              "muiPrepared": true,
-              "outline": "none",
-              "padding": 0,
-              "position": "relative",
-              "textAlign": "center",
-              "textDecoration": "none",
-              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-              "verticalAlign": null,
-              "width": "100%",
-              "zIndex": 1,
-            }
-          }
-          tabIndex={0}
-          title="Start a new game"
-          type="button"
-        >
-          <div
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
-          >
-            <div
-              style={
-                Object {
-                  "backgroundColor": false,
-                  "borderRadius": 2,
-                  "height": 36,
-                  "muiPrepared": true,
-                  "top": 0,
-                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                }
-              }
-            >
-              <svg
-                className="menuIcon"
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                style={
-                  Object {
-                    "color": "rgba(0, 0, 0, 0.87)",
-                    "display": "inline-block",
-                    "fill": "rgba(0, 0, 0, 0.87)",
-                    "height": 24,
-                    "marginLeft": 12,
-                    "marginRight": 0,
-                    "muiPrepared": true,
-                    "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                    "userSelect": "none",
-                    "verticalAlign": "middle",
-                    "width": 24,
-                  }
-                }
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"
-                />
-              </svg>
-              <span
-                style={
-                  Object {
-                    "color": "rgba(0, 0, 0, 0.87)",
-                    "fontSize": 14,
-                    "fontWeight": 500,
-                    "letterSpacing": 0,
-                    "margin": 0,
-                    "muiPrepared": true,
-                    "opacity": 1,
-                    "paddingLeft": 8,
-                    "paddingRight": 16,
-                    "position": "relative",
-                    "textTransform": "uppercase",
-                    "userSelect": "none",
-                  }
-                }
-              >
-                New game
-              </span>
-            </div>
-          </div>
-        </button>
+        React Puzzle Games - 15 Puzzle
       </div>
-      <div
-        className="menuButton"
-        style={
-          Object {
-            "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-            "backgroundColor": "#ffffff",
-            "borderRadius": 2,
-            "boxShadow": undefined,
-            "boxSizing": "border-box",
-            "color": "rgba(0, 0, 0, 0.87)",
-            "display": "inline-block",
-            "fontFamily": "Roboto, sans-serif",
-            "margin": "10px 24px",
-            "minWidth": 88,
-            "muiPrepared": true,
-            "position": "relative",
-            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-          }
-        }
+      <button
+        aria-label="Start a new game"
+        className="MuiButtonBase-root MuiButton-root MuiButton-text"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
       >
-        <button
-          disabled={true}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onTouchTap={[Function]}
-          style={
-            Object {
-              "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-              "backgroundColor": "rgb(229, 229, 229)",
-              "border": 10,
-              "borderRadius": 2,
-              "boxSizing": "border-box",
-              "cursor": "default",
-              "display": "inline-block",
-              "fontFamily": "Roboto, sans-serif",
-              "fontSize": "inherit",
-              "fontWeight": "inherit",
-              "height": 36,
-              "lineHeight": "36px",
-              "margin": 0,
-              "muiPrepared": true,
-              "outline": "none",
-              "padding": 0,
-              "position": "relative",
-              "textAlign": "center",
-              "textDecoration": "none",
-              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-              "verticalAlign": null,
-              "width": "100%",
-              "zIndex": 1,
-            }
-          }
-          tabIndex={-1}
-          title="Pause/Continue current game."
-          type="button"
+        <span
+          className="MuiButton-label"
         >
-          <div
-            style={
-              Object {
-                "backgroundColor": false,
-                "borderRadius": 2,
-                "height": 36,
-                "muiPrepared": true,
-                "top": 0,
-                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-              }
-            }
+          <span
+            className="MuiButton-startIcon MuiButton-iconSizeMedium"
           >
             <svg
-              className="menuIcon"
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              style={
-                Object {
-                  "color": "rgba(0, 0, 0, 0.87)",
-                  "display": "inline-block",
-                  "fill": "rgba(0, 0, 0, 0.3)",
-                  "height": 24,
-                  "marginLeft": 12,
-                  "marginRight": 0,
-                  "muiPrepared": true,
-                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                  "userSelect": "none",
-                  "verticalAlign": "middle",
-                  "width": 24,
-                }
-              }
+              aria-hidden={true}
+              className="MuiSvgIcon-root menuIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"
+              />
+            </svg>
+          </span>
+          <span
+            className="MuiTypography-root MuiTypography-button"
+          >
+            New game
+          </span>
+        </span>
+      </button>
+      <button
+        aria-label="Pause/Continue current game."
+        className="MuiButtonBase-root MuiButton-root MuiButton-text Mui-disabled Mui-disabled"
+        disabled={true}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={-1}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          <span
+            className="MuiButton-startIcon MuiButton-iconSizeMedium"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root menuIcon"
+              focusable="false"
               viewBox="0 0 24 24"
             >
               <path
                 d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"
               />
             </svg>
-            <span
-              style={
-                Object {
-                  "color": "rgba(0, 0, 0, 0.3)",
-                  "fontSize": 14,
-                  "fontWeight": 500,
-                  "letterSpacing": 0,
-                  "margin": 0,
-                  "muiPrepared": true,
-                  "opacity": 1,
-                  "paddingLeft": 8,
-                  "paddingRight": 16,
-                  "position": "relative",
-                  "textTransform": "uppercase",
-                  "userSelect": "none",
-                }
-              }
-            >
-              Pause
-            </span>
-          </div>
-        </button>
-      </div>
-      <div
-        className="menuButton"
-        style={
-          Object {
-            "WebkitTapHighlightColor": "rgba(0,0,0,0)",
-            "backgroundColor": "#ffffff",
-            "borderRadius": 2,
-            "boxShadow": "0 1px 6px rgba(0, 0, 0, 0.12),
-         0 1px 4px rgba(0, 0, 0, 0.12)",
-            "boxSizing": "border-box",
-            "color": "rgba(0, 0, 0, 0.87)",
-            "display": "inline-block",
-            "fontFamily": "Roboto, sans-serif",
-            "margin": "10px 24px",
-            "minWidth": 88,
-            "muiPrepared": true,
-            "position": "relative",
-            "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-          }
-        }
-      >
-        <button
-          disabled={false}
-          onBlur={[Function]}
-          onClick={[Function]}
-          onFocus={[Function]}
-          onKeyDown={[Function]}
-          onKeyUp={[Function]}
-          onMouseDown={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
-          onTouchStart={[Function]}
-          onTouchTap={[Function]}
-          style={
-            Object {
-              "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-              "backgroundColor": "#ffffff",
-              "border": 10,
-              "borderRadius": 2,
-              "boxSizing": "border-box",
-              "cursor": "pointer",
-              "display": "inline-block",
-              "fontFamily": "Roboto, sans-serif",
-              "fontSize": "inherit",
-              "fontWeight": "inherit",
-              "height": 36,
-              "lineHeight": "36px",
-              "margin": 0,
-              "muiPrepared": true,
-              "outline": "none",
-              "padding": 0,
-              "position": "relative",
-              "textAlign": "center",
-              "textDecoration": "none",
-              "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-              "verticalAlign": null,
-              "width": "100%",
-              "zIndex": 1,
-            }
-          }
-          tabIndex={0}
-          title="Reset game"
-          type="button"
-        >
-          <div
-            onMouseDown={[Function]}
-            onMouseLeave={[Function]}
-            onMouseUp={[Function]}
-            onTouchEnd={[Function]}
-            onTouchStart={[Function]}
+          </span>
+          <span
+            className="MuiTypography-root MuiTypography-button"
           >
-            <div
-              style={
-                Object {
-                  "backgroundColor": false,
-                  "borderRadius": 2,
-                  "height": 36,
-                  "muiPrepared": true,
-                  "top": 0,
-                  "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                }
-              }
-            >
-              <svg
-                className="menuIcon"
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                style={
-                  Object {
-                    "color": "rgba(0, 0, 0, 0.87)",
-                    "display": "inline-block",
-                    "fill": "rgba(0, 0, 0, 0.87)",
-                    "height": 24,
-                    "marginLeft": 12,
-                    "marginRight": 0,
-                    "muiPrepared": true,
-                    "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                    "userSelect": "none",
-                    "verticalAlign": "middle",
-                    "width": 24,
-                  }
-                }
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"
-                />
-              </svg>
-              <span
-                style={
-                  Object {
-                    "color": "rgba(0, 0, 0, 0.87)",
-                    "fontSize": 14,
-                    "fontWeight": 500,
-                    "letterSpacing": 0,
-                    "margin": 0,
-                    "muiPrepared": true,
-                    "opacity": 1,
-                    "paddingLeft": 8,
-                    "paddingRight": 16,
-                    "position": "relative",
-                    "textTransform": "uppercase",
-                    "userSelect": "none",
-                  }
-                }
-              >
-                Reset game
-              </span>
-            </div>
-          </div>
-        </button>
-      </div>
-      <div
+            Pause
+          </span>
+        </span>
+      </button>
+      <button
+        aria-label="Reset game"
+        className="MuiButtonBase-root MuiButton-root MuiButton-text"
+        disabled={false}
         onBlur={[Function]}
         onClick={[Function]}
+        onDragLeave={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
         onKeyUp={[Function]}
         onMouseDown={[Function]}
-        onMouseEnter={[Function]}
         onMouseLeave={[Function]}
         onMouseUp={[Function]}
         onTouchEnd={[Function]}
+        onTouchMove={[Function]}
         onTouchStart={[Function]}
-        onTouchTap={[Function]}
-        style={
-          Object {
-            "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-            "backgroundColor": "rgb(224, 224, 224)",
-            "border": 10,
-            "borderRadius": 16,
-            "boxShadow": null,
-            "boxSizing": "border-box",
-            "cursor": "default",
-            "display": "flex",
-            "fontFamily": "Roboto, sans-serif",
-            "fontSize": "inherit",
-            "fontWeight": "inherit",
-            "margin": 0,
-            "muiPrepared": true,
-            "outline": "none",
-            "padding": 0,
-            "position": "relative",
-            "textDecoration": "none",
-            "verticalAlign": null,
-            "whiteSpace": "nowrap",
-            "width": "fit-content",
-            "zIndex": 1,
-          }
-        }
         tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          <span
+            className="MuiButton-startIcon MuiButton-iconSizeMedium"
+          >
+            <svg
+              aria-hidden={true}
+              className="MuiSvgIcon-root"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"
+              />
+            </svg>
+          </span>
+          Reset game
+        </span>
+      </button>
+      <div
+        className="MuiChip-root"
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
       >
         <div
-          size={32}
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "rgb(188, 188, 188)",
-              "borderRadius": "50%",
-              "color": "#ffffff",
-              "display": "inline-flex",
-              "fontSize": 16,
-              "height": 32,
-              "justifyContent": "center",
-              "marginRight": -4,
-              "muiPrepared": true,
-              "userSelect": "none",
-              "width": 32,
-            }
-          }
+          className="MuiAvatar-root MuiAvatar-circular MuiChip-avatar MuiAvatar-colorDefault"
         >
           <svg
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            style={
-              Object {
-                "color": "#ffffff",
-                "display": "inline-block",
-                "fill": "#ffffff",
-                "fontSize": 19.2,
-                "height": 19.2,
-                "margin": 6.4,
-                "muiPrepared": true,
-                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                "userSelect": "none",
-                "width": 19.2,
-              }
-            }
+            aria-hidden={true}
+            className="MuiSvgIcon-root"
+            focusable="false"
             viewBox="0 0 24 24"
           >
             <path
@@ -521,100 +165,28 @@ exports[`Game renders correctly 1`] = `
           </svg>
         </div>
         <span
-          style={
-            Object {
-              "color": "rgba(0, 0, 0, 0.87)",
-              "fontSize": 14,
-              "fontWeight": 400,
-              "lineHeight": "32px",
-              "muiPrepared": true,
-              "paddingLeft": 12,
-              "paddingRight": 12,
-              "userSelect": "none",
-              "whiteSpace": "nowrap",
-            }
-          }
+          className="MuiChip-label"
         >
-          0
-          s
+          <span
+            className="MuiTypography-root MuiTypography-body1"
+          >
+            0
+            s
+          </span>
         </span>
       </div>
       <div
-        onBlur={[Function]}
-        onClick={[Function]}
-        onFocus={[Function]}
+        className="MuiChip-root"
         onKeyDown={[Function]}
         onKeyUp={[Function]}
-        onMouseDown={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onMouseUp={[Function]}
-        onTouchEnd={[Function]}
-        onTouchStart={[Function]}
-        onTouchTap={[Function]}
-        style={
-          Object {
-            "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
-            "backgroundColor": "rgb(224, 224, 224)",
-            "border": 10,
-            "borderRadius": 16,
-            "boxShadow": null,
-            "boxSizing": "border-box",
-            "cursor": "default",
-            "display": "flex",
-            "fontFamily": "Roboto, sans-serif",
-            "fontSize": "inherit",
-            "fontWeight": "inherit",
-            "margin": 0,
-            "muiPrepared": true,
-            "outline": "none",
-            "padding": 0,
-            "position": "relative",
-            "textDecoration": "none",
-            "verticalAlign": null,
-            "whiteSpace": "nowrap",
-            "width": "fit-content",
-            "zIndex": 1,
-          }
-        }
-        tabIndex={0}
       >
         <div
-          size={32}
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "rgb(188, 188, 188)",
-              "borderRadius": "50%",
-              "color": "#ffffff",
-              "display": "inline-flex",
-              "fontSize": 16,
-              "height": 32,
-              "justifyContent": "center",
-              "marginRight": -4,
-              "muiPrepared": true,
-              "userSelect": "none",
-              "width": 32,
-            }
-          }
+          className="MuiAvatar-root MuiAvatar-circular MuiChip-avatar MuiAvatar-colorDefault"
         >
           <svg
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
-            style={
-              Object {
-                "color": "#ffffff",
-                "display": "inline-block",
-                "fill": "#ffffff",
-                "fontSize": 19.2,
-                "height": 19.2,
-                "margin": 6.4,
-                "muiPrepared": true,
-                "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-                "userSelect": "none",
-                "width": 19.2,
-              }
-            }
+            aria-hidden={true}
+            className="MuiSvgIcon-root"
+            focusable="false"
             viewBox="0 0 24 24"
           >
             <path
@@ -623,82 +195,23 @@ exports[`Game renders correctly 1`] = `
           </svg>
         </div>
         <span
-          style={
-            Object {
-              "color": "rgba(0, 0, 0, 0.87)",
-              "fontSize": 14,
-              "fontWeight": 400,
-              "lineHeight": "32px",
-              "muiPrepared": true,
-              "paddingLeft": 12,
-              "paddingRight": 12,
-              "userSelect": "none",
-              "whiteSpace": "nowrap",
-            }
-          }
+          className="MuiChip-label"
         >
-          0
+          <span
+            className="MuiTypography-root MuiTypography-body1"
+          >
+            0
+          </span>
         </span>
       </div>
     </div>
-  </div>
+  </header>
   <div
-    className="sc-bwzfXH iPaWuQ"
+    className="makeStyles-root-3 makeStyles-root-5"
   >
     <div
-      className="tiles"
+      className="makeStyles-tile-4 makeStyles-tile-6"
     />
-  </div>
-  <div
-    open={false}
-    style={
-      Object {
-        "bottom": 0,
-        "display": "flex",
-        "left": "50%",
-        "muiPrepared": true,
-        "position": "fixed",
-        "transform": "translate(-50%, 48px)",
-        "transition": "transform 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, visibility 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-        "visibility": "hidden",
-        "zIndex": 2900,
-      }
-    }
-  >
-    <div
-      style={
-        Object {
-          "backgroundColor": "rgba(0, 0, 0, 0.87)",
-          "borderRadius": 2,
-          "flexGrow": 0,
-          "fontFamily": "Roboto, sans-serif",
-          "height": 48,
-          "lineHeight": "48px",
-          "maxWidth": 568,
-          "minWidth": 288,
-          "muiPrepared": true,
-          "padding": "0 24px",
-          "width": "auto",
-        }
-      }
-      width={3}
-    >
-      <div
-        style={
-          Object {
-            "color": "#ffffff",
-            "fontSize": 14,
-            "muiPrepared": true,
-            "opacity": 0,
-            "transition": "opacity 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
-          }
-        }
-      >
-        <span>
-          
-        </span>
-      </div>
-    </div>
   </div>
 </div>
 `;

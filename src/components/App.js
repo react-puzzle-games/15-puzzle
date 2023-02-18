@@ -2,7 +2,6 @@
 
 import PropTypes from "prop-types";
 import React, { Component } from "react";
-import styled from "styled-components";
 import levelFactory from "./../lib/levels-factory";
 import Footer from "./Footer";
 import Game from "./Game";
@@ -38,10 +37,14 @@ class App extends Component {
   };
 
   render() {
-    const { className } = this.props;
-
     return (
-      <div className={className}>
+      <main
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
+        }}
+      >
         <Game
           gridSize={4}
           tileSize={90}
@@ -51,7 +54,7 @@ class App extends Component {
           original={this.state.original.tileSet}
         />
         <Footer />
-      </div>
+      </main>
     );
   }
 }
@@ -62,8 +65,4 @@ App.propTypes = {
   }),
 };
 
-export default styled(App)`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-`;
+export default App;

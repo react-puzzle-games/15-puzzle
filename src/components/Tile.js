@@ -1,77 +1,43 @@
 // @ts-check
 
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import { makeStyles } from "@material-ui/styles";
+import React from "react";
 
-class Tile extends Component {
-  constructor(props) {
-    super(props);
+const useStyles = makeStyles({
+  root: ({ width, height, correct, left, top, visible }) => ({
+    display: visible ? "flex" : "none",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    position: "absolute",
+    border: "1px solid #FFD1AA",
+    width,
+    height,
+    left,
+    top,
+    cursor: "pointer",
+    backgroundColor: correct ? "#226666" : "#D4726A",
+    transitionProperty: "top, left, background-color",
+    transitionDuration: ".300s",
+    transitionTimingFunction: "ease-in",
+  }),
 
-    this.onClick = this.onClick.bind(this);
-  }
+  tileNumber: {
+    color: "#FFD1AA",
+    fontSize: "1.8em",
+    userSelect: "none",
+  },
+});
 
-  onClick() {
-    this.props.onClick(this.props);
-  }
+const Tile = (props) => {
+  const { number = 0, onClick } = props;
+  const styles = useStyles(props);
 
-  render() {
-    const { className, number, visible } = this.props;
-    let tileInvisibleCls = !visible ? 'tile-invisible' : ''
-
-    return (
-      <div className={`${tileInvisibleCls} ${className}`} onClick={this.onClick}>
-        <span className="tile-number">{number}</span>
-      </div>
-    );
-  }
-}
-
-Tile.propTypes = {
-  tileId: PropTypes.number.isRequired,
-  width: PropTypes.number.isRequired,
-  height: PropTypes.number.isRequired,
-  left: PropTypes.number.isRequired,
-  top: PropTypes.number.isRequired,
-  number: PropTypes.number,
-  onClick: PropTypes.func,
-  correct: PropTypes.bool,
-  visible: PropTypes.bool,
+  return (
+    <div className={styles.root} onClick={() => onClick(props)}>
+      <span className={styles.tileNumber}>{number}</span>
+    </div>
+  );
 };
 
-Tile.defaultProps = {
-  number: 0,
-  correct: false,
-  visible: true,
-};
-
-export default styled(Tile)`
-  border: 1px solid #FFD1AA;
-  position: absolute;
-  width: ${props => props.width}px;
-  height: ${props => props.height}px;
-  left: ${props => props.left}px;
-  top: ${props => props.top}px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  background-color: ${props => props.correct ? '#226666' : '#D4726A'};
-  transition-property: top, left, background-color;
-  transition-duration: .300s;
-  transition-timing-function: ease-in;
-
-  .tile-number {
-    color: #FFD1AA;
-    font-weight: 400;
-    font-size: 1.8em;
-    user-select: none;
-  }
-
-  &.tile-invisible {
-    display: none;
-  }
-`;
-
-export const propTypes = Tile.propTypes;
+export default Tile;
