@@ -25,6 +25,13 @@ const useStyles = makeStyles({
   root: {
     backgroundColor: "rgb(232, 232, 232)",
   },
+
+  toolbar: {
+    ["@media (max-width: 414px)"]: {
+      justifyContent: "center",
+    },
+  },
+
   title: {
     color: "#000",
     flexGrow: 1,
@@ -45,19 +52,23 @@ const Menu = (props) => {
 
   return (
     <AppBar position="static" className={classes.root}>
-      <Toolbar>
-        <Typography className={classes.title} variant="h6" component="div">
-          React Puzzle Games - 15 Puzzle
-        </Typography>
+      <Toolbar className={classes.toolbar}>
+        <MediaQuery query="(min-width: 772px)">
+          <Typography className={classes.title} variant="h6" component="div">
+            React Puzzle Games - 15 Puzzle
+          </Typography>
+        </MediaQuery>
 
         <Button
           aria-label="Start a new game"
           onClick={onNewClick}
           startIcon={<PowerSettingsNew className="menuIcon" />}
         >
-          <Typography component="span" variant="button">
-            New game
-          </Typography>
+          <MediaQuery query="(min-width: 772px)">
+            <Typography component="span" variant="button">
+              New game
+            </Typography>
+          </MediaQuery>
         </Button>
         <Button
           aria-label="Pause/Continue current game."
@@ -71,16 +82,20 @@ const Menu = (props) => {
           }
           disabled={gameState !== GAME_STARTED && gameState !== GAME_PAUSED}
         >
-          <Typography component="span" variant="button">
-            {gameState === GAME_PAUSED ? "Continue" : "Pause"}
-          </Typography>
+          <MediaQuery query="(min-width: 772px)">
+            <Typography component="span" variant="button">
+              {gameState === GAME_PAUSED ? "Continue" : "Pause"}
+            </Typography>
+          </MediaQuery>
         </Button>
         <Button
           aria-label="Reset game"
           onClick={onResetClick}
           startIcon={<Replay />}
         >
-          Reset game
+          <MediaQuery query="(min-width: 772px)" component="span">
+            Reset game
+          </MediaQuery>
         </Button>
         <Chip
           avatar={
