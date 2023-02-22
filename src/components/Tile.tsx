@@ -1,10 +1,8 @@
-// @ts-check
-
 import { makeStyles } from "@material-ui/styles";
 import React from "react";
 
 const useStyles = makeStyles({
-  root: ({ width, height, correct, left, top, visible }) => ({
+  root: ({ width, height, correct, left, top, visible }: Props) => ({
     display: visible ? "flex" : "none",
     flexDirection: "column",
     alignItems: "center",
@@ -29,7 +27,19 @@ const useStyles = makeStyles({
   },
 });
 
-const Tile = (props) => {
+type Props = {
+  tileId: number;
+  number: number;
+  onClick: (props: Props) => void;
+  width: number;
+  height: number;
+  correct: boolean;
+  left: number;
+  top: number;
+  visible?: boolean;
+};
+
+const Tile = (props: Props) => {
   const { number = 0, onClick } = props;
   const styles = useStyles(props);
 
