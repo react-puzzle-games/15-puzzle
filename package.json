@@ -2,19 +2,22 @@
   "name": "react-15-puzzle",
   "version": "1.0.0",
   "private": true,
-  "devDependencies": {
-    "@types/jest": "^29.4.0",
-    "coveralls": "^2.11.16",
-    "prettier": "^2.8.4",
-    "react-scripts": "5.0.1",
-    "react-test-renderer": "16.10"
-  },
   "dependencies": {
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
+    "@types/jest": "^29.4.0",
+    "@types/node": "^18.14.0",
+    "@types/react": "^17.0.53",
+    "@types/react-dom": "^18.0.11",
+    "@types/react-test-renderer": "^18.0.0",
+    "coveralls": "^2.11.16",
+    "prettier": "^2.8.4",
     "react": "16.10",
     "react-dom": "16.10",
-    "react-responsive": "9.0.0"
+    "react-responsive": "9.0.0",
+    "react-scripts": "5.0.1",
+    "react-test-renderer": "16.10",
+    "typescript": "^4.9.5"
   },
   "scripts": {
     "start": "react-scripts start",
