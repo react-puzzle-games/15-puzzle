@@ -1,5 +1,3 @@
-// @ts-check
-
 import {
   AppBar,
   Avatar,
@@ -19,7 +17,7 @@ import {
 } from "@material-ui/icons";
 import React from "react";
 import MediaQuery from "react-responsive";
-import { GAME_PAUSED, GAME_STARTED } from "../lib/game-status";
+import { GameStatus, GAME_PAUSED, GAME_STARTED } from "../lib/game-status";
 
 const useStyles = makeStyles({
   root: {
@@ -38,7 +36,16 @@ const useStyles = makeStyles({
   },
 });
 
-const Menu = (props) => {
+type Props = {
+  seconds: number;
+  moves: number;
+  onResetClick: () => void;
+  onPauseClick: () => void;
+  onNewClick: () => void;
+  gameState: GameStatus;
+};
+
+const Menu = (props: Props) => {
   const {
     seconds = 0,
     moves = 0,
@@ -47,7 +54,6 @@ const Menu = (props) => {
     onNewClick,
     gameState,
   } = props;
-
   const classes = useStyles(props);
 
   return (

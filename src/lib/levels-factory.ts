@@ -1,13 +1,11 @@
-// @ts-check
-
-import { randomSubarray, range } from './utils';
+import { randomSubarray, range } from "./utils";
 
 /**
  * Generate a level of a given size
  * @param {Number} size The total size of the level, must be a perfect square
  * @returns {Object} TileSet object representing the level
  */
-export default size => {
+export default (size: number) => {
   if (!Number.isInteger(Math.sqrt(size))) {
     throw new Error(`Cannot generate level of size: <${size}>`);
   }
