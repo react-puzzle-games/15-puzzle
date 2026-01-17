@@ -1,4 +1,4 @@
-import { randomSubarray, range } from "./utils";
+import { randomSubarray, range, isSolvableFromNumbers } from "./utils";
 
 /**
  * Generate a level of a given size
@@ -14,7 +14,15 @@ export default (size: number) => {
     throw new Error(`Cannot generate level of size: <${size}>`);
   }
 
+  const gridSize = Math.sqrt(size);
+  let tileSet: number[];
+
+  // Keep generating until we get a solvable configuration
+  do {
+    tileSet = randomSubarray(range(size), size);
+  } while (!isSolvableFromNumbers(tileSet, gridSize));
+
   return {
-    tileSet: randomSubarray(range(size), size),
+    tileSet,
   };
 };

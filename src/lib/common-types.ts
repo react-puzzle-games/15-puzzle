@@ -4,6 +4,9 @@ export type TileDescriptor = {
   left: number;
   top: number;
   tileId: number;
+  number?: number;
+  width?: number;
+  height?: number;
 };
 
 export type TileAdjancency = {
