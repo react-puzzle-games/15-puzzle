@@ -9,7 +9,9 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Alarm,
+  CheckCircle,
   CompareArrows,
+  Cancel,
   Pause,
   PlayArrow,
   PowerSettingsNew,
@@ -43,6 +45,7 @@ type Props = {
   onPauseClick: () => void;
   onNewClick: () => void;
   gameState: GameStatus;
+  solvable: boolean;
 };
 
 const Menu = (props: Props) => {
@@ -53,6 +56,7 @@ const Menu = (props: Props) => {
     onPauseClick,
     onNewClick,
     gameState,
+    solvable,
   } = props;
   const classes = useStyles(props);
 
@@ -132,6 +136,25 @@ const Menu = (props: Props) => {
               <Typography component="span">{moves}</Typography>
             </>
           }
+        />
+        <Chip
+          avatar={
+            <Avatar>
+              {solvable ? <CheckCircle /> : <Cancel />}
+            </Avatar>
+          }
+          label={
+            <>
+              <MediaQuery query="(min-width: 772px)" component="span">
+                Solvable:
+              </MediaQuery>
+              <Typography component="span">{solvable ? "Yes" : "No"}</Typography>
+            </>
+          }
+          style={{
+            backgroundColor: solvable ? "#4caf50" : "#f44336",
+            color: "#fff",
+          }}
         />
       </Toolbar>
     </AppBar>
