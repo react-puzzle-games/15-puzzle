@@ -15,7 +15,7 @@ import {
   GAME_PAUSED,
   GAME_STARTED,
 } from "../lib/game-status";
-import { distanceBetween, getTileCoords, invert, isSolvable } from "../lib/utils";
+import { distanceBetween, getTileCoords, invert } from "../lib/utils";
 import Grid from "./Grid";
 import Menu from "./Menu";
 
@@ -25,7 +25,6 @@ class Game extends Component {
 
     const { numbers, tileSize, gridSize, moves = 0, seconds = 0 } = props;
     const tiles = this.generateTiles(numbers, gridSize, tileSize);
-    const solvable = isSolvable(tiles, gridSize);
 
     this.state = {
       tiles,
@@ -35,7 +34,6 @@ class Game extends Component {
       dialogOpen: false,
       snackbarOpen: false,
       snackbarText: "",
-      solvable,
     };
 
     document.addEventListener("keydown", this.keyDownListener);
@@ -44,14 +42,12 @@ class Game extends Component {
   UNSAFE_componentWillReceiveProps(nextProps) {
     const { tileSize, gridSize } = this.props;
     const newTiles = this.generateTiles(nextProps.numbers, gridSize, tileSize);
-    const solvable = isSolvable(newTiles, gridSize);
 
     this.setState({
       gameState: GAME_IDLE,
       tiles: newTiles,
       moves: 0,
       seconds: 0,
-      solvable,
     });
 
     clearInterval(this.timerId);
@@ -219,7 +215,6 @@ class Game extends Component {
           onPauseClick={this.onPauseClick}
           onNewClick={onNewClick}
           gameState={this.state.gameState}
-          solvable={this.state.solvable}
         />
         <Grid
           gridSize={gridSize}
